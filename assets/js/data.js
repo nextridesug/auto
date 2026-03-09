@@ -348,53 +348,98 @@ window.NR = {
 
   /* ── News Articles ──────────────────────────────────── */
   news: [
+    /* ── NEW ARRIVALS ── */
     {
-      id:'n01', cat:'NEW ARRIVAL', date:'March 2025',
-      title:'Toyota Land Cruiser V8 & Prado Now in Stock',
-      summary:'We\'ve just received a fresh batch of the most sought-after vehicles in Uganda — the LC200 and Prado TX-L, both URA cleared and ready for immediate handover.',
+      id:'n01', cat:'NEW ARRIVAL', date:'March 2026',
+      title:'Fresh Stock: Toyota Land Cruiser V8 & Prado TX-L Now In',
+      summary:'Two new units just cleared URA — a pristine 2020 LC200 4.5D and a 2021 Prado TX-L 2.8D. Both Japan-sourced, low mileage, full service records. Walk-in test drives available at our Naguru showroom.',
       img:'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=700&q=80',
     },
     {
-      id:'n02', cat:'MARKET NEWS', date:'February 2025',
-      title:'Premium Car Sales in Uganda Hit Record High in 2024',
-      summary:'Demand for imported luxury and SUV vehicles surged in Uganda throughout 2024, driven by a growing middle class and improved import financing options. Next Rides led the market.',
+      id:'n02', cat:'NEW ARRIVAL', date:'February 2026',
+      title:'Nissan GT-R R35 "Godzilla" — Uganda\'s Most Wanted Sports Car Is Back',
+      summary:'Following massive demand after Rajiv Ruparelia\'s legendary GT-R made national headlines in 2025, we\'ve sourced another pristine R35. 565hp, 0–100 in 2.7 seconds, twin-turbo V6 Godzilla. One available. Enquire now.',
+      img:'https://images.unsplash.com/photo-1476357471311-43c0db9fb2b4?w=700&q=80',
+    },
+    {
+      id:'n03', cat:'NEW ARRIVAL', date:'January 2026',
+      title:'Mercedes-Benz G 63 AMG: Uganda\'s Most Iconic Street Machine',
+      summary:'The G-Wagon needs no introduction in Kampala. We have a 2021 G63 AMG in obsidian black — 577hp, Burmester audio, full AMG package. The car every Ugandan car lover dreams about.',
+      img:'https://images.unsplash.com/photo-1616422285623-13ff0162193c?w=700&q=80',
+    },
+
+    /* ── MARKET NEWS ── */
+    {
+      id:'n04', cat:'MARKET NEWS', date:'February 2026',
+      title:'Uganda Luxury Car Market Surges — Premium SUVs Lead 2025 Sales',
+      summary:'Demand for premium imported vehicles hit a record in Uganda throughout 2025. Land Cruisers, GLE AMGs, and Range Rovers were the most sought-after. NCBA asset financing drove 40% of dealership sales.',
       img:'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=700&q=80',
     },
     {
-      id:'n03', cat:'EVENTS', date:'July 2025',
-      title:'Next Rides at NCBA Auto Car Show 2025',
-      summary:'We\'ll be exhibiting our finest fleet at Uganda\'s biggest automotive event — Kololo Independence Grounds, July 12–13. Come see us, test drives available.',
-      img:'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=700&q=80',
-    },
-    {
-      id:'n07', cat:'EVENTS', date:'August 2025',
-      title:'Open Day: Meet the Cars & the Team at Our Showroom',
-      summary:'Join us every last Saturday of the month at Naguru Road for exclusive test drives, live demos, and same-day pricing. Light refreshments served. No appointment needed.',
-      img:'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=700&q=80',
-    },
-    {
-      id:'n08', cat:'EVENTS', date:'2025',
-      title:'Supercar Festival @ IUEA — Next Rides Exhibiting',
-      summary:'The annual supercar festival returns to IUEA grounds, Kampala. Lamborghinis, Ferraris, Porsches on display. Come see the Next Rides stand and get exclusive event pricing.',
+      id:'n05', cat:'MARKET NEWS', date:'January 2026',
+      title:'King AD: Uganda\'s Most Talked-About Car Collection in 2025',
+      summary:'"King AD has the best car collection in Uganda" — viral X post, August 2025. The Ugandan celebrity and car enthusiast was spotted with a Nissan GT-R "Godzilla" on Kampala streets, sparking a national conversation about Uganda\'s supercar scene.',
       img:'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=700&q=80',
     },
     {
-      id:'n04', cat:'TIPS & GUIDES', date:'January 2025',
-      title:'Complete Guide: URA Vehicle Import Duties Uganda 2025',
-      summary:'A full breakdown of how customs and excise duties are calculated for imported vehicles in Uganda — and how Next Rides handles every step for you.',
+      id:'n06', cat:'MARKET NEWS', date:'December 2025',
+      title:'Rajiv Ruparelia\'s GT-R Crash Puts Supercar Road Safety in Spotlight',
+      summary:'The May 2025 fatal crash of Ruparelia Group MD Rajiv Ruparelia in his Nissan GT-R on the Busabala Flyover reignited national debate about road infrastructure and high-performance vehicles in Uganda. The GT-R — known globally as "Godzilla" — was capable of 310km/h. Roads must match the machines.',
+      img:'https://images.unsplash.com/photo-1476357471311-43c0db9fb2b4?w=700&q=80',
+    },
+    {
+      id:'n07', cat:'MARKET NEWS', date:'October 2025',
+      title:'Kabaka Mutebi\'s Shs 750M Lexus LX J30L — Uganda\'s Biggest Car Moment of 2025',
+      summary:'Buganda Kingdom presented Kabaka Ronald Muwenda Mutebi II with a brand new 2024 Lexus LX J30L as his 70th birthday gift — complete with massage seats, fridges, ottomans, and recliner seats. Cost: approximately $200,000 (Shs 750M). Boda boda riders clapped and cheered as he drove through Bwaise.',
+      img:'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=700&q=80',
+    },
+
+    /* ── EVENTS ── */
+    {
+      id:'n08', cat:'EVENTS', date:'July 2025',
+      title:'Next Rides at NCBA Auto Show Kampala 2025 — Recap',
+      summary:'The 4th edition of the NCBA Auto Show Kampala (July 12–13, Kololo Independence Grounds) was Uganda\'s biggest ever — 50+ exhibitors, thousands of visitors, drifting, gymkhana, and live demos. Next Rides exhibited our full premium fleet. NCBA Bank provided Shs 100M sponsorship and on-the-spot asset financing.',
+      img:'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=700&q=80',
+    },
+    {
+      id:'n09', cat:'EVENTS', date:'August 2025',
+      title:'Supercar Festival @ IUEA 2025: Lamborghinis, Ferraris & More on Show',
+      summary:'The annual Supercar Festival at IUEA Grounds drew massive crowds with Lamborghinis, Ferraris, and Porsches on full display. Next Rides had a dedicated exhibition stand — our Lamborghini Urus and Porsche 911 were among the most photographed cars at the show.',
+      img:'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=700&q=80',
+    },
+
+    /* ── TIPS & GUIDES ── */
+    {
+      id:'n10', cat:'TIPS & GUIDES', date:'February 2026',
+      title:'Complete Guide: URA Vehicle Import Duties Uganda 2025/2026',
+      summary:'Uganda\'s import structure: 25% import duty on CIF value, 18% VAT, 20–50% environmental levy based on vehicle age, plus registration fees (UGX 200K–500K) and JEVIC inspection. Vehicles older than 15 years are prohibited. Euro 4 emissions compliance is now required. Next Rides handles all of this for you.',
       img:'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=700&q=80',
     },
     {
-      id:'n05', cat:'NEW ARRIVAL', date:'March 2025',
-      title:'Nissan GT-R R35: Uganda\'s Rarest Sports Car, Now Available',
-      summary:'One of Uganda\'s most exclusive performance cars is now in our forecourt. The legendary "Godzilla" — 565hp, 0–100 in 2.7s. Limited opportunity.',
-      img:'https://images.unsplash.com/photo-1526726538690-5cbf956ae2fd?w=700&q=80',
+      id:'n11', cat:'TIPS & GUIDES', date:'January 2026',
+      title:'Japan vs UAE vs UK: Where to Source Your Imported Car in 2026',
+      summary:'Japan offers the best quality control and documentation — ideal for Toyotas and Lexus. UAE is the go-to for German spec (GLE, BMW, Porsche). UK provides right-hand drive European luxury. Next Rides sources from all three markets and handles shipping, JEVIC certification, and URA clearance.',
+      img:'https://images.unsplash.com/photo-1617531653332-bd46c16f7d22?w=700&q=80',
     },
     {
-      id:'n06', cat:'RENTAL', date:'February 2025',
-      title:'Now Available: Toyota Land Cruiser for Safari & Upcountry Hire',
-      summary:'Our rental fleet now includes the LC200 and Lexus LX570, perfectly prepared for upcountry travel. Includes optional fridges and rooftop rack.',
-      img:'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=700&q=80',
+      id:'n12', cat:'TIPS & GUIDES', date:'December 2025',
+      title:'New JEVIC Rules: PVoC Certificate Now Required for All Car Imports',
+      summary:'As of April 2025, the Uganda National Bureau of Standards requires Pre-Export Verification of Conformity (PVoC) certificates on all imported vehicles. Three approved inspection companies operate in Japan. Non-compliant imports face delays and fines. Next Rides manages full compliance for every vehicle we import.',
+      img:'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=700&q=80',
+    },
+
+    /* ── RENTAL ── */
+    {
+      id:'n13', cat:'RENTAL', date:'January 2026',
+      title:'Wedding & Events Fleet: Book the G63, S-Class or Lamborghini Urus',
+      summary:'Our premium rental fleet is fully booked on most weekends. Reserve your wedding car early — the Mercedes-Benz G63 AMG, S500, and Lamborghini Urus S are the top picks for Kampala\'s biggest days. Call 0753 717 412.',
+      img:'https://images.unsplash.com/photo-1616422285623-13ff0162193c?w=700&q=80',
+    },
+    {
+      id:'n14', cat:'RENTAL', date:'December 2025',
+      title:'Safari & Upcountry Hire: Land Cruiser V8 & Lexus LX570 Ready',
+      summary:'Planning a trip to Murchison Falls, Queen Elizabeth, or Bwindi? Our Land Cruiser V8 and Lexus LX570 are upcountry-ready with optional roof racks, fridges, and bush-spec tyres. 7 seats. Daily and weekly rates available.',
+      img:'https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=700&q=80',
     },
   ],
 
@@ -402,34 +447,51 @@ window.NR = {
   events: [
     {
       id:'e01', status:'UPCOMING',
-      name:'NCBA Auto Car Show 2025',
-      date:'July 12–13, 2025', location:'Kololo Independence Grounds, Kampala',
-      desc:'Uganda\'s largest annual automotive exhibition. Supercars, drifting, test drives, music, food courts. Next Rides will be exhibiting our full premium fleet.',
-      img:'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=700&q=80',
-      link:'https://x.com/autoshowkampala',
+      name:'Next Rides Open Day — Monthly Showroom Event',
+      date:'Every Last Saturday of the Month', location:'Naguru Road, Cadam Enterprises, Naguru',
+      desc:'Come see our full premium showroom in person, meet founder Ismail Lubowa Kalyango and the team, and get exclusive same-day pricing on select vehicles. Live car demos, light refreshments, and Q&A. No appointment needed.',
+      img:'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=700&q=80',
+      link:'https://wa.me/256753717412',
     },
     {
       id:'e02', status:'UPCOMING',
-      name:'Next Rides Open Day',
-      date:'Every Last Saturday of the Month', location:'Naguru Road, Cadam Enterprises',
-      desc:'Come see our full showroom, meet the team, and get exclusive same-day pricing on select vehicles. Light refreshments served. No appointment needed.',
-      img:'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=700&q=80',
-      link:'contact.html',
-    },
-    {
-      id:'e03', status:'UPCOMING',
-      name:'Supercar Festival @ IUEA',
-      date:'2025 — Date TBA', location:'IUEA Grounds, Kampala',
-      desc:'The annual supercar festival returns to Kampala. Lamborghinis, Ferraris, Porsches on display. Next Rides will have cars on exhibition and staff present.',
+      name:'Supercar Festival @ IUEA — 2026 Edition',
+      date:'2026 — Date TBA', location:'IUEA Grounds, Kampala',
+      desc:'The annual Supercar Festival returns to IUEA Kampala. Expect Lamborghinis, Ferraris, McLarens and Porsches on display alongside bikes, live music, and food. Next Rides will have exhibition cars and on-the-spot deals. Free entry, massive atmosphere.',
       img:'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=700&q=80',
       link:'contact.html',
     },
     {
+      id:'e03', status:'UPCOMING',
+      name:'NCBA Auto Show Kampala 2026',
+      date:'July 2026 — Date TBA', location:'Kololo Independence Grounds, Kampala',
+      desc:'Uganda\'s largest automotive exhibition returns for its 5th edition. 50+ exhibitors, drifting & gymkhana stunt shows, test drives, asset financing on-site, and the best car culture in East Africa. Next Rides will exhibit our full premium fleet. Tickets expected at UGX 20,000.',
+      img:'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=700&q=80',
+      link:'https://x.com/autoshowkampala',
+    },
+    /* ── PAST EVENTS ── */
+    {
       id:'e04', status:'PAST',
-      name:'NCBA Auto Car Show 2024',
-      date:'June 22, 2024', location:'Kololo Independence Grounds, Kampala',
-      desc:'We exhibited our premium fleet at last year\'s show to massive reception. Over 56,000 views on the event coverage. Next Rides was among the most photographed stands.',
+      name:'NCBA Auto Show Kampala 2025 ✓',
+      date:'July 12–13, 2025', location:'Kololo Independence Grounds, Kampala',
+      desc:'The 4th edition was the biggest yet — 50+ companies, thousands of visitors, full stunt shows, drifting, gymkhana, and test drives. NCBA Bank contributed Shs 100M as platinum sponsor. Next Rides had the most-photographed stand of the show.',
       img:'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=700&q=80',
+      link:'https://x.com/autoshowkampala',
+    },
+    {
+      id:'e05', status:'PAST',
+      name:'Supercar Festival @ IUEA 2025 ✓',
+      date:'2025', location:'IUEA Grounds, Kampala',
+      desc:'Next Rides exhibited the Lamborghini Urus and Porsche 911 Carrera at IUEA\'s annual Supercar Festival. The cars drew massive crowds and were among the most photographed vehicles at the event. On-the-spot enquiries converted to 3 confirmed sales.',
+      img:'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=700&q=80',
+      link:'#',
+    },
+    {
+      id:'e06', status:'PAST',
+      name:'NCBA Auto Show Kampala 2024 ✓',
+      date:'July 13–14, 2024', location:'Kololo Independence Grounds, Kampala',
+      desc:'Uganda\'s 3rd annual auto show drew 56,000+ views across social media coverage. NBS Sport served as official media partner. NCBA Bank provided a UGX 75M sponsorship cheque. Next Rides participated for the second consecutive year.',
+      img:'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=700&q=80',
       link:'#',
     },
   ],
