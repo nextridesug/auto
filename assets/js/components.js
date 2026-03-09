@@ -137,7 +137,7 @@
               <div class="fci">
                 <div class="fct">${SVG.loc}<span>${B.address||'Naguru Road, Cadam Enterprises, Kampala'}</span></div>
                 <div class="fct">${SVG.ph}<div>
-                  <a href="tel:+256753717412">+256 0753 717 412</a><br>
+                  <a href="tel:+256771572016">+256 0753 717 412</a><br>
                   <a href="tel:+256771572016">+256 0771 572 016</a>
                 </div></div>
                 <div class="fct">${SVG.em}<a href="mailto:info.nextridesug@gmail.com">info.nextridesug@gmail.com</a></div>

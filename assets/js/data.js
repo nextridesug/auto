@@ -13,7 +13,7 @@ window.NR = {
     email:   'info.nextridesug@gmail.com',
     hours1:  'Mon – Sat: 8:00 AM – 6:00 PM',
     hours2:  'Sunday: 10:00 AM – 4:00 PM',
-    wa:      '256753717412',
+    wa:      '256771572016',
     ig:      'https://www.instagram.com/next_rides_ug',
     tt:      'https://www.tiktok.com/@next_rides',
     fb:      'https://www.facebook.com/share/1GEqttukNw/',
@@ -451,7 +451,7 @@ window.NR = {
       date:'Every Last Saturday of the Month', location:'Naguru Road, Cadam Enterprises, Naguru',
       desc:'Come see our full premium showroom in person, meet founder Ismail Lubowa Kalyango and the team, and get exclusive same-day pricing on select vehicles. Live car demos, light refreshments, and Q&A. No appointment needed.',
       img:'https://images.unsplash.com/photo-1562519736-f0d95f7a5a44?w=800&q=85',
-      link:'https://wa.me/256753717412',
+      link:'https://wa.me/256771572016',
     },
     {
       id:'e02', status:'UPCOMING',

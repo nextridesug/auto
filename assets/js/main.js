@@ -163,7 +163,7 @@ const BADGE = {
   'FEATURED': 'b-feat', 'ICON': 'b-new', 'EXECUTIVE': 'b-feat',
   'MOST POPULAR': 'b-new', 'BEST FOR GROUPS': 'b-hot', 'ULTIMATE THRILL': 'b-rare',
 };
-const wa_num = () => window.NR?.biz?.wa || '256753717412';
+const wa_num = () => window.NR?.biz?.wa || '256771572016';
 
 /* ── Car Card HTML ─────────────────────────────────────── */
 function buildCarCard(c) {
