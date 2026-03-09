@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>/* No-FOUC theme init */try{var t=localStorage.getItem('nr-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}</script>
   <base href="./">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +28,7 @@
 </div>
 
 <!-- EVENTS MAIN -->
-<section class="sec" style="background:#0A0A0B">
+<section class="sec" style="background:transparent">
   <div class="w">
 
     <!-- Upcoming -->
@@ -55,7 +56,7 @@
       <div style="background:var(--glass);border:1px solid var(--border2);border-radius:var(--r3);padding:56px 52px;display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center">
         <div>
           <div class="pill">Never Miss an Event</div>
-          <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,4vw,4.5rem);letter-spacing:.02em;line-height:.9;color:var(--white);margin-bottom:20px">
+          <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,4vw,4.5rem);letter-spacing:.02em;line-height:.9;color:var(--text);margin-bottom:20px">
             GET EVENT<br><span class="t-r">ALERTS</span>
           </h2>
           <p style="color:var(--muted);line-height:1.85;margin-bottom:28px">Be first to know about new arrivals, showroom open days, car shows and exclusive Next Rides events. One WhatsApp message — no spam.</p>
@@ -66,19 +67,19 @@
           </a>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-          <div style="background:#1B1D22;border:1px solid var(--border);border-radius:var(--r2);padding:28px 22px;text-align:center" class="rv d1">
+          <div style="background:#FFFFFF;border:1px solid var(--border);border-radius:var(--r2);padding:28px 22px;text-align:center" class="rv d1">
             <div style="font-family:'Bebas Neue',sans-serif;font-size:2.8rem;line-height:1;color:var(--red3);margin-bottom:4px">3+</div>
             <div style="font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">Events Per Year</div>
           </div>
-          <div style="background:#1B1D22;border:1px solid var(--border);border-radius:var(--r2);padding:28px 22px;text-align:center" class="rv d2">
+          <div style="background:#FFFFFF;border:1px solid var(--border);border-radius:var(--r2);padding:28px 22px;text-align:center" class="rv d2">
             <div style="font-family:'Bebas Neue',sans-serif;font-size:2.8rem;line-height:1;color:var(--gold3);margin-bottom:4px">61K</div>
             <div style="font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">Show Views 2024</div>
           </div>
-          <div style="background:#1B1D22;border:1px solid var(--border);border-radius:var(--r2);padding:28px 22px;text-align:center" class="rv d3">
+          <div style="background:#FFFFFF;border:1px solid var(--border);border-radius:var(--r2);padding:28px 22px;text-align:center" class="rv d3">
             <div style="font-family:'Bebas Neue',sans-serif;font-size:2.8rem;line-height:1;color:var(--red3);margin-bottom:4px">Free</div>
             <div style="font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">Showroom Entry</div>
           </div>
-          <div style="background:#1B1D22;border:1px solid var(--border);border-radius:var(--r2);padding:28px 22px;text-align:center" class="rv d4">
+          <div style="background:#FFFFFF;border:1px solid var(--border);border-radius:var(--r2);padding:28px 22px;text-align:center" class="rv d4">
             <div style="font-family:'Bebas Neue',sans-serif;font-size:2.8rem;line-height:1;color:var(--gold3);margin-bottom:4px">VIP</div>
             <div style="font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">Client Treatment</div>
           </div>
@@ -98,22 +99,53 @@ document.addEventListener('DOMContentLoaded', () => {
   const SVG_loc = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>`;
   const SVG_cal = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`;
 
+  const statusMap = {
+    'UPCOMING': { bg:'rgba(184,31,10,0.09)', color:'#B81F0A', label:'🟢 UPCOMING', dot:'#16a34a' },
+    'PAST':     { bg:'rgba(107,114,128,0.09)', color:'#6B7280', label:'⏱ PAST EVENT', dot:'#9CA3AF' },
+  };
+
   function buildCard(e) {
     const isUp = e.status === 'UPCOMING';
+    const sm = statusMap[e.status] || statusMap['PAST'];
+    // Source badge
+    let srcIcon = '';
+    if (e.link && e.link.includes('autoshowkampala')) {
+      srcIcon = `<span style="display:inline-flex;align-items:center;gap:4px;font-size:.64rem;color:#1D9BF0;font-weight:600">
+        <svg viewBox="0 0 24 24" fill="#1D9BF0" width="11" height="11"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.261 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        @AutoShowKampala
+      </span>`;
+    } else if (e.link && e.link.includes('wa.me')) {
+      srcIcon = `<span style="display:inline-flex;align-items:center;gap:4px;font-size:.64rem;color:#25D366;font-weight:600">
+        <svg viewBox="0 0 24 24" fill="#25D366" width="11" height="11"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.99.573 3.844 1.57 5.402L2 22l4.74-1.546A9.956 9.956 0 0012 22c5.523 0 10-4.477 10-10S17.522 2 12 2zm0 18a7.984 7.984 0 01-4.29-1.249l-.306-.184-3.182 1.04 1.063-3.082-.2-.316A7.968 7.968 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+        Next Rides
+      </span>`;
+    } else {
+      srcIcon = `<span style="display:inline-flex;align-items:center;gap:4px;font-size:.64rem;color:#6B7280">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        Kampala Events
+      </span>`;
+    }
     return `
-    <div class="event-card rv">
-      <div class="ec-img">
-        <img src="${e.img}" alt="${e.name}" loading="lazy"
-             onerror="this.src='https://images.unsplash.com/photo-1555215695-3004980ad54e?w=700&q=80'">
-        <span class="ec-status ${isUp ? 'upcoming' : 'past'}">${e.status}</span>
+    <div class="event-card" style="display:flex;flex-direction:column;background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:var(--r2);overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.06);transition:box-shadow .3s,transform .3s" onmouseover="this.style.boxShadow='0 16px 48px rgba(0,0,0,0.12)';this.style.transform='translateY(-4px)'" onmouseout="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.06)';this.style.transform=''">
+      <div style="position:relative;aspect-ratio:16/8;overflow:hidden">
+        <img src="${e.img}" alt="${e.name}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease"
+             onerror="this.src='https://images.unsplash.com/photo-1555215695-3004980ad54e?w=700&q=80'"
+             onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,.55) 0%, transparent 55%)"></div>
+        <span style="position:absolute;top:12px;left:12px;font-size:.64rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 11px;border-radius:20px;background:${sm.bg};color:${sm.color};border:1px solid ${sm.color}30;backdrop-filter:blur(8px)">${sm.label}</span>
+        <div style="position:absolute;bottom:12px;left:14px;display:flex;align-items:center;gap:5px;font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:.07em;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.7)">
+          ${SVG_cal} ${e.date}
+        </div>
       </div>
-      <div class="ec-body">
-        <div class="ec-date">${SVG_cal} ${e.date}</div>
-        <div class="ec-name">${e.name}</div>
-        <div class="ec-loc">${SVG_loc} ${e.location}</div>
-        <p class="ec-desc">${e.desc}</p>
-        <a href="${e.link}" ${e.link.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}
-           class="btn ${isUp ? 'btn-r' : 'btn-gl'} btn-sm" style="margin-top:auto;align-self:flex-start">
+      <div style="padding:22px 24px;display:flex;flex-direction:column;gap:8px;flex:1">
+        <div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px">
+          ${srcIcon}
+          <span style="display:inline-flex;align-items:center;gap:4px">${SVG_loc} ${e.location}</span>
+        </div>
+        <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;color:var(--text);line-height:1.3">${e.name}</div>
+        <p style="font-size:.82rem;color:var(--muted);line-height:1.75;margin:0">${e.desc}</p>
+        <a href="${e.link}" ${e.link && e.link.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}
+           class="btn ${isUp ? 'btn-r' : 'btn-gl'} btn-sm" style="margin-top:auto;align-self:flex-start;margin-top:12px">
           ${isUp ? 'Learn More →' : 'View Recap →'}
         </a>
       </div>
@@ -124,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ptEl = document.getElementById('events-past');
   const upcoming = events.filter(e => e.status === 'UPCOMING');
   const past = events.filter(e => e.status === 'PAST');
-  if (upEl) upEl.innerHTML = upcoming.map(buildCard).join('') || '<p style="color:var(--muted);grid-column:1/-1">No upcoming events right now — check back soon!</p>';
+  if (upEl) upEl.innerHTML = upcoming.map(buildCard).join('') || '<p style="color:var(--muted);grid-column:1/-1;padding:40px 0;text-align:center">No upcoming events right now — check back soon!</p>';
   if (ptEl) ptEl.innerHTML = past.map(buildCard).join('');
 });
 </script>

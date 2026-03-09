@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>/* No-FOUC theme init */try{var t=localStorage.getItem('nr-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}</script>
   <base href="./">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,13 +29,13 @@
 </div>
 
 <!-- STORY SECTION -->
-<section class="sec" style="background:#0A0A0B">
+<section class="sec" style="background:transparent">
   <div class="w">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center">
 
       <div class="rl">
         <div class="pill">Our Story</div>
-        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,4.5vw,5.5rem);letter-spacing:.02em;line-height:.9;color:var(--white);margin-bottom:22px">
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,4.5vw,5.5rem);letter-spacing:.02em;line-height:.9;color:var(--text);margin-bottom:22px">
           KAMPALA'S PREMIUM<br><span class="t-r">CAR DESTINATION</span>
         </h2>
         <p style="color:var(--muted);line-height:1.88;margin-bottom:16px;font-size:.96rem">
@@ -63,7 +64,7 @@
 </section>
 
 <!-- FOUNDER SPOTLIGHT -->
-<section class="sec" style="background:#121316;position:relative;overflow:hidden">
+<section class="sec" style="background:var(--page-bg);position:relative;overflow:hidden">
   <!-- Background decoration -->
   <div style="position:absolute;top:-120px;right:-120px;width:700px;height:700px;background:radial-gradient(circle,rgba(184,31,10,.06) 0%,transparent 70%);pointer-events:none"></div>
   <div style="position:absolute;bottom:-80px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(140,147,157,.05) 0%,transparent 70%);pointer-events:none"></div>
@@ -86,7 +87,7 @@
         <div style="position:relative;z-index:1;width:140px;height:140px;border-radius:50%;background:var(--g-red);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:3.4rem;color:#fff;letter-spacing:.04em;box-shadow:0 0 60px rgba(184,31,10,.38),0 24px 48px rgba(0,0,0,.6);margin-bottom:28px">ILK</div>
         <!-- Name -->
         <div style="position:relative;z-index:1;text-align:center">
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.9rem;letter-spacing:.04em;color:var(--white);line-height:1;margin-bottom:6px">Ismail Lubowa<br>Kalyango</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.9rem;letter-spacing:.04em;color:var(--text);line-height:1;margin-bottom:6px">Ismail Lubowa<br>Kalyango</div>
           <div style="font-family:'Syne',sans-serif;font-size:.62rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--red3);margin-bottom:20px">Founder &amp; Owner</div>
           <!-- Social links -->
           <div style="display:flex;gap:10px;justify-content:center">
@@ -113,7 +114,7 @@
       <div style="padding:52px 48px;display:flex;flex-direction:column;justify-content:center">
         <div style="font-family:'Syne',sans-serif;font-size:.58rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--dim);margin-bottom:14px">About the Founder</div>
 
-        <blockquote style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,3vw,2.8rem);letter-spacing:.02em;line-height:1;color:var(--white);margin-bottom:22px;position:relative;padding-left:20px">
+        <blockquote style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,3vw,2.8rem);letter-spacing:.02em;line-height:1;color:var(--text);margin-bottom:22px;position:relative;padding-left:20px">
           <span style="position:absolute;left:0;top:0;width:3px;height:100%;background:var(--g-red);border-radius:2px"></span>
           "I wanted every Ugandan to experience the world's finest cars — not just dream about them."
         </blockquote>
@@ -160,7 +161,7 @@
 </section>
 
 <!-- VALUES -->
-<section class="sec" style="background:#0D0E11">
+<section class="sec" style="background:#F7F6F2">
   <div class="w">
     <div class="sh c">
       <div class="pill">What We Stand For</div>
@@ -174,7 +175,7 @@
         <div style="width:52px;height:52px;border-radius:var(--r);background:rgba(184,31,10,.08);border:1px solid rgba(184,31,10,.18);display:flex;align-items:center;justify-content:center;margin-bottom:20px">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--red3)" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.04em;color:var(--white);margin-bottom:10px">Authenticity</h3>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.04em;color:var(--text);margin-bottom:10px">Authenticity</h3>
         <p style="font-size:.86rem;color:var(--muted);line-height:1.82">Every vehicle is exactly what we say it is. Full history, accurate mileage, honest condition. No surprises after handover — ever.</p>
       </div>
 
@@ -183,7 +184,7 @@
         <div style="width:52px;height:52px;border-radius:var(--r);background:rgba(140,147,157,.08);border:1px solid rgba(140,147,157,.18);display:flex;align-items:center;justify-content:center;margin-bottom:20px">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         </div>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.04em;color:var(--white);margin-bottom:10px">Efficiency</h3>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.04em;color:var(--text);margin-bottom:10px">Efficiency</h3>
         <p style="font-size:.86rem;color:var(--muted);line-height:1.82">From enquiry to keys in hand in the shortest possible time. We handle all paperwork, customs and delivery so you just show up and drive.</p>
       </div>
 
@@ -192,7 +193,7 @@
         <div style="width:52px;height:52px;border-radius:var(--r);background:rgba(184,31,10,.08);border:1px solid rgba(184,31,10,.18);display:flex;align-items:center;justify-content:center;margin-bottom:20px">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--red3)" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
         </div>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.04em;color:var(--white);margin-bottom:10px">Client First</h3>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.04em;color:var(--text);margin-bottom:10px">Client First</h3>
         <p style="font-size:.86rem;color:var(--muted);line-height:1.82">Our relationship doesn't end at handover. We support our clients before, during and long after the sale — reachable by WhatsApp any time.</p>
       </div>
 
@@ -201,7 +202,7 @@
         <div style="width:52px;height:52px;border-radius:var(--r);background:rgba(140,147,157,.08);border:1px solid rgba(140,147,157,.18);display:flex;align-items:center;justify-content:center;margin-bottom:20px">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="1.8"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
         </div>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.04em;color:var(--white);margin-bottom:10px">Global Access</h3>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.04em;color:var(--text);margin-bottom:10px">Global Access</h3>
         <p style="font-size:.86rem;color:var(--muted);line-height:1.82">Sourcing partners across Germany, UK, Japan and UAE. Any car you've ever dreamed of — we can find it, import it, clear it and deliver to Kampala.</p>
       </div>
     </div>
@@ -209,7 +210,7 @@
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="sec" style="background:#121316">
+<section class="sec" style="background:#F0EDE6">
   <div class="w">
     <div class="sh c">
       <div class="pill">Client Stories</div>
@@ -220,7 +221,7 @@
 </section>
 
 <!-- CTA -->
-<section class="ss" style="background:#0D0E11">
+<section class="ss" style="background:#F7F6F2">
   <div class="w">
     <div class="cta-banner rv">
       <div class="cta-txt">

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>/* No-FOUC theme init */try{var t=localStorage.getItem('nr-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}</script>
   <base href="./">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +29,7 @@
 </div>
 
 <!-- PROFILE STATS STRIP -->
-<div style="background:#121316;border-bottom:1px solid var(--border);padding:44px 0">
+<div style="background:var(--page-bg);border-bottom:1px solid var(--border);padding:44px 0">
   <div class="w">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
 
@@ -41,7 +42,7 @@
         </div>
         <div class="profile-num t-r">24K</div>
         <div class="profile-lbl" style="margin-bottom:6px">Followers</div>
-        <div style="font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;color:var(--white);margin-bottom:4px">@next_rides_ug</div>
+        <div style="font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;color:var(--text);margin-bottom:4px">@next_rides_ug</div>
         <div style="font-size:.8rem;color:var(--muted);margin-bottom:22px">1,902+ posts · New arrivals daily</div>
         <a href="https://www.instagram.com/next_rides_ug" target="_blank" rel="noopener"
            class="btn btn-r btn-sm" style="justify-content:center;gap:10px">
@@ -59,7 +60,7 @@
         </div>
         <div class="profile-num" style="background:linear-gradient(135deg,#69c9d0,#ee1d52);-webkit-background-clip:text;-webkit-text-fill-color:transparent">@next_rides</div>
         <div class="profile-lbl" style="margin-bottom:6px">TikTok Handle</div>
-        <div style="font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;color:var(--white);margin-bottom:4px">@next_rides</div>
+        <div style="font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;color:var(--text);margin-bottom:4px">@next_rides</div>
         <div style="font-size:.8rem;color:var(--muted);margin-bottom:22px">Car reels, reveals &amp; behind-the-scenes</div>
         <a href="https://www.tiktok.com/@next_rides" target="_blank" rel="noopener"
            class="btn btn-gl btn-sm" style="justify-content:center;gap:10px">
@@ -73,7 +74,7 @@
 </div>
 
 <!-- TABS -->
-<section class="sec" style="background:#0A0A0B;padding-bottom:0">
+<section class="sec" style="background:transparent;padding-bottom:0">
   <div class="w">
     <div class="social-tabs">
       <button class="social-tab on" onclick="showTab('ig',this)">
@@ -93,7 +94,7 @@
 </section>
 
 <!-- INSTAGRAM TAB -->
-<section id="tab-ig" class="sec" style="background:#0A0A0B;padding-top:0">
+<section id="tab-ig" class="sec" style="background:transparent;padding-top:0">
   <div class="w">
     <div style="margin-bottom:28px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
       <div class="pill" style="margin-bottom:0">@next_rides_ug</div>
@@ -109,7 +110,7 @@
     <div class="ig-grid">
 
       <a href="https://www.instagram.com/reel/DMZzX1ooExN/" target="_blank" rel="noopener" class="ig-post-card rv d1"
-         style="display:block;background:#1B1D22;border:1px solid #2A2D33;border-radius:18px;overflow:hidden;text-decoration:none;transition:transform .35s,box-shadow .35s">
+         style="display:block;background:#FFFFFF;border:1px solid #2A2D33;border-radius:18px;overflow:hidden;text-decoration:none;transition:transform .35s,box-shadow .35s">
         <div style="position:relative;overflow:hidden" class="ig-thumb-wrap">
           <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=85" alt="Next Rides Uganda" loading="lazy"
                style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;transition:transform .5s">
@@ -134,7 +135,7 @@
         </div>
       </a>
       <a href="https://www.instagram.com/next_rides_ug/reel/C-DqLljIz_R/" target="_blank" rel="noopener" class="ig-post-card rv d2"
-         style="display:block;background:#1B1D22;border:1px solid #2A2D33;border-radius:18px;overflow:hidden;text-decoration:none;transition:transform .35s,box-shadow .35s">
+         style="display:block;background:#FFFFFF;border:1px solid #2A2D33;border-radius:18px;overflow:hidden;text-decoration:none;transition:transform .35s,box-shadow .35s">
         <div style="position:relative;overflow:hidden" class="ig-thumb-wrap">
           <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=600&q=85" alt="Next Rides Uganda" loading="lazy"
                style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;transition:transform .5s">
@@ -159,7 +160,7 @@
         </div>
       </a>
       <a href="https://www.instagram.com/next_rides_ug/reel/DBMxxDgIwl9/" target="_blank" rel="noopener" class="ig-post-card rv d3"
-         style="display:block;background:#1B1D22;border:1px solid #2A2D33;border-radius:18px;overflow:hidden;text-decoration:none;transition:transform .35s,box-shadow .35s">
+         style="display:block;background:#FFFFFF;border:1px solid #2A2D33;border-radius:18px;overflow:hidden;text-decoration:none;transition:transform .35s,box-shadow .35s">
         <div style="position:relative;overflow:hidden" class="ig-thumb-wrap">
           <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=600&q=85" alt="Next Rides Uganda" loading="lazy"
                style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;transition:transform .5s">
@@ -189,7 +190,7 @@
     <!-- CTA to see all -->
     <div class="rv" style="margin-top:44px;background:var(--glass);border:1px solid var(--border2);border-radius:var(--r3);padding:40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px">
       <div>
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.04em;color:var(--white);margin-bottom:6px">SEE ALL 1,900+ POSTS</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.04em;color:var(--text);margin-bottom:6px">SEE ALL 1,900+ POSTS</div>
         <p style="font-size:.88rem;color:var(--muted)">New cars, client deliveries, Kampala street shots and showroom content posted every day.</p>
       </div>
       <a href="https://www.instagram.com/next_rides_ug" target="_blank" rel="noopener"
@@ -202,7 +203,7 @@
 </section>
 
 <!-- TIKTOK TAB -->
-<section id="tab-tt" class="sec" style="background:#0A0A0B;padding-top:0;display:none">
+<section id="tab-tt" class="sec" style="background:transparent;padding-top:0;display:none">
   <div class="w">
     <div style="margin-bottom:28px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
       <div class="pill" style="margin-bottom:0;background:rgba(105,201,208,.08);border-color:rgba(105,201,208,.2);color:#69c9d0">@next_rides</div>
@@ -227,11 +228,11 @@
 
       <!-- TikTok placeholder cards for additional videos -->
       <div class="rv d2" style="background:var(--glass);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;display:flex;flex-direction:column;min-height:500px">
-        <div style="flex:1;background:#1B1D22;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:40px 30px;text-align:center">
+        <div style="flex:1;background:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:40px 30px;text-align:center">
           <div style="width:64px;height:64px;border-radius:50%;background:rgba(105,201,208,.1);border:1px solid rgba(105,201,208,.2);display:flex;align-items:center;justify-content:center">
             <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.77 1.52V6.76a4.85 4.85 0 01-1-.07z"/></svg>
           </div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.04em;color:var(--white);line-height:1.1">DAILY CAR<br>CONTENT</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.04em;color:var(--text);line-height:1.1">DAILY CAR<br>CONTENT</div>
           <p style="font-size:.84rem;color:var(--muted);line-height:1.75">New car reveals, client deliveries, showroom tours, and Kampala street footage posted every day on TikTok.</p>
           <a href="https://www.tiktok.com/@next_rides" target="_blank" rel="noopener"
              class="btn btn-gl btn-sm" style="gap:10px">
@@ -243,11 +244,11 @@
       </div>
 
       <div class="rv d3" style="background:var(--glass);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;display:flex;flex-direction:column;min-height:500px">
-        <div style="flex:1;background:#1B1D22;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:40px 30px;text-align:center">
+        <div style="flex:1;background:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:40px 30px;text-align:center">
           <div style="width:64px;height:64px;border-radius:50%;background:rgba(238,29,82,.1);border:1px solid rgba(238,29,82,.2);display:flex;align-items:center;justify-content:center">
             <svg viewBox="0 0 24 24" fill="white" width="28" height="28" style="opacity:.7"><path d="M1 3h15v13H1z M16 8h4l3 3v5h-7V8z M5.5 16a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z M18.5 16a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/></svg>
           </div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.04em;color:var(--white);line-height:1.1">CLIENT<br>DELIVERIES</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.04em;color:var(--text);line-height:1.1">CLIENT<br>DELIVERIES</div>
           <p style="font-size:.84rem;color:var(--muted);line-height:1.75">Handover moments, happy clients and freshly imported cars being driven out of our Naguru showroom for the first time.</p>
           <a href="https://www.tiktok.com/@next_rides" target="_blank" rel="noopener"
              class="btn btn-gl btn-sm" style="gap:10px">
@@ -261,9 +262,9 @@
     </div>
 
     <!-- Full profile CTA -->
-    <div class="rv" style="margin-top:44px;background:linear-gradient(135deg,rgba(105,201,208,.06),rgba(238,29,82,.04));border:1px solid rgba(105,201,208,.12);border-radius:var(--r3);padding:40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px">
+    <div class="rv" style="margin-top:44px;background:#FFFFFF;border:1px solid rgba(0,0,0,0.08);border-radius:var(--r3);padding:40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;box-shadow:0 4px 20px rgba(0,0,0,0.05)">
       <div>
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.04em;color:var(--white);margin-bottom:6px">FOLLOW @NEXT_RIDES</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.04em;color:var(--text);margin-bottom:6px">FOLLOW @NEXT_RIDES</div>
         <p style="font-size:.88rem;color:var(--muted)">New content daily. Don't miss a single arrival, test drive or Kampala street special.</p>
       </div>
       <a href="https://www.tiktok.com/@next_rides" target="_blank" rel="noopener"
@@ -276,255 +277,110 @@
 </section>
 
 <!-- PINTEREST VIDEOS TAB -->
-<section id="tab-pin" class="sec" style="background:#0A0A0B;padding-top:0;display:none">
-  <div class="w">
+<section id="tab-pin" class="sec vp-section" style="padding-top:60px;display:none">
+  <div class="vp-grid-bg"></div>
+  <div class="w" style="position:relative;z-index:1">
     <div style="margin-bottom:28px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
-      <div class="pill" style="margin-bottom:0">Car Videos</div>
-      <div style="font-size:.84rem;color:var(--muted)">Click any video to watch in-browser — no new tab needed.</div>
+      <div class="pill">Car Videos</div>
+      <p style="color:var(--muted);font-size:.84rem;margin:0">Click any card to watch on YouTube — reviews, drag races &amp; road tests</p>
     </div>
     <div class="vp-grid">
-      <div class="vp-cell large" data-ytid="qmX0vWDtgko" data-title="Lamborghini Urus S" style="cursor:pointer">
-        <img class="vp-ytthumb"
-             src="https://img.youtube.com/vi/qmX0vWDtgko/maxresdefault.jpg"
-             onerror="this.onerror=null;this.src='https://img.youtube.com/vi/qmX0vWDtgko/hqdefault.jpg';this.addEventListener('error',function(){this.style.display='none';document.getElementById('spbg-qmX0vWDtgko').style.display='block'})"
-             alt="Lamborghini Urus S"
-             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0">
-        <div id="spbg-qmX0vWDtgko" class="vp-thumb" style="background-image:url(https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1200&q=85);display:none"></div>
-        <div class="vp-play-btn" style="opacity:1;pointer-events:none">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      <a class="vp-cell large" href="https://www.youtube.com/results?search_query=lamborghini+urus+s+2024+review" target="_blank" rel="noopener" style="cursor:pointer;display:block;position:relative;overflow:hidden;text-decoration:none">
+        <div class="vp-thumb" style="background-image:url(https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1400&q=90)"></div>
+        <div class="vp-overlay"></div>
+        <div style="position:absolute;top:12px;right:12px;z-index:5;display:flex;align-items:center;gap:6px;background:rgba(0,0,0,0.65);backdrop-filter:blur(6px);border-radius:20px;padding:5px 12px 5px 8px">
+          <svg viewBox="0 0 24 24" fill="#FF0000" width="16" height="16"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805z"/><polygon fill="#fff" points="9.609 15.601 9.609 8.408 15.873 12.004"/></svg>
+          <span style="font-size:.62rem;color:rgba(255,255,255,.82);font-weight:700;letter-spacing:.07em">WATCH</span>
         </div>
-        <div class="vp-label">
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(.9rem,1.1vw,1.1rem);letter-spacing:.06em;color:#fff;line-height:1.1">Lamborghini Urus S</div>
-          <div style="font-size:.62rem;color:rgba(255,255,255,.55);letter-spacing:.08em;text-transform:uppercase;margin-top:2px">Super SUV · 657hp V8</div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:5;width:44px;height:44px;background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);transition:all .3s">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="6 3 20 12 6 21 6 3"/></svg>
         </div>
-        <div class="vp-yt-badge">
-          <svg viewBox="0 0 24 24" fill="white" width="10" height="10"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
-          Play Video
+        <div style="position:absolute;bottom:0;left:0;right:0;z-index:5;padding:18px 18px 16px">
+          <div style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:4px">Lamborghini</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1rem,1.3vw,1.3rem);letter-spacing:.05em;color:#fff;line-height:1.1">Lamborghini Urus S</div>
+          <div style="font-size:.61rem;color:rgba(255,255,255,.5);margin-top:3px;letter-spacing:.04em">657hp · V8 Twin-Turbo</div>
         </div>
-      </div>
-      <div class="vp-cell " data-ytid="5cLKbQfWnss" data-title="BMW M5 Competition" style="cursor:pointer">
-        <img class="vp-ytthumb"
-             src="https://img.youtube.com/vi/5cLKbQfWnss/maxresdefault.jpg"
-             onerror="this.onerror=null;this.src='https://img.youtube.com/vi/5cLKbQfWnss/hqdefault.jpg';this.addEventListener('error',function(){this.style.display='none';document.getElementById('spbg-5cLKbQfWnss').style.display='block'})"
-             alt="BMW M5 Competition"
-             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0">
-        <div id="spbg-5cLKbQfWnss" class="vp-thumb" style="background-image:url(https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&q=85);display:none"></div>
-        <div class="vp-play-btn" style="opacity:1;pointer-events:none">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      </a>
+      <a class="vp-cell " href="https://www.youtube.com/results?search_query=bmw+m5+competition+review+2024" target="_blank" rel="noopener" style="cursor:pointer;display:block;position:relative;overflow:hidden;text-decoration:none">
+        <div class="vp-thumb" style="background-image:url(https://images.unsplash.com/photo-1555215695-3004980ad54e?w=900&q=90)"></div>
+        <div class="vp-overlay"></div>
+        <div style="position:absolute;top:12px;right:12px;z-index:5;display:flex;align-items:center;gap:6px;background:rgba(0,0,0,0.65);backdrop-filter:blur(6px);border-radius:20px;padding:5px 12px 5px 8px">
+          <svg viewBox="0 0 24 24" fill="#FF0000" width="16" height="16"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805z"/><polygon fill="#fff" points="9.609 15.601 9.609 8.408 15.873 12.004"/></svg>
+          <span style="font-size:.62rem;color:rgba(255,255,255,.82);font-weight:700;letter-spacing:.07em">WATCH</span>
         </div>
-        <div class="vp-label">
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(.9rem,1.1vw,1.1rem);letter-spacing:.06em;color:#fff;line-height:1.1">BMW M5 Competition</div>
-          <div style="font-size:.62rem;color:rgba(255,255,255,.55);letter-spacing:.08em;text-transform:uppercase;margin-top:2px">625hp Saloon</div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:5;width:32px;height:32px;background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);transition:all .3s">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="6 3 20 12 6 21 6 3"/></svg>
         </div>
-        <div class="vp-yt-badge">
-          <svg viewBox="0 0 24 24" fill="white" width="10" height="10"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
-          Play Video
+        <div style="position:absolute;bottom:0;left:0;right:0;z-index:5;padding:18px 18px 16px">
+          <div style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:4px">BMW</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1rem,1.3vw,1.3rem);letter-spacing:.05em;color:#fff;line-height:1.1">BMW M5 Competition</div>
+          <div style="font-size:.61rem;color:rgba(255,255,255,.5);margin-top:3px;letter-spacing:.04em">625hp · M xDrive AWD</div>
         </div>
-      </div>
-      <div class="vp-cell " data-ytid="pR4CpWCGBWg" data-title="Range Rover Sport HSE" style="cursor:pointer">
-        <img class="vp-ytthumb"
-             src="https://img.youtube.com/vi/pR4CpWCGBWg/maxresdefault.jpg"
-             onerror="this.onerror=null;this.src='https://img.youtube.com/vi/pR4CpWCGBWg/hqdefault.jpg';this.addEventListener('error',function(){this.style.display='none';document.getElementById('spbg-pR4CpWCGBWg').style.display='block'})"
-             alt="Range Rover Sport HSE"
-             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0">
-        <div id="spbg-pR4CpWCGBWg" class="vp-thumb" style="background-image:url(https://images.unsplash.com/photo-1519245659620-e859806a8d3b?w=800&q=85);display:none"></div>
-        <div class="vp-play-btn" style="opacity:1;pointer-events:none">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      </a>
+      <a class="vp-cell " href="https://www.youtube.com/results?search_query=range+rover+sport+2024+review" target="_blank" rel="noopener" style="cursor:pointer;display:block;position:relative;overflow:hidden;text-decoration:none">
+        <div class="vp-thumb" style="background-image:url(https://images.unsplash.com/photo-1519245659620-e859806a8d3b?w=900&q=90)"></div>
+        <div class="vp-overlay"></div>
+        <div style="position:absolute;top:12px;right:12px;z-index:5;display:flex;align-items:center;gap:6px;background:rgba(0,0,0,0.65);backdrop-filter:blur(6px);border-radius:20px;padding:5px 12px 5px 8px">
+          <svg viewBox="0 0 24 24" fill="#FF0000" width="16" height="16"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805z"/><polygon fill="#fff" points="9.609 15.601 9.609 8.408 15.873 12.004"/></svg>
+          <span style="font-size:.62rem;color:rgba(255,255,255,.82);font-weight:700;letter-spacing:.07em">WATCH</span>
         </div>
-        <div class="vp-label">
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(.9rem,1.1vw,1.1rem);letter-spacing:.06em;color:#fff;line-height:1.1">Range Rover Sport HSE</div>
-          <div style="font-size:.62rem;color:rgba(255,255,255,.55);letter-spacing:.08em;text-transform:uppercase;margin-top:2px">British Luxury SUV</div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:5;width:32px;height:32px;background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);transition:all .3s">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="6 3 20 12 6 21 6 3"/></svg>
         </div>
-        <div class="vp-yt-badge">
-          <svg viewBox="0 0 24 24" fill="white" width="10" height="10"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
-          Play Video
+        <div style="position:absolute;bottom:0;left:0;right:0;z-index:5;padding:18px 18px 16px">
+          <div style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:4px">Range Rover</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1rem,1.3vw,1.3rem);letter-spacing:.05em;color:#fff;line-height:1.1">Range Rover Sport</div>
+          <div style="font-size:.61rem;color:rgba(255,255,255,.5);margin-top:3px;letter-spacing:.04em">British Luxury SUV</div>
         </div>
-      </div>
-      <div class="vp-cell " data-ytid="yP95cVBwi6Y" data-title="Porsche Cayenne Turbo" style="cursor:pointer">
-        <img class="vp-ytthumb"
-             src="https://img.youtube.com/vi/yP95cVBwi6Y/maxresdefault.jpg"
-             onerror="this.onerror=null;this.src='https://img.youtube.com/vi/yP95cVBwi6Y/hqdefault.jpg';this.addEventListener('error',function(){this.style.display='none';document.getElementById('spbg-yP95cVBwi6Y').style.display='block'})"
-             alt="Porsche Cayenne Turbo"
-             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0">
-        <div id="spbg-yP95cVBwi6Y" class="vp-thumb" style="background-image:url(https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=85);display:none"></div>
-        <div class="vp-play-btn" style="opacity:1;pointer-events:none">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      </a>
+      <a class="vp-cell " href="https://www.youtube.com/results?search_query=porsche+cayenne+turbo+2024+test" target="_blank" rel="noopener" style="cursor:pointer;display:block;position:relative;overflow:hidden;text-decoration:none">
+        <div class="vp-thumb" style="background-image:url(https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&q=90)"></div>
+        <div class="vp-overlay"></div>
+        <div style="position:absolute;top:12px;right:12px;z-index:5;display:flex;align-items:center;gap:6px;background:rgba(0,0,0,0.65);backdrop-filter:blur(6px);border-radius:20px;padding:5px 12px 5px 8px">
+          <svg viewBox="0 0 24 24" fill="#FF0000" width="16" height="16"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805z"/><polygon fill="#fff" points="9.609 15.601 9.609 8.408 15.873 12.004"/></svg>
+          <span style="font-size:.62rem;color:rgba(255,255,255,.82);font-weight:700;letter-spacing:.07em">WATCH</span>
         </div>
-        <div class="vp-label">
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(.9rem,1.1vw,1.1rem);letter-spacing:.06em;color:#fff;line-height:1.1">Porsche Cayenne Turbo</div>
-          <div style="font-size:.62rem;color:rgba(255,255,255,.55);letter-spacing:.08em;text-transform:uppercase;margin-top:2px">541hp · Germany</div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:5;width:32px;height:32px;background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);transition:all .3s">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="6 3 20 12 6 21 6 3"/></svg>
         </div>
-        <div class="vp-yt-badge">
-          <svg viewBox="0 0 24 24" fill="white" width="10" height="10"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
-          Play Video
+        <div style="position:absolute;bottom:0;left:0;right:0;z-index:5;padding:18px 18px 16px">
+          <div style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:4px">Porsche</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1rem,1.3vw,1.3rem);letter-spacing:.05em;color:#fff;line-height:1.1">Porsche Cayenne Turbo</div>
+          <div style="font-size:.61rem;color:rgba(255,255,255,.5);margin-top:3px;letter-spacing:.04em">541hp · German Performance</div>
         </div>
-      </div>
-      <div class="vp-cell " data-ytid="dBxRy3RLZL4" data-title="Toyota Land Cruiser V8" style="cursor:pointer">
-        <img class="vp-ytthumb"
-             src="https://img.youtube.com/vi/dBxRy3RLZL4/maxresdefault.jpg"
-             onerror="this.onerror=null;this.src='https://img.youtube.com/vi/dBxRy3RLZL4/hqdefault.jpg';this.addEventListener('error',function(){this.style.display='none';document.getElementById('spbg-dBxRy3RLZL4').style.display='block'})"
-             alt="Toyota Land Cruiser V8"
-             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0">
-        <div id="spbg-dBxRy3RLZL4" class="vp-thumb" style="background-image:url(https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=800&q=85);display:none"></div>
-        <div class="vp-play-btn" style="opacity:1;pointer-events:none">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      </a>
+      <a class="vp-cell " href="https://www.youtube.com/results?search_query=toyota+land+cruiser+v8+200+review" target="_blank" rel="noopener" style="cursor:pointer;display:block;position:relative;overflow:hidden;text-decoration:none">
+        <div class="vp-thumb" style="background-image:url(https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=900&q=90)"></div>
+        <div class="vp-overlay"></div>
+        <div style="position:absolute;top:12px;right:12px;z-index:5;display:flex;align-items:center;gap:6px;background:rgba(0,0,0,0.65);backdrop-filter:blur(6px);border-radius:20px;padding:5px 12px 5px 8px">
+          <svg viewBox="0 0 24 24" fill="#FF0000" width="16" height="16"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805z"/><polygon fill="#fff" points="9.609 15.601 9.609 8.408 15.873 12.004"/></svg>
+          <span style="font-size:.62rem;color:rgba(255,255,255,.82);font-weight:700;letter-spacing:.07em">WATCH</span>
         </div>
-        <div class="vp-label">
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(.9rem,1.1vw,1.1rem);letter-spacing:.06em;color:#fff;line-height:1.1">Toyota Land Cruiser V8</div>
-          <div style="font-size:.62rem;color:rgba(255,255,255,.55);letter-spacing:.08em;text-transform:uppercase;margin-top:2px">Uganda Road King</div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:5;width:32px;height:32px;background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);transition:all .3s">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="6 3 20 12 6 21 6 3"/></svg>
         </div>
-        <div class="vp-yt-badge">
-          <svg viewBox="0 0 24 24" fill="white" width="10" height="10"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
-          Play Video
+        <div style="position:absolute;bottom:0;left:0;right:0;z-index:5;padding:18px 18px 16px">
+          <div style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:4px">Toyota</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1rem,1.3vw,1.3rem);letter-spacing:.05em;color:#fff;line-height:1.1">Toyota Land Cruiser V8</div>
+          <div style="font-size:.61rem;color:rgba(255,255,255,.5);margin-top:3px;letter-spacing:.04em">4.5D V8 · Off-Road King</div>
         </div>
-      </div>
-      <div class="vp-cell " data-ytid="vEBBKl1HdUQ" data-title="Mercedes-AMG GLE 63 S" style="cursor:pointer">
-        <img class="vp-ytthumb"
-             src="https://img.youtube.com/vi/vEBBKl1HdUQ/maxresdefault.jpg"
-             onerror="this.onerror=null;this.src='https://img.youtube.com/vi/vEBBKl1HdUQ/hqdefault.jpg';this.addEventListener('error',function(){this.style.display='none';document.getElementById('spbg-vEBBKl1HdUQ').style.display='block'})"
-             alt="Mercedes-AMG GLE 63 S"
-             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0">
-        <div id="spbg-vEBBKl1HdUQ" class="vp-thumb" style="background-image:url(https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=85);display:none"></div>
-        <div class="vp-play-btn" style="opacity:1;pointer-events:none">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      </a>
+      <a class="vp-cell " href="https://www.youtube.com/results?search_query=mercedes+amg+gle+63+s+review" target="_blank" rel="noopener" style="cursor:pointer;display:block;position:relative;overflow:hidden;text-decoration:none">
+        <div class="vp-thumb" style="background-image:url(https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=900&q=90)"></div>
+        <div class="vp-overlay"></div>
+        <div style="position:absolute;top:12px;right:12px;z-index:5;display:flex;align-items:center;gap:6px;background:rgba(0,0,0,0.65);backdrop-filter:blur(6px);border-radius:20px;padding:5px 12px 5px 8px">
+          <svg viewBox="0 0 24 24" fill="#FF0000" width="16" height="16"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805z"/><polygon fill="#fff" points="9.609 15.601 9.609 8.408 15.873 12.004"/></svg>
+          <span style="font-size:.62rem;color:rgba(255,255,255,.82);font-weight:700;letter-spacing:.07em">WATCH</span>
         </div>
-        <div class="vp-label">
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(.9rem,1.1vw,1.1rem);letter-spacing:.06em;color:#fff;line-height:1.1">Mercedes-AMG GLE 63 S</div>
-          <div style="font-size:.62rem;color:rgba(255,255,255,.55);letter-spacing:.08em;text-transform:uppercase;margin-top:2px">630hp AMG Beast</div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:5;width:32px;height:32px;background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);transition:all .3s">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="6 3 20 12 6 21 6 3"/></svg>
         </div>
-        <div class="vp-yt-badge">
-          <svg viewBox="0 0 24 24" fill="white" width="10" height="10"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
-          Play Video
+        <div style="position:absolute;bottom:0;left:0;right:0;z-index:5;padding:18px 18px 16px">
+          <div style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:4px">Mercedes-AMG</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1rem,1.3vw,1.3rem);letter-spacing:.05em;color:#fff;line-height:1.1">Mercedes-AMG GLE 63 S</div>
+          <div style="font-size:.61rem;color:rgba(255,255,255,.5);margin-top:3px;letter-spacing:.04em">630hp · AMG SPEEDSHIFT</div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
-
-<!-- YouTube Modal -->
-<div id="yt-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.92);backdrop-filter:blur(16px);align-items:center;justify-content:center;padding:16px">
-  <div style="position:relative;width:100%;max-width:900px;aspect-ratio:16/9;border-radius:12px;overflow:hidden;box-shadow:0 40px 120px rgba(0,0,0,.9)">
-    <iframe id="yt-iframe" src="" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen
-            style="position:absolute;inset:0;width:100%;height:100%;border:none"></iframe>
-  </div>
-  <button onclick="closeYT()" style="position:absolute;top:20px;right:24px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:50%;width:44px;height:44px;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center">✕</button>
-</div>
-<script>
-function openYT(id, title) {
-  var modal = document.getElementById('yt-modal');
-  document.getElementById('yt-iframe').src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1';
-  modal.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-}
-function closeYT() {
-  document.getElementById('yt-modal').style.display = 'none';
-  document.getElementById('yt-iframe').src = '';
-  document.body.style.overflow = '';
-}
-document.getElementById('yt-modal').addEventListener('click', function(e) { if (e.target === this) closeYT(); });
-document.querySelectorAll('.vp-cell[data-ytid]').forEach(function(cell) {
-  cell.addEventListener('click', function() { openYT(this.dataset.ytid, this.dataset.title); });
-});
-</script>
-
-<div class="mq-sec">
-  <div class="mq-track" id="mq-track"></div>
-</div>
-
-<script>
-function showTab(id, btn) {
-  document.querySelectorAll('[id^="tab-"]').forEach(t => t.style.display = 'none');
-  document.querySelectorAll('.social-tab').forEach(b => b.classList.remove('on'));
-  document.getElementById('tab-' + id).style.display = '';
-  btn.classList.add('on');
-  if (id === 'pin') buildPinGrid();
-  if (id === 'ig') {
-    setTimeout(function() {
-      if (window.instgrm && window.instgrm.Embeds) window.instgrm.Embeds.process();
-    }, 200);
-  }
-}
-
-function buildPinGrid() {
-  var cont = document.getElementById('pin-grid-container');
-  if (!cont || cont.dataset.built) return;
-  cont.dataset.built = '1';
-
-  var PINS = [
-    'https://pin.it/6w1VRRkt0',
-    'https://pin.it/68VdyseVn',
-    'https://pin.it/5TcuLvVEG',
-    'https://pin.it/70WA76xao',
-    'https://pin.it/68kxcYpHr',
-    'https://pin.it/4cTRjzkPk'
-  ];
-
-  /* Build cell shells */
-  PINS.forEach(function(url, i) {
-    var cell = document.createElement('div');
-    cell.className = 'vp-cell' + (i === 0 ? ' large' : '');
-    cell.dataset.pin = url;
-    cell.innerHTML =
-      '<div class="vp-thumb" id="soc-vpt-' + i + '"></div>' +
-      '<div class="vp-play-btn" id="soc-vpb-' + i + '">' +
-        '<svg width="' + (i===0?22:18) + '" height="' + (i===0?22:18) + '" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"/></svg>' +
-      '</div>' +
-      '<div class="vp-slot" id="soc-vps-' + i + '"></div>';
-    cont.appendChild(cell);
-
-    var thumb   = cell.querySelector('.vp-thumb');
-    var playBtn = cell.querySelector('.vp-play-btn');
-    var slot    = cell.querySelector('.vp-slot');
-
-    fetch('https://www.pinterest.com/oembed.json?url=' + encodeURIComponent(url), { mode: 'cors' })
-      .then(function(r) { return r.json(); })
-      .then(function(d) {
-        if (d.thumbnail_url && thumb) {
-          thumb.style.backgroundImage = 'url(' + d.thumbnail_url + ')';
-          thumb.style.opacity = '1';
-        }
-        var m = (d.url || '').match(/\/pin\/(\d+)/);
-        if (!m) throw new Error('no id');
-        var pinId = m[1];
-        if (playBtn) {
-          playBtn.style.opacity = '1';
-          playBtn.style.pointerEvents = 'auto';
-          playBtn.addEventListener('click', function() { loadSocPlayer(pinId, thumb, playBtn, slot); });
-        }
-        if (i === 0) setTimeout(function() { loadSocPlayer(pinId, thumb, playBtn, slot); }, 800);
-      })
-      .catch(function() {
-        if (playBtn) {
-          playBtn.style.opacity = '1';
-          playBtn.style.pointerEvents = 'auto';
-          playBtn.addEventListener('click', function() { window.open(url, '_blank'); });
-        }
-      });
-  });
-}
-
-function loadSocPlayer(pinId, thumb, playBtn, slot) {
-  if (thumb)   { thumb.style.opacity   = '0'; thumb.style.pointerEvents   = 'none'; }
-  if (playBtn) { playBtn.style.opacity = '0'; playBtn.style.pointerEvents = 'none'; }
-  var iframe = document.createElement('iframe');
-  iframe.src = 'https://assets.pinterest.com/ext/embed.html?id=' + pinId + '&autoplay=1';
-  iframe.allow = 'autoplay; fullscreen; picture-in-picture';
-  iframe.allowFullscreen = true;
-  iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;';
-  iframe.title = '';
-  slot.appendChild(iframe);
-  slot.style.display = 'block';
-}
-
-
-</script>
-
-<!-- Instagram embed — load synchronously then process -->
-
-<script src="assets/js/main.js"></script>
-
-
-</body>
-</html>
-
-</script>

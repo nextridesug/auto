@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>/* No-FOUC theme init */try{var t=localStorage.getItem('nr-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}</script>
   <base href="./">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,27 +29,27 @@
 </div>
 
 <!-- INTRO -->
-<section style="background:#121316;padding:60px 0 0">
+<section style="background:var(--page-bg);padding:60px 0 0">
   <div class="w">
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:2px;border-radius:var(--r3);overflow:hidden">
       <div style="background:var(--glass);border:1px solid var(--border);padding:36px 28px;text-align:center" class="rv d1">
         <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:.04em;line-height:1;margin-bottom:6px" class="t-r">01</div>
-        <div style="font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:var(--white);margin-bottom:6px">Place Order</div>
+        <div style="font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:var(--text);margin-bottom:6px">Place Order</div>
         <div style="font-size:.8rem;color:var(--muted)">Fill in the form below</div>
       </div>
       <div style="background:var(--glass);border:1px solid var(--border);padding:36px 28px;text-align:center" class="rv d2">
         <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:.04em;line-height:1;margin-bottom:6px" class="t-r">02</div>
-        <div style="font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:var(--white);margin-bottom:6px">We Source It</div>
+        <div style="font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:var(--text);margin-bottom:6px">We Source It</div>
         <div style="font-size:.8rem;color:var(--muted)">Our team finds your car in Europe or Japan</div>
       </div>
       <div style="background:var(--glass);border:1px solid var(--border);padding:36px 28px;text-align:center" class="rv d3">
         <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:.04em;line-height:1;margin-bottom:6px" class="t-r">03</div>
-        <div style="font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:var(--white);margin-bottom:6px">URA Clearance</div>
+        <div style="font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:var(--text);margin-bottom:6px">URA Clearance</div>
         <div style="font-size:.8rem;color:var(--muted)">All duties and paperwork handled</div>
       </div>
       <div style="background:var(--glass);border:1px solid var(--border);padding:36px 28px;text-align:center" class="rv d4">
         <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:.04em;line-height:1;margin-bottom:6px" class="t-r">04</div>
-        <div style="font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:var(--white);margin-bottom:6px">Delivered to You</div>
+        <div style="font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:var(--text);margin-bottom:6px">Delivered to You</div>
         <div style="font-size:.8rem;color:var(--muted)">Kampala delivery in 6–10 weeks</div>
       </div>
     </div>
@@ -56,14 +57,14 @@
 </section>
 
 <!-- ORDER FORM -->
-<section class="sec" style="background:#121316">
+<section class="sec" style="background:#F0EDE6">
   <div class="w">
     <div style="display:grid;grid-template-columns:1fr 1.3fr;gap:64px;align-items:start">
 
       <!-- Info side -->
       <div class="rl">
         <div class="pill">Why Order Direct?</div>
-        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,4.5rem);letter-spacing:.02em;line-height:.9;color:var(--white);margin-bottom:22px">
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,4.5rem);letter-spacing:.02em;line-height:.9;color:var(--text);margin-bottom:22px">
           YOUR EXACT SPEC,<br><span class="t-r">DELIVERED</span>
         </h2>
         <p style="color:var(--muted);line-height:1.85;margin-bottom:14px;font-size:.96rem">
@@ -117,7 +118,7 @@
             <div style="height:1px;background:var(--border)"></div>
             <div style="display:flex;justify-content:space-between;font-size:.84rem"><span style="color:var(--muted)">URA clearance &amp; transit</span><span style="color:var(--text);font-family:'Syne',sans-serif;font-weight:600">1–2 weeks</span></div>
             <div style="height:1px;background:var(--border)"></div>
-            <div style="display:flex;justify-content:space-between;font-size:.86rem"><span style="color:var(--white);font-family:'Syne',sans-serif;font-weight:700">Total</span><span style="color:var(--red3);font-family:'Syne',sans-serif;font-weight:700">6–10 weeks</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:.86rem"><span style="color:var(--text);font-family:'Syne',sans-serif;font-weight:700">Total</span><span style="color:var(--red3);font-family:'Syne',sans-serif;font-weight:700">6–10 weeks</span></div>
           </div>
         </div>
       </div>
@@ -126,13 +127,13 @@
       <div class="rr">
         <div class="form-panel">
           <div class="pill">Order Form</div>
-          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:.04em;color:var(--white);margin-bottom:28px;line-height:1">
+          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:.04em;color:var(--text);margin-bottom:28px;line-height:1">
             TELL US WHAT<br>YOU WANT
           </h3>
 
           <div class="form-ok" id="order-ok">
             <div class="ok-ic">✓</div>
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.04em;color:var(--white)">Order Submitted!</div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.04em;color:var(--text)">Order Submitted!</div>
             <p style="color:var(--muted);font-size:.9rem;text-align:center">WhatsApp is now open with your order details. We'll follow up within 24 hours with sourcing options.</p>
             <a href="inventory.html" class="btn btn-r btn-sm">Browse In-Stock Cars</a>
           </div>

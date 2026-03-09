@@ -46,13 +46,30 @@ const fmtUGX = n => 'UGX ' + Math.round(n * UGX_RATE).toLocaleString('en-UG');
 function toggleUGX() {
   showUGX = !showUGX;
   document.querySelectorAll('#ugx-btn').forEach(b => b.textContent = showUGX ? 'Show USD' : 'Show UGX');
-  document.querySelectorAll('[data-usd-price]').forEach(el => {
+
+  // ── Sale car prices ──
+  document.querySelectorAll('[data-usd-price]:not([data-ugx-mode]):not([data-ugx-sub])').forEach(el => {
     const v = parseFloat(el.dataset.usdPrice);
     el.textContent = showUGX ? fmtUGX(v) : fmtUSD(v);
   });
   document.querySelectorAll('[data-ugx-sub]').forEach(el => {
     const v = parseFloat(el.dataset.usdPrice);
     el.textContent = showUGX ? '' : '≈ ' + fmtUGX(v);
+  });
+
+  // ── Rental prices: day ──
+  document.querySelectorAll('[data-ugx-mode="day"]').forEach(el => {
+    const dayV = parseFloat(el.dataset.usdPrice);
+    const perEl = el.querySelector('.rc-per');
+    const txt   = showUGX ? fmtUGX(dayV) : fmtUSD(dayV);
+    if (perEl) { perEl.previousSibling ? perEl.previousSibling.textContent = txt : el.prepend(document.createTextNode(txt)); }
+    else { el.childNodes[0].textContent = txt; }
+  });
+
+  // ── Rental prices: week ──
+  document.querySelectorAll('[data-ugx-mode="week"]').forEach(el => {
+    const weekV = parseFloat(el.dataset.usdWeek);
+    el.textContent = (showUGX ? fmtUGX(weekV) : fmtUSD(weekV)) + ' / week';
   });
 }
 document.querySelectorAll('#ugx-btn').forEach(b => b.addEventListener('click', toggleUGX));
@@ -82,13 +99,27 @@ document.querySelectorAll('.nav-a').forEach(a => a.addEventListener('click', () 
 
 /* ── Scroll Reveal ─────────────────────────────────────── */
 const revObs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revObs.unobserve(e.target); } });
-}, { threshold: 0.1 });
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      e.target.classList.add('vis'); // also support .vis
+      revObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
 
 function observeReveal(parent) {
   (parent || document).querySelectorAll('.rv,.rl,.rr').forEach(el => {
-    el.classList.remove('in');
-    revObs.observe(el);
+    // If already in view (above fold), show immediately
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      el.classList.add('in');
+      el.classList.add('vis');
+    } else {
+      el.classList.remove('in');
+      el.classList.remove('vis');
+      revObs.observe(el);
+    }
   });
 }
 observeReveal();
@@ -206,8 +237,8 @@ function buildRentCard(r) {
       </div>
       <div class="rc-foot">
         <div>
-          <div class="rc-price">$${r.priceDay}<span style="font-size:1rem"> / day</span></div>
-          <div class="rc-sub">$${r.priceWeek} / week</div>
+          <div class="rc-price" data-usd-price="${r.priceDay}" data-ugx-mode="day">${fmtUSD(r.priceDay)}<span class="rc-per"> / day</span></div>
+          <div class="rc-sub" data-usd-price="${r.priceDay}" data-usd-week="${r.priceWeek}" data-ugx-mode="week">${fmtUSD(r.priceWeek)} / week</div>
         </div>
         <a href="${wa}" target="_blank" rel="noopener" class="btn btn-g btn-sm">Book Now</a>
       </div>
@@ -627,3 +658,35 @@ if (contactForm) {
   });
 })();
 
+/* ══════════════════════════════════════════════════════════
+   THEME TOGGLE — Light (default) / Dark
+   Persists via localStorage. Applies to <html data-theme>.
+══════════════════════════════════════════════════════════ */
+(function themeToggle() {
+  var STORE = 'nr-theme';
+  var html  = document.documentElement;
+
+  /* Apply saved theme immediately (before DOMContentLoaded) */
+  var saved = localStorage.getItem(STORE);
+  if (saved === 'dark') html.setAttribute('data-theme', 'dark');
+
+  function setTheme(dark) {
+    if (dark) {
+      html.setAttribute('data-theme', 'dark');
+      localStorage.setItem(STORE, 'dark');
+    } else {
+      html.removeAttribute('data-theme');
+      localStorage.setItem(STORE, 'light');
+    }
+  }
+
+  /* Wire button after DOM ready */
+  document.addEventListener('DOMContentLoaded', function() {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      var isDark = html.getAttribute('data-theme') === 'dark';
+      setTheme(!isDark);
+    });
+  });
+})();

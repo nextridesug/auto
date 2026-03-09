@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>/* No-FOUC theme init */try{var t=localStorage.getItem('nr-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}</script>
   <base href="./">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,42 +29,42 @@
 </div>
 
 <!-- RENTAL PERKS STRIP -->
-<div style="background:#121316;border-bottom:1px solid var(--border);padding:36px 0">
+<div style="background:var(--page-bg);border-bottom:1px solid var(--bd);padding:36px 0;position:relative;z-index:1">
   <div class="w">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px">
-      <div style="display:flex;gap:14px;align-items:center" class="rv d1">
+      <div style="display:flex;gap:14px;align-items:center" class="rvs d1">
         <div style="width:46px;height:46px;border-radius:var(--r);background:rgba(140,147,157,.1);border:1px solid rgba(140,147,157,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <div>
-          <div style="font-family:'Syne',sans-serif;font-weight:700;color:var(--white);font-size:.9rem">Fully Insured</div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;color:var(--text);font-size:.9rem">Fully Insured</div>
           <div style="font-size:.78rem;color:var(--muted)">Comprehensive cover included</div>
         </div>
       </div>
-      <div style="display:flex;gap:14px;align-items:center" class="rv d2">
+      <div style="display:flex;gap:14px;align-items:center" class="rvs d2">
         <div style="width:46px;height:46px;border-radius:var(--r);background:rgba(140,147,157,.1);border:1px solid rgba(140,147,157,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
         <div>
-          <div style="font-family:'Syne',sans-serif;font-weight:700;color:var(--white);font-size:.9rem">24/7 Support</div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;color:var(--text);font-size:.9rem">24/7 Support</div>
           <div style="font-size:.78rem;color:var(--muted)">Round-the-clock roadside help</div>
         </div>
       </div>
-      <div style="display:flex;gap:14px;align-items:center" class="rv d3">
+      <div style="display:flex;gap:14px;align-items:center" class="rvs d3">
         <div style="width:46px;height:46px;border-radius:var(--r);background:rgba(140,147,157,.1);border:1px solid rgba(140,147,157,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
         </div>
         <div>
-          <div style="font-family:'Syne',sans-serif;font-weight:700;color:var(--white);font-size:.9rem">Chauffeur Available</div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;color:var(--text);font-size:.9rem">Chauffeur Available</div>
           <div style="font-size:.78rem;color:var(--muted)">Professional drivers on request</div>
         </div>
       </div>
-      <div style="display:flex;gap:14px;align-items:center" class="rv d4">
+      <div style="display:flex;gap:14px;align-items:center" class="rvs d4">
         <div style="width:46px;height:46px;border-radius:var(--r);background:rgba(140,147,157,.1);border:1px solid rgba(140,147,157,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
         </div>
         <div>
-          <div style="font-family:'Syne',sans-serif;font-weight:700;color:var(--white);font-size:.9rem">Airport Transfers</div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;color:var(--text);font-size:.9rem">Airport Transfers</div>
           <div style="font-size:.78rem;color:var(--muted)">Entebbe pickup &amp; drop-off</div>
         </div>
       </div>
@@ -72,7 +73,7 @@
 </div>
 
 <!-- RENTAL FLEET -->
-<section class="sec" style="background:#0A0A0B">
+<section class="sec" style="background:transparent">
   <div class="w">
     <div class="sh split">
       <div>
@@ -94,7 +95,7 @@
           <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="var(--red3)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         </div>
         <div>
-          <div style="font-family:'Syne',sans-serif;font-weight:700;color:var(--white);margin-bottom:8px">Rental Terms</div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;color:var(--text);margin-bottom:8px">Rental Terms</div>
           <p style="font-size:.86rem;color:var(--muted);line-height:1.8;margin:0">Minimum rental period is 1 day. A refundable security deposit is required. Valid driving licence and national ID or passport required. Fuel policy: full-to-full. Rates above are base rates and may vary by season. <a href="contact.html" style="color:var(--red3)">Contact us</a> for exact pricing and availability.</p>
         </div>
       </div>
@@ -103,7 +104,7 @@
 </section>
 
 <!-- HOW TO BOOK -->
-<section class="ss" style="background:#121316">
+<section class="ss" style="background:#F0EDE6">
   <div class="w">
     <div class="sh c">
       <div class="pill pill-g">Booking Process</div>
