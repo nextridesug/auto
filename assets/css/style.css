@@ -187,7 +187,8 @@ body::after {
 }
 #nav::before {
   content: ''; position: absolute; inset: 0;
-  background: transparent; backdrop-filter: blur(0);
+  background: linear-gradient(180deg, rgba(10,10,11,0.82) 0%, rgba(10,10,11,0.55) 70%, transparent 100%);
+  backdrop-filter: blur(0);
   border-bottom: 1px solid transparent;
   transition: all 0.5s var(--ease);
 }
@@ -203,7 +204,14 @@ body::after {
 }
 /* Logo */
 .logo { display: flex; align-items: center; gap: 10px; }
-.logo-img { height: 40px; width: auto; object-fit: contain; }
+.logo-img {
+  height: 46px; width: auto; object-fit: contain;
+  /* Ensure logo stands out against dark navbar */
+  filter:
+    drop-shadow(0 0 12px rgba(184,31,10,0.35))
+    drop-shadow(0 2px 8px rgba(0,0,0,0.8))
+    brightness(1.1);
+}
 .logo-fallback { display: flex; align-items: center; gap: 0; }
 .logo-nex {
   font-family: 'Bebas Neue', sans-serif; font-size: 1.45rem; letter-spacing: 0.06em;
