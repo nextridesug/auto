@@ -603,16 +603,19 @@ if (contactForm) {
   document.addEventListener('click', function(e) {
     var link = e.target.closest('a[href]');
     if (!link) return;
-    var href = link.getAttribute('href');
-    // Only internal same-site HTML links
-    if (!href || href.startsWith('#') || href.startsWith('http') ||
-        href.startsWith('mailto') || href.startsWith('tel') ||
-        href.startsWith('wa.me') || link.target === '_blank') return;
+    var rawHref = link.getAttribute('href');
+    var absHref  = link.href; // always fully resolved by browser
+    // Skip: anchors, external, mailto, tel, whatsapp, new-tab
+    if (!rawHref || rawHref.startsWith('#') || rawHref.startsWith('mailto') ||
+        rawHref.startsWith('tel') || rawHref.startsWith('wa.me') ||
+        link.target === '_blank') return;
+    // Skip external domains
+    if (link.hostname && link.hostname !== location.hostname) return;
 
     e.preventDefault();
     wipe.style.transform = 'scaleX(1)';
     wipe.style.transformOrigin = 'left';
-    setTimeout(function() { window.location.href = href; }, 420);
+    setTimeout(function() { window.location.href = absHref; }, 380);
   });
 
   // On page load — wipe out from right

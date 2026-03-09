@@ -5,10 +5,13 @@
    always renders AFTER page body content, not before.
 ═══════════════════════════════════════════════════════════ */
 (function () {
-  /* ── Path resolution ── */
-  const depth = (location.pathname.match(/\//g) || []).length - 1;
-  const root  = depth > 0 ? '../'.repeat(depth) : './';
+  /* ── Path resolution ──
+     All HTML files are at the same repo root level.
+     Root is always the directory of the current page.
+     Using empty string (not '../') so links stay within
+     the same folder regardless of base path depth (GitHub Pages). */
   const page  = location.pathname.split('/').pop() || 'index.html';
+  const root  = '';  // all pages are siblings — no relative-path traversal needed
 
   const links = [
     { h: 'index.html',     l: 'Home'      },
@@ -36,17 +39,19 @@
 
   /* ── Logo builder ── */
   const logoId = 'lf' + Math.random().toString(36).slice(2);
-  function logoFull(lr) {
-    return `<a href="${lr}index.html" class="logo">
-      <img src="${lr}assets/img/logo.png" alt="Next Rides Uganda"
+  function logoFull() {
+    /* Try logo.png first, fallback to logo.svg, fallback to styled text */
+    return `<a href="index.html" class="logo" style="display:flex;align-items:center;gap:10px;text-decoration:none">
+      <img src="assets/img/logo.png" alt="Next Rides Uganda"
            class="logo-img" id="logo-img-${logoId}"
-           onerror="this.style.display='none';var f=this.parentElement.querySelector('.logo-fallback');if(f)f.style.display='flex'">
-      <div class="logo-fallback" style="display:none">
+           style="height:44px;width:auto;object-fit:contain;display:block"
+           onerror="this.onerror=null;this.src='assets/img/logo.svg';this.onerror=function(){this.style.display='none';var f=document.getElementById('lf-${logoId}');if(f)f.style.display='flex'}">
+      <div id="lf-${logoId}" style="display:none;align-items:center;gap:6px">
         <div style="display:flex;align-items:center">
           <span class="logo-nex">NEX</span><span class="logo-t">T</span>
         </div>
+        <span class="logo-sub">Rides Uganda</span>
       </div>
-      <span class="logo-sub">Rides Uganda</span>
     </a>`;
   }
 
@@ -58,14 +63,14 @@
   document.body.insertAdjacentHTML('afterbegin', `
     <nav id="nav">
       <div class="ni">
-        ${logoFull(root)}
+        ${logoFull()}
         <div id="mob-nav">
           <div class="nav-links">
-            ${links.map(l => `<a href="${root}${l.h}" class="nav-a${page === l.h ? ' act' : ''}">${l.l}</a>`).join('')}
+            ${links.map(l => `<a href="${l.h}" class="nav-a${page === l.h ? ' act' : ''}">${l.l}</a>`).join('')}
           </div>
           <div class="nav-acts">
             <button class="btn btn-gl btn-sm" id="ugx-btn">Show UGX</button>
-            <a href="${root}order.html" class="btn btn-r btn-sm">Order a Car</a>
+            <a href="order.html" class="btn btn-r btn-sm">Order a Car</a>
           </div>
         </div>
         <button id="burg" aria-label="Open menu">
@@ -89,7 +94,7 @@
           <div class="footer-grid">
 
             <div class="footer-brand">
-              ${logoFull(root)}
+              ${logoFull()}
               <p>Uganda's most exclusive destination for premium automobiles.
               Buy, rent, or custom-order your dream car — delivered right here in Kampala.</p>
               <div class="footer-soc">
@@ -103,23 +108,23 @@
             <div class="fc">
               <h4>Buy &amp; Rent</h4>
               <nav>
-                <a href="${root}inventory.html">Cars for Sale</a>
-                <a href="${root}rent.html">Rent a Car</a>
-                <a href="${root}brands.html">Our Brands</a>
-                <a href="${root}order.html">Custom Order</a>
+                <a href="inventory.html">Cars for Sale</a>
+                <a href="rent.html">Rent a Car</a>
+                <a href="brands.html">Our Brands</a>
+                <a href="order.html">Custom Order</a>
               </nav>
             </div>
 
             <div class="fc">
               <h4>Company</h4>
               <nav>
-                <a href="${root}about.html">About Us</a>
-                <a href="${root}events.html">Events</a>
-                <a href="${root}news.html">News</a>
-                <a href="${root}social.html">Social Feed</a>
-                <a href="${root}contact.html">Contact</a>
-                <a href="${root}terms.html">Terms</a>
-                <a href="${root}privacy.html">Privacy</a>
+                <a href="about.html">About Us</a>
+                <a href="events.html">Events</a>
+                <a href="news.html">News</a>
+                <a href="social.html">Social Feed</a>
+                <a href="contact.html">Contact</a>
+                <a href="terms.html">Terms</a>
+                <a href="privacy.html">Privacy</a>
               </nav>
             </div>
 
@@ -143,9 +148,9 @@
           <div class="footer-bottom">
             <p>&copy; 2026 Next Rides Uganda. All rights reserved.</p>
             <div class="footer-bl">
-              <a href="${root}terms.html">Terms</a>
-              <a href="${root}privacy.html">Privacy</a>
-              <a href="${root}contact.html">Contact</a>
+              <a href="terms.html">Terms</a>
+              <a href="privacy.html">Privacy</a>
+              <a href="contact.html">Contact</a>
             </div>
           </div>
         </div>

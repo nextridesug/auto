@@ -103,7 +103,7 @@ window.NR = {
       condition:'Foreign Used', color:'Graphite Grey',
       badge:'NEW ARRIVAL', featured:true,
       desc:'2.8L diesel, 7-seater, leather, sunroof, parking sensors. Built for Uganda\'s roads.',
-      img:'https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=800&q=80',
+      img:'https://images.unsplash.com/photo-1590362891991-f776e747a588?w=800&q=80',
     },
     {
       id:'c10', brand:'Lexus', model:'LX 570', year:2018,
