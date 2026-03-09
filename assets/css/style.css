@@ -1139,3 +1139,25 @@ footer { background: var(--bg1); border-top: 1px solid var(--border); padding: 8
   transform: translateY(1px) scale(.98);
   box-shadow: 0 0 30px rgba(184,31,10,.3), 0 8px 24px rgba(0,0,0,.4);
 }
+
+.vp-slot { display: none; position: absolute; inset: 0; }
+.vp-label {
+  position: absolute; bottom: 52px; left: 16px; right: 16px; z-index: 3;
+  background: rgba(10,10,11,.72); backdrop-filter: blur(8px);
+  border-radius: 8px; padding: 8px 12px;
+  transform: translateY(4px); opacity: 0;
+  transition: all .3s var(--ease);
+}
+.vp-yt-badge {
+  position: absolute; bottom: 14px; left: 16px; z-index: 3;
+  background: rgba(184,31,10,.85); backdrop-filter: blur(6px);
+  border-radius: 6px; padding: 4px 10px;
+  font-family: 'Syne', sans-serif; font-size: .58rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: white;
+  display: flex; align-items: center; gap: 5px;
+  opacity: 0; transform: translateY(4px);
+  transition: all .3s var(--ease) .05s;
+}
+.vp-cell:hover .vp-label,
+.vp-cell:hover .vp-yt-badge { opacity: 1; transform: translateY(0); }
+.vp-cell:hover .vp-thumb { transform: scale(1.04); }

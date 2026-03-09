@@ -367,6 +367,18 @@ window.NR = {
       img:'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=700&q=80',
     },
     {
+      id:'n07', cat:'EVENTS', date:'August 2025',
+      title:'Open Day: Meet the Cars & the Team at Our Showroom',
+      summary:'Join us every last Saturday of the month at Naguru Road for exclusive test drives, live demos, and same-day pricing. Light refreshments served. No appointment needed.',
+      img:'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=700&q=80',
+    },
+    {
+      id:'n08', cat:'EVENTS', date:'2025',
+      title:'Supercar Festival @ IUEA — Next Rides Exhibiting',
+      summary:'The annual supercar festival returns to IUEA grounds, Kampala. Lamborghinis, Ferraris, Porsches on display. Come see the Next Rides stand and get exclusive event pricing.',
+      img:'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=700&q=80',
+    },
+    {
       id:'n04', cat:'TIPS & GUIDES', date:'January 2025',
       title:'Complete Guide: URA Vehicle Import Duties Uganda 2025',
       summary:'A full breakdown of how customs and excise duties are calculated for imported vehicles in Uganda — and how Next Rides handles every step for you.',
