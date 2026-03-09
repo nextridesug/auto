@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events — Next Rides Uganda | Kampala Car Shows 2025</title>
+  <meta name="description" content="Upcoming and past automotive events from Next Rides Uganda. NCBA Auto Car Show, Supercar Festival, showroom open days and more in Kampala.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+
+<div class="pg-hero">
+  <div class="w">
+    <div class="pg-crumb">
+      <a href="index.html">Home</a>
+      <span style="opacity:.4">›</span>
+      <span>Events</span>
+    </div>
+    <div class="pill">Kampala Auto Scene</div>
+    <h1>EVENTS &amp;<br><span class="t-r">EXHIBITIONS</span></h1>
+  </div>
+</div>
+
+<!-- EVENTS MAIN -->
+<section class="sec" style="background:#0A0A0B">
+  <div class="w">
+
+    <!-- Upcoming -->
+    <div class="sh split" style="margin-bottom:44px">
+      <div>
+        <div class="pill">On the Calendar</div>
+        <h2>UPCOMING<br><span class="t-r">EVENTS</span></h2>
+      </div>
+      <a href="contact.html" class="btn btn-gl btn-sm">Get Notified</a>
+    </div>
+
+    <div class="events-grid" id="events-upcoming"></div>
+
+    <!-- Past -->
+    <div class="sh split" style="margin-top:80px;margin-bottom:44px">
+      <div>
+        <div class="pill">History</div>
+        <h2>PAST<br><span class="t-g">EVENTS</span></h2>
+      </div>
+    </div>
+    <div class="events-grid" id="events-past"></div>
+
+    <!-- Event notification form -->
+    <div class="rv" style="margin-top:80px">
+      <div style="background:var(--glass);border:1px solid var(--border2);border-radius:var(--r3);padding:56px 52px;display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center">
+        <div>
+          <div class="pill">Never Miss an Event</div>
+          <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,4vw,4.5rem);letter-spacing:.02em;line-height:.9;color:var(--white);margin-bottom:20px">
+            GET EVENT<br><span class="t-r">ALERTS</span>
+          </h2>
+          <p style="color:var(--muted);line-height:1.85;margin-bottom:28px">Be first to know about new arrivals, showroom open days, car shows and exclusive Next Rides events. One WhatsApp message — no spam.</p>
+          <a href="https://wa.me/256753717412?text=Hello%21%20I%27d%20like%20to%20be%20added%20to%20the%20Next%20Rides%20events%20list%20%F0%9F%8F%8E%EF%B8%8F"
+             target="_blank" rel="noopener" class="btn btn-r btn-lg" style="gap:12px">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Join our WhatsApp List
+          </a>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div style="background:#1B1D22;border:1px solid var(--border);border-radius:var(--r2);padding:28px 22px;text-align:center" class="rv d1">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:2.8rem;line-height:1;color:var(--red3);margin-bottom:4px">3+</div>
+            <div style="font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">Events Per Year</div>
+          </div>
+          <div style="background:#1B1D22;border:1px solid var(--border);border-radius:var(--r2);padding:28px 22px;text-align:center" class="rv d2">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:2.8rem;line-height:1;color:var(--gold3);margin-bottom:4px">61K</div>
+            <div style="font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">Show Views 2024</div>
+          </div>
+          <div style="background:#1B1D22;border:1px solid var(--border);border-radius:var(--r2);padding:28px 22px;text-align:center" class="rv d3">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:2.8rem;line-height:1;color:var(--red3);margin-bottom:4px">Free</div>
+            <div style="font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">Showroom Entry</div>
+          </div>
+          <div style="background:#1B1D22;border:1px solid var(--border);border-radius:var(--r2);padding:28px 22px;text-align:center" class="rv d4">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:2.8rem;line-height:1;color:var(--gold3);margin-bottom:4px">VIP</div>
+            <div style="font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">Client Treatment</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="mq-sec">
+  <div class="mq-track" id="mq-track"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const events = window.NR?.events || [];
+  const SVG_loc = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>`;
+  const SVG_cal = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`;
+
+  function buildCard(e) {
+    const isUp = e.status === 'UPCOMING';
+    return `
+    <div class="event-card rv">
+      <div class="ec-img">
+        <img src="${e.img}" alt="${e.name}" loading="lazy"
+             onerror="this.src='https://images.unsplash.com/photo-1555215695-3004980ad54e?w=700&q=80'">
+        <span class="ec-status ${isUp ? 'upcoming' : 'past'}">${e.status}</span>
+      </div>
+      <div class="ec-body">
+        <div class="ec-date">${SVG_cal} ${e.date}</div>
+        <div class="ec-name">${e.name}</div>
+        <div class="ec-loc">${SVG_loc} ${e.location}</div>
+        <p class="ec-desc">${e.desc}</p>
+        <a href="${e.link}" ${e.link.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}
+           class="btn ${isUp ? 'btn-r' : 'btn-gl'} btn-sm" style="margin-top:auto;align-self:flex-start">
+          ${isUp ? 'Learn More →' : 'View Recap →'}
+        </a>
+      </div>
+    </div>`;
+  }
+
+  const upEl = document.getElementById('events-upcoming');
+  const ptEl = document.getElementById('events-past');
+  const upcoming = events.filter(e => e.status === 'UPCOMING');
+  const past = events.filter(e => e.status === 'PAST');
+  if (upEl) upEl.innerHTML = upcoming.map(buildCard).join('') || '<p style="color:var(--muted);grid-column:1/-1">No upcoming events right now — check back soon!</p>';
+  if (ptEl) ptEl.innerHTML = past.map(buildCard).join('');
+});
+</script>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News — Next Rides Uganda | Car Market, Arrivals & Guides</title>
+  <meta name="description" content="Latest news from Next Rides Uganda — new arrivals, car market insights, import guides, events and Uganda automotive news from Kampala.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+
+<!-- PAGE HERO -->
+<div class="pg-hero">
+  <div class="w">
+    <div class="pg-crumb">
+      <a href="index.html">Home</a>
+      <span style="opacity:.4">›</span>
+      <span>News</span>
+    </div>
+    <div class="pill">Uganda Auto Market</div>
+    <h1>NEWS &amp;<br><span class="t-r">UPDATES</span></h1>
+  </div>
+</div>
+
+<!-- NEWSLETTER BANNER -->
+<div style="background:linear-gradient(135deg,rgba(184,31,10,.08),rgba(140,147,157,.06));border-bottom:1px solid var(--border);padding:48px 0">
+  <div class="w">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:32px">
+      <div>
+        <div class="pill" style="margin-bottom:14px">Free Newsletter</div>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3.6rem);letter-spacing:.03em;color:var(--white);line-height:.95;margin-bottom:10px">
+          SUBSCRIBE TO<br><span class="t-r">NEXT RIDES INTEL</span>
+        </h2>
+        <p style="font-size:.9rem;color:var(--muted);max-width:480px">New arrivals, price drops, import guides and Uganda car market news — delivered to your WhatsApp. No spam, unsubscribe any time.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;min-width:320px">
+        <a href="https://wa.me/256753717412?text=Hello%21%20Please%20add%20me%20to%20the%20Next%20Rides%20newsletter%20%F0%9F%97%9E%EF%B8%8F"
+           target="_blank" rel="noopener"
+           class="btn btn-r btn-lg" style="gap:12px;justify-content:center">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Subscribe via WhatsApp
+        </a>
+        <div style="text-align:center;font-size:.75rem;color:var(--dim)">Free · Instant alerts · No spam</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NEWS GRID -->
+<section class="sec" style="background:#0A0A0B">
+  <div class="w">
+
+    <!-- Category filter -->
+    <div class="filter-row" id="news-filters">
+      <button class="fp on" data-cat="all">All</button>
+      <button class="fp" data-cat="NEW ARRIVAL">New Arrivals</button>
+      <button class="fp" data-cat="MARKET NEWS">Market News</button>
+      <button class="fp" data-cat="EVENTS">Events</button>
+      <button class="fp" data-cat="TIPS &amp; GUIDES">Tips &amp; Guides</button>
+      <button class="fp" data-cat="RENTAL">Rental</button>
+    </div>
+
+    <div class="news-grid" id="news-grid"></div>
+
+  </div>
+</section>
+
+<!-- FEATURED: URA IMPORT GUIDE -->
+<section class="sec" style="background:#121316">
+  <div class="w">
+    <div class="sh c">
+      <div class="pill">Import Guide 2026</div>
+      <h2>IMPORTING A CAR<br><span class="t-r">INTO UGANDA</span></h2>
+      <p style="max-width:600px;margin:0 auto">Everything you need to know about bringing a vehicle into Uganda in 2026 — duties, URA clearance, and how Next Rides handles it all for you.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px" id="import-steps">
+      <!-- built by JS -->
+    </div>
+
+    <div style="margin-top:52px;background:var(--glass);border:1px solid var(--border2);border-radius:var(--r3);padding:44px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px" class="rv">
+      <div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.04em;color:var(--white);margin-bottom:8px">WE HANDLE THE ENTIRE IMPORT PROCESS</div>
+        <p style="font-size:.88rem;color:var(--muted);max-width:500px">From sourcing the car abroad to clearing it at Kampala port, paying URA duties and delivering to your door. Zero paperwork stress.</p>
+      </div>
+      <a href="order.html" class="btn btn-r btn-lg" style="flex-shrink:0;gap:10px">
+        Start a Custom Order
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL CTA -->
+<section class="sec" style="background:#0A0A0B;padding:60px 0">
+  <div class="w">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <a href="https://www.instagram.com/next_rides_ug" target="_blank" rel="noopener"
+         style="background:linear-gradient(135deg,rgba(220,39,67,.08),rgba(188,24,136,.06));border:1px solid rgba(220,39,67,.15);border-radius:var(--r2);padding:32px;display:flex;align-items:center;gap:20px;transition:transform .2s,box-shadow .2s"
+         class="rv d1" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform=''">
+        <svg viewBox="0 0 24 24" fill="#dc2743" width="40" height="40"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        <div>
+          <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--white);margin-bottom:4px">@next_rides_ug</div>
+          <div style="font-size:.82rem;color:var(--muted)">24K followers · 1,900+ posts · Daily updates</div>
+        </div>
+      </a>
+      <a href="https://www.tiktok.com/@next_rides" target="_blank" rel="noopener"
+         style="background:linear-gradient(135deg,rgba(105,201,208,.07),rgba(238,29,82,.04));border:1px solid rgba(105,201,208,.14);border-radius:var(--r2);padding:32px;display:flex;align-items:center;gap:20px;transition:transform .2s"
+         class="rv d2" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform=''">
+        <svg viewBox="0 0 24 24" fill="white" width="40" height="40"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.77 1.52V6.76a4.85 4.85 0 01-1-.07z"/></svg>
+        <div>
+          <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--white);margin-bottom:4px">@next_rides</div>
+          <div style="font-size:.82rem;color:var(--muted)">TikTok · Car reels, reveals & deliveries</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="mq-sec">
+  <div class="mq-track" id="mq-track"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const news = window.NR?.news || [];
+
+  /* ── Build news cards ── */
+  function renderNews(cat) {
+    const pool = cat === 'all' ? news : news.filter(n => n.cat === cat);
+    const grid = document.getElementById('news-grid');
+    if (!grid) return;
+    grid.innerHTML = pool.map((n, i) => `
+      <article class="news-card rv" style="animation-delay:${i*.06}s">
+        <div class="nc-img">
+          <img src="${n.img}" alt="${n.title}" loading="lazy"
+               onerror="this.src='https://images.unsplash.com/photo-1555215695-3004980ad54e?w=700&q=80'">
+        </div>
+        <div class="nc-body">
+          <div class="nc-cat">${n.cat}</div>
+          <div class="nc-title">${n.title}</div>
+          <p class="nc-summary">${n.summary}</p>
+          <div class="nc-meta">
+            <span>${n.date}</span>
+            <a href="contact.html" style="color:var(--red3);font-size:.72rem;font-weight:700;letter-spacing:.08em">
+              Ask Us →
+            </a>
+          </div>
+        </div>
+      </article>`).join('') || '<p style="color:var(--muted);grid-column:1/-1;padding:40px 0">No articles in this category yet.</p>';
+  }
+
+  renderNews('all');
+
+  /* ── Category filters ── */
+  document.querySelectorAll('#news-filters .fp').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#news-filters .fp').forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      // decode HTML entities for comparison
+      const cat = btn.dataset.cat.replace(/&amp;/g, '&');
+      renderNews(cat);
+    });
+  });
+
+  /* ── Import steps ── */
+  const steps = [
+    { n:'01', t:'Choose Your Car', d:'Browse our stock or tell us the exact make, model, year and spec you want. We source from Japan, UAE, UK and Europe.' },
+    { n:'02', t:'We Import It', d:'Next Rides handles purchase, shipping, marine insurance and tracking. Full updates throughout the journey.' },
+    { n:'03', t:'URA Clearance', d:'We calculate and process all customs duties, excise tax and VAT on your behalf. No surprises at port.' },
+    { n:'04', t:'Drive Away', d:'Once cleared and inspected, your car is delivered to Kampala. Fully registered and ready to drive.' },
+  ];
+  const stepsEl = document.getElementById('import-steps');
+  if (stepsEl) {
+    stepsEl.innerHTML = steps.map((s, i) => `
+      <div class="rv d${i+1}" style="background:var(--glass);border:1px solid var(--border);border-radius:var(--r2);padding:28px 24px">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;line-height:1;color:var(--red);opacity:.35;margin-bottom:10px">${s.n}</div>
+        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:var(--white);margin-bottom:10px">${s.t}</div>
+        <p style="font-size:.82rem;color:var(--muted);line-height:1.8">${s.d}</p>
+      </div>`).join('');
+  }
+});
+</script>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

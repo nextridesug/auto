@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Car Brands — Next Rides Uganda</title>
+  <meta name="description" content="Explore the world's most prestigious automotive brands available through Next Rides Uganda. Mercedes, BMW, Porsche, Lamborghini, Ferrari and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+
+<!-- PAGE HERO -->
+<div class="pg-hero">
+  <div class="w">
+    <div class="pg-crumb">
+      <a href="index.html">Home</a>
+      <span style="opacity:.4">›</span>
+      <span>Brands</span>
+    </div>
+    <div class="pill">Premium Brands</div>
+    <h1>34 WORLD-CLASS<br><span class="t-r">BRANDS</span></h1>
+  </div>
+</div>
+
+<!-- BRANDS GRID -->
+<section class="sec" style="background:#0A0A0B">
+  <div class="w">
+    <div class="sh c">
+      <p>From Japan's reliability icons to Germany's engineering giants, Italy's supercar royalty, and America's muscle legends — we source, import and deliver any of the world's finest marques directly to Kampala.</p>
+    </div>
+
+    <!-- Origin filters -->
+    <div class="filter-row" id="origin-filters" style="justify-content:center;margin-bottom:40px">
+      <button class="fp on" data-o="all">All Origins</button>
+      <button class="fp" data-o="Japan">🇯🇵 Japanese</button>
+      <button class="fp" data-o="Germany">🇩🇪 German</button>
+      <button class="fp" data-o="UK">🇬🇧 British</button>
+      <button class="fp" data-o="Italy">🇮🇹 Italian</button>
+      <button class="fp" data-o="USA">🇺🇸 American</button>
+      <button class="fp" data-o="France">🇫🇷 French</button>
+      <button class="fp" data-o="Korea">🇰🇷 Korean</button>
+      <button class="fp" data-o="Sweden">🇸🇪 Swedish</button>
+    </div>
+
+    <div class="brands-grid" id="brands-grid"></div>
+
+    <!-- Custom order note -->
+    <div style="margin-top:72px" class="rv">
+      <div class="cta-banner">
+        <div class="cta-txt">
+          <h2>DON'T SEE<br>YOUR BRAND?</h2>
+          <p>We can source virtually any make or model from Europe, Japan and the USA. If you can dream it, we can import it.</p>
+        </div>
+        <div class="cta-acts">
+          <a href="order.html" class="btn btn-gl btn-lg" style="justify-content:center">Place Custom Order</a>
+          <a href="inventory.html" class="btn btn-out btn-lg" style="justify-content:center;border-color:rgba(255,255,255,.2)">Browse Current Stock</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED BRANDS DEEP DIVES -->
+<section class="sec" style="background:#121316">
+  <div class="w">
+    <div class="sh c">
+      <div class="pill">Our Specialties</div>
+      <h2>GERMAN<br><span class="t-r">EXCELLENCE</span></h2>
+      <p>We specialise in the German triumvirate — Mercedes-Benz, BMW and Porsche — alongside British and Italian prestige marques.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px">
+      <!-- Mercedes -->
+      <div class="rv d1" style="background:var(--glass);border:1px solid var(--border);border-radius:var(--r3);overflow:hidden;transition:all .4s var(--ease)">
+        <div style="height:200px;overflow:hidden;position:relative">
+          <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=700&q=80" alt="Mercedes-Benz" style="width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)">
+          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(4,4,12,.9))"></div>
+        </div>
+        <div style="padding:26px">
+          <div style="font-family:'Syne',sans-serif;font-size:.62rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--red3);margin-bottom:6px">Stuttgart, Germany</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.03em;color:var(--white);margin-bottom:10px">Mercedes-Benz</div>
+          <p style="font-size:.86rem;color:var(--muted);line-height:1.78">The best or nothing. From the E-Class to the AMG GT, we import every model with full OEM documentation.</p>
+        </div>
+      </div>
+      <!-- BMW -->
+      <div class="rv d2" style="background:var(--glass);border:1px solid var(--border);border-radius:var(--r3);overflow:hidden;transition:all .4s var(--ease)">
+        <div style="height:200px;overflow:hidden;position:relative">
+          <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=700&q=80" alt="BMW" style="width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)">
+          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(4,4,12,.9))"></div>
+        </div>
+        <div style="padding:26px">
+          <div style="font-family:'Syne',sans-serif;font-size:.62rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--red3);margin-bottom:6px">Munich, Germany</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.03em;color:var(--white);margin-bottom:10px">BMW &amp; M Series</div>
+          <p style="font-size:.86rem;color:var(--muted);line-height:1.78">The ultimate driving machine. From 3 Series touring to the M5 Competition, all Bimmer variants available.</p>
+        </div>
+      </div>
+      <!-- Porsche -->
+      <div class="rv d3" style="background:var(--glass);border:1px solid var(--border);border-radius:var(--r3);overflow:hidden;transition:all .4s var(--ease)">
+        <div style="height:200px;overflow:hidden;position:relative">
+          <img src="https://images.unsplash.com/photo-1526726538690-5cbf956ae2fd?w=700&q=80" alt="Porsche" style="width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)">
+          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(4,4,12,.9))"></div>
+        </div>
+        <div style="padding:26px">
+          <div style="font-family:'Syne',sans-serif;font-size:.62rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--red3);margin-bottom:6px">Stuttgart, Germany</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.03em;color:var(--white);margin-bottom:10px">Porsche</div>
+          <p style="font-size:.86rem;color:var(--muted);line-height:1.78">The purists' choice. 911, Cayenne, Panamera and Macan — full Stuttgart lineup sourced to spec.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq-sec">
+  <div class="mq-track" id="mq-track"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('#origin-filters .fp[data-o]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#origin-filters .fp').forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      const o = btn.dataset.o;
+      const D = window.NR;
+      const pool = o === 'all' ? D.brands : D.brands.filter(b => b.origin === o);
+      const grid = document.getElementById('brands-grid');
+      if (!grid) return;
+      grid.innerHTML = pool.map(b => `
+        <div class="brand-card rv in">
+          ${b.origin ? `<div style="font-family:'Syne',sans-serif;font-size:.56rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:8px;position:relative;z-index:1">${b.origin}</div>` : ''}
+          <div class="bc-name">${b.name}</div>
+          <div class="bc-tag">${b.tag}</div>
+        </div>`).join('');
+    });
+  });
+});
+</script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

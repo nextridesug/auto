@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cars for Sale — Next Rides Uganda</title>
+  <meta name="description" content="Browse premium cars for sale in Kampala. Mercedes-Benz, BMW, Porsche, Lamborghini and more. All URA cleared.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+
+<!-- PAGE HERO -->
+<div class="pg-hero">
+  <div class="w">
+    <div class="pg-crumb">
+      <a href="index.html">Home</a>
+      <span style="opacity:.4">›</span>
+      <span>Inventory</span>
+    </div>
+    <div class="pill">Cars for Sale</div>
+    <h1>BUY A<br><span class="t-r">LUXURY CAR</span></h1>
+  </div>
+</div>
+
+<!-- INVENTORY -->
+<section class="sec" style="background:#0A0A0B">
+  <div class="w">
+
+    <!-- Search bar -->
+    <div class="search-panel rv" style="margin-top:0;margin-bottom:44px">
+      <div class="sf">
+        <label>Brand</label>
+        <select id="s-brand">
+          <option value="">Any Brand</option>
+          <optgroup label="🇯🇵 Japanese">
+            <option>Toyota</option><option>Honda</option><option>Nissan</option>
+            <option>Mazda</option><option>Subaru</option><option>Lexus</option>
+          </optgroup>
+          <optgroup label="🇰🇷 Korean">
+            <option>Hyundai</option><option>Kia</option>
+          </optgroup>
+          <optgroup label="🇺🇸 American">
+            <option>Ford</option><option>Chevrolet</option><option>Jeep</option>
+            <option>Tesla</option><option>Cadillac</option>
+          </optgroup>
+          <optgroup label="🇩🇪 German">
+            <option>Mercedes-Benz</option><option>BMW</option><option>Audi</option>
+            <option>Porsche</option><option>Volkswagen</option>
+          </optgroup>
+          <optgroup label="🇫🇷 French">
+            <option>Peugeot</option><option>Renault</option>
+          </optgroup>
+          <optgroup label="🇸🇪 Swedish">
+            <option>Volvo</option><option>Koenigsegg</option>
+          </optgroup>
+          <optgroup label="🇬🇧 British">
+            <option>Range Rover</option><option>Rolls-Royce</option><option>Bentley</option>
+            <option>Jaguar</option><option>Aston Martin</option><option>McLaren</option>
+          </optgroup>
+          <optgroup label="🇮🇹 Italian">
+            <option>Lamborghini</option><option>Ferrari</option><option>Maserati</option>
+            <option>Alfa Romeo</option><option>Pagani</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="sf">
+        <label>Budget (USD)</label>
+        <select id="s-budget">
+          <option value="">Any Budget</option>
+          <option value="30000">Under $30,000</option>
+          <option value="60000">Under $60,000</option>
+          <option value="100000">Under $100,000</option>
+          <option value="999999">$100,000+</option>
+        </select>
+      </div>
+      <div class="sf">
+        <label>Transmission</label>
+        <select id="s-type">
+          <option value="">Any Type</option>
+          <option value="Automatic">Automatic</option>
+          <option value="PDK">PDK</option>
+        </select>
+      </div>
+      <div class="sf">
+        <label>Condition</label>
+        <select>
+          <option>Any Condition</option>
+          <option>Foreign Used</option>
+          <option>Brand New</option>
+        </select>
+      </div>
+      <button class="btn btn-r" id="search-btn" style="height:52px;align-self:end;gap:10px">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Search
+      </button>
+    </div>
+
+    <!-- Currency toggle -->
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:28px">
+      <div class="filter-row" style="margin-bottom:0">
+        <button class="fp on" data-f="all">All</button>
+        <button class="fp" data-f="Toyota">Toyota</button>
+        <button class="fp" data-f="Honda">Honda</button>
+        <button class="fp" data-f="Nissan">Nissan</button>
+        <button class="fp" data-f="Subaru">Subaru</button>
+        <button class="fp" data-f="Mercedes-Benz">Mercedes-Benz</button>
+        <button class="fp" data-f="BMW">BMW</button>
+        <button class="fp" data-f="Porsche">Porsche</button>
+        <button class="fp" data-f="Audi">Audi</button>
+        <button class="fp" data-f="Lamborghini">Lamborghini</button>
+        <button class="fp" data-f="Range Rover">Range Rover</button>
+        <button class="fp" data-f="Jeep">Jeep</button>
+        <button class="fp" data-f="Ford">Ford</button>
+        <button class="fp" data-f="Volvo">Volvo</button>
+        <button class="fp" data-f="Peugeot">Peugeot</button>
+      </div>
+      <button class="btn btn-gl btn-sm" id="ugx-btn">Show UGX</button>
+    </div>
+
+    <!-- Grid -->
+    <div class="cars-grid" id="inventory-grid"></div>
+
+    <!-- Custom order CTA -->
+    <div style="margin-top:72px" class="rv">
+      <div class="cta-banner">
+        <div class="cta-txt">
+          <h2>DON'T SEE<br>YOUR CAR?</h2>
+          <p>We import any make, model and specification on demand. Tell us exactly what you want and we'll source it directly from Europe or Japan.</p>
+        </div>
+        <div class="cta-acts">
+          <a href="order.html" class="btn btn-gl btn-lg" style="justify-content:center">Place Custom Order</a>
+          <a href="contact.html" class="btn btn-out btn-lg" style="justify-content:center;border-color:rgba(255,255,255,.2)">Talk to Our Team</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS MARQUEE -->
+<div class="mq-sec">
+  <div class="mq-track" id="mq-track"></div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

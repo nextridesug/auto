@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rent a Luxury Car — Next Rides Uganda</title>
+  <meta name="description" content="Rent premium luxury cars in Kampala. Mercedes-Benz, BMW, Range Rover, Lamborghini. Daily and weekly rates. Chauffeur available.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+
+<!-- PAGE HERO -->
+<div class="pg-hero">
+  <div class="w">
+    <div class="pg-crumb">
+      <a href="index.html">Home</a>
+      <span style="opacity:.4">›</span>
+      <span>Rent a Car</span>
+    </div>
+    <div class="pill pill-g">Rental Fleet</div>
+    <h1>RENT THE<br><span class="t-g">FINEST</span></h1>
+  </div>
+</div>
+
+<!-- RENTAL PERKS STRIP -->
+<div style="background:#121316;border-bottom:1px solid var(--border);padding:36px 0">
+  <div class="w">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px">
+      <div style="display:flex;gap:14px;align-items:center" class="rv d1">
+        <div style="width:46px;height:46px;border-radius:var(--r);background:rgba(140,147,157,.1);border:1px solid rgba(140,147,157,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;color:var(--white);font-size:.9rem">Fully Insured</div>
+          <div style="font-size:.78rem;color:var(--muted)">Comprehensive cover included</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:center" class="rv d2">
+        <div style="width:46px;height:46px;border-radius:var(--r);background:rgba(140,147,157,.1);border:1px solid rgba(140,147,157,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;color:var(--white);font-size:.9rem">24/7 Support</div>
+          <div style="font-size:.78rem;color:var(--muted)">Round-the-clock roadside help</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:center" class="rv d3">
+        <div style="width:46px;height:46px;border-radius:var(--r);background:rgba(140,147,157,.1);border:1px solid rgba(140,147,157,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;color:var(--white);font-size:.9rem">Chauffeur Available</div>
+          <div style="font-size:.78rem;color:var(--muted)">Professional drivers on request</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:center" class="rv d4">
+        <div style="width:46px;height:46px;border-radius:var(--r);background:rgba(140,147,157,.1);border:1px solid rgba(140,147,157,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;color:var(--white);font-size:.9rem">Airport Transfers</div>
+          <div style="font-size:.78rem;color:var(--muted)">Entebbe pickup &amp; drop-off</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RENTAL FLEET -->
+<section class="sec" style="background:#0A0A0B">
+  <div class="w">
+    <div class="sh split">
+      <div>
+        <div class="pill pill-g">Available Now</div>
+        <h2>OUR<br><span class="t-g">FLEET</span></h2>
+        <p>All vehicles are meticulously maintained and presented to the highest standard before every rental.</p>
+      </div>
+      <a href="contact.html" class="btn btn-g btn-sm">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        Book via WhatsApp
+      </a>
+    </div>
+    <div class="rent-grid" id="rental-grid"></div>
+
+    <!-- Rental T&Cs note -->
+    <div class="rv" style="margin-top:56px;background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:var(--r3);padding:36px 40px">
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start">
+        <div style="width:48px;height:48px;border-radius:var(--r);background:rgba(184,31,10,.08);border:1px solid rgba(184,31,10,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="var(--red3)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;color:var(--white);margin-bottom:8px">Rental Terms</div>
+          <p style="font-size:.86rem;color:var(--muted);line-height:1.8;margin:0">Minimum rental period is 1 day. A refundable security deposit is required. Valid driving licence and national ID or passport required. Fuel policy: full-to-full. Rates above are base rates and may vary by season. <a href="contact.html" style="color:var(--red3)">Contact us</a> for exact pricing and availability.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO BOOK -->
+<section class="ss" style="background:#121316">
+  <div class="w">
+    <div class="sh c">
+      <div class="pill pill-g">Booking Process</div>
+      <h2 style="font-size:clamp(2.5rem,4.5vw,5.5rem)">HOW TO<br><span class="t-g">BOOK</span></h2>
+    </div>
+    <div class="how-grid">
+      <div class="how-step rv d1">
+        <div class="how-n">01</div>
+        <div class="how-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <h3>Choose Your Car</h3>
+        <p>Browse our fleet above and pick the vehicle that matches your occasion and budget.</p>
+      </div>
+      <div class="how-step rv d2">
+        <div class="how-n">02</div>
+        <div class="how-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <h3>WhatsApp Us</h3>
+        <p>Tap "Book Now" on any car to open WhatsApp directly. Tell us your dates and requirements.</p>
+      </div>
+      <div class="how-step rv d3">
+        <div class="how-n">03</div>
+        <div class="how-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+        <h3>Confirm &amp; Pay</h3>
+        <p>We'll confirm availability and share payment details. Deposit secures your booking.</p>
+      </div>
+      <div class="how-step rv d4">
+        <div class="how-n">04</div>
+        <div class="how-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg></div>
+        <h3>Drive &amp; Enjoy</h3>
+        <p>We deliver the car to you or you can pick it up from our Naguru showroom. Enjoy!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS MARQUEE -->
+<div class="mq-sec">
+  <div class="mq-track" id="mq-track"></div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
