@@ -2052,30 +2052,42 @@ footer .fc a:hover { color: var(--red2) !important; }
   transition: background 0.3s, border-color 0.25s, color 0.25s, box-shadow 0.3s;
 }
 
-/* ══ LOGO — dark theme visibility ════════════════════════
-   The actual logo.png has dark "T" outline and dark "RIDES"
-   text that disappear on dark backgrounds.
-   Solution: frosted glass backing behind logo image only. ══ */
-
-/* Light theme: no change, logo reads fine */
+/* ══ LOGO — dark theme: white glow pill ══════════════════ */
 :not([data-theme="dark"]) .logo-img {
   filter: drop-shadow(0 1px 3px rgba(0,0,0,0.12));
 }
 
-/* Dark theme: subtle cream/frosted backing makes dark parts visible */
 [data-theme="dark"] a.logo {
-  background: rgba(255, 255, 255, 0.09);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  border-radius: 10px;
-  padding: 5px 12px 5px 8px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: background 0.3s, border-color 0.3s;
+  position: relative;
+  border-radius: 14px;
+  padding: 6px 18px 6px 10px;
+  isolation: isolate;
+  transition: none;
 }
-[data-theme="dark"] a.logo:hover {
-  background: rgba(255, 255, 255, 0.13);
-  border-color: rgba(255, 255, 255, 0.16);
+
+/* The white pill glow — radial, full white centre fading to transparent */
+[data-theme="dark"] a.logo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: radial-gradient(
+    ellipse 85% 100% at 50% 50%,
+    rgba(255,255,255,0.92) 0%,
+    rgba(255,255,255,0.72) 35%,
+    rgba(255,255,255,0.30) 65%,
+    rgba(255,255,255,0.00) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
 }
+
+[data-theme="dark"] a.logo > * {
+  position: relative;
+  z-index: 1;
+}
+
 [data-theme="dark"] .logo-img {
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+  position: relative;
+  z-index: 1;
 }
