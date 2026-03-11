@@ -276,7 +276,7 @@ function buildCarCard(c) {
   const wa    = `https://wa.me/${wa_num()}?text=${waMsg}`;
   const bc    = c.badge ? (BADGE[c.badge] || 'b-feat') : '';
   /* ── Separate photo images from video on cards ── */
-  const isLocalVidSrc = v => v && (v.endsWith('.mp4') || v.startsWith('assets/img/'));
+  const isLocalVidSrc = v => v && v.endsWith('.mp4');
   const rawImgsFull = (c.images && c.images.length > 0) ? c.images : (c.img ? [c.img] : []);
   /* Filter mp4s out of photo slides */
   const imgs  = rawImgsFull.filter(s => !isLocalVidSrc(s));
@@ -1110,7 +1110,7 @@ if (contactForm) {
     const wa     = `https://wa.me/${wa_num()}?text=${waMsg}`;
 
     /* ── Separate photo slides from video slides ── */
-    const isLocalVid = v => v && (v.endsWith('.mp4') || v.startsWith('assets/img/'));
+    const isLocalVid = v => v && v.endsWith('.mp4');
 
     /* Photo-only images array (filter out any mp4 accidentally in images[]) */
     const rawImgs = (c.images && c.images.length) ? c.images : (c.img ? [c.img] : []);
