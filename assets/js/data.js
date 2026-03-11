@@ -252,8 +252,8 @@ const D = {
       condition:'Foreign Used', color:'Sonic Chrome',
       badge:'NEW ARRIVAL', featured:false,
       desc:'2.5L hybrid, low consumption, 12.3" touchscreen, JBL 12-speaker.',
-      img:'https://img.youtube.com/vi/xmZuYV1uog4/maxresdefault.jpg',
-      images:['https://img.youtube.com/vi/-1NL951p7H4/maxresdefault.jpg', 'https://img.youtube.com/vi/-1NL951p7H4/mqdefault.jpg'],
+      img:'https://img.youtube.com/vi/xmZuYV1uog4/sddefault.jpg',
+      images:['https://img.youtube.com/vi/xmZuYV1uog4/sddefault.jpg'],
       video: null,
     },
     {
