@@ -2474,29 +2474,3 @@ footer .fc a:hover { color: var(--red2) !important; }
   #car-modal-body > div:last-child { padding: 16px 16px 24px; }
 }
 
-/* ── Image shimmer while loading ── */
-.cc-slide {
-  background: linear-gradient(135deg, #e8e4df 25%, #f0ece6 50%, #e8e4df 75%);
-  background-size: 400% 400%;
-  animation: imgShimmer 1.8s ease-in-out infinite;
-}
-[data-theme="dark"] .cc-slide {
-  background: linear-gradient(135deg, #1a1a1e 25%, #242428 50%, #1a1a1e 75%);
-  background-size: 400% 400%;
-}
-.cc-slide img.loaded, .cc-slide video { animation: none; background: none; }
-@keyframes imgShimmer {
-  0%   { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-/* Rent card shimmer */
-.rc-img { 
-  background: linear-gradient(135deg, #e8e4df 25%, #f0ece6 50%, #e8e4df 75%);
-  background-size: 400% 400%;
-  animation: imgShimmer 1.8s ease-in-out infinite;
-}
-[data-theme="dark"] .rc-img {
-  background: linear-gradient(135deg, #1a1a1e 25%, #242428 50%, #1a1a1e 75%);
-  background-size: 400% 400%;
-}
-.rc-img img.loaded { animation: none; background: none; }
