@@ -23,10 +23,10 @@ const D = {
 
   /* ── Stats ──────────────────────────────────────────── */
   stats: [
-    { v:'5K+',  s:'',  l:'Happy Clients' },
-    { v:'8+',   s:'',  l:'Years Experience' },
-    { v:'34',   s:'+', l:'Premium Brands' },
-    { v:'5',    s:'★', l:'Client Rating' },
+    { v:'5',    s:'K+', l:'Happy Clients' },
+    { v:'8',    s:'+',  l:'Years Experience' },
+    { v:'34',   s:'+',  l:'Premium Brands' },
+    { v:'5',    s:'★',  l:'Client Rating' },
   ],
 
   /* ── Cars ───────────────────────────────────────────── */
@@ -354,9 +354,9 @@ const D = {
       badge:'RARE FIND', featured:true,
       ugxPrice:'Price on Request',
       desc:'PORSCHE 911 BRABUS — 1 of 1 in Uganda and East Africa. The rarest machine in the country. BRABUS-tuned performance, bespoke carbon fibre kit, full BRABUS interior upgrade. Contact us for exclusive viewing.',
-      img:'',
+      img:'https://img.youtube.com/vi/4dN814qpssU/maxresdefault.jpg',
       images:[],
-      video: 'assets/img/PORSCHE.mp4',
+      video: '4dN814qpssU',
     },
     {
       id:'c26', visible:true, tag:'AVAILABLE',
@@ -428,9 +428,9 @@ const D = {
       badge:'AVAILABLE', featured:true,
       ugxPrice:'270,000,000',
       desc:'2018 Range Rover Sport Autobiography 3.0L supercharged V6 turbodiesel | 300HP. Full black pack, panoramic roof, Meridian sound system, heated & ventilated seats and steering wheel, 360-degree camera. UGX 270M, slightly negotiable.',
-      img:'',
+      img:'https://img.youtube.com/vi/qMjE-PYA_ds/maxresdefault.jpg',
       images:[],
-      video: 'assets/img/range.mp4',
+      video: 'qMjE-PYA_ds',
     },
     {
       id:'c30', visible:true, tag:'MOST SHIPPED',
@@ -452,9 +452,9 @@ const D = {
       badge:'RARE FIND', featured:true,
       ugxPrice:'Price on Request',
       desc:'PORSCHE 911 BRABUS 820 — 1 of 1 in East Africa 🇺🇬🇰🇪🇹🇿🇨🇩. 820hp BRABUS-tuned flat-six. The most exclusive Porsche on the continent. Bespoke build, full BRABUS certification. Contact for exclusive viewing.',
-      img:'',
+      img:'https://img.youtube.com/vi/4dN814qpssU/maxresdefault.jpg',
       images:[],
-      video: 'assets/img/porshe.mp4',
+      video: '4dN814qpssU',
     },
     {
       id:'c32', visible:true, tag:'HOT DEAL',
@@ -716,10 +716,10 @@ const D = {
 
   /* ── YouTube Videos ──────────────────────────────────── */
   ytVideos: [
-    { src:'assets/img/g63.mp4',     brand:'Mercedes-Benz', title:'G63 AMG — Full Reveal', sub:'King AD build · Stage remap · Custom carbon', thumb:'assets/img/benz.jpg', large:true },
-    { src:'assets/img/range.mp4',   brand:'Range Rover',   title:'Sport Autobiography 2018', sub:'3.0L V6 turbo diesel · 270M', thumb:'', large:false },
-    { src:'assets/img/PORSCHE.mp4', brand:'Porsche',       title:'911 BRABUS Edition', sub:'1/1 in Uganda & East Africa', thumb:'', large:false },
-    { src:'assets/img/porshe.mp4',  brand:'Porsche',       title:'911 BRABUS 820 in Uganda', sub:'820hp · 1 of 1 East Africa', thumb:'', large:false },
+    { ytId:'ajiA6nVCil0', brand:'Mercedes-Benz', title:'G63 AMG — Full Reveal', sub:'King AD build · Stage remap · Custom carbon', large:true },
+    { ytId:'qMjE-PYA_ds', brand:'Range Rover',   title:'Sport Autobiography 2018', sub:'3.0L V6 turbo diesel · 270M', large:false },
+    { ytId:'4dN814qpssU', brand:'Porsche',       title:'911 BRABUS Edition', sub:'1/1 in Uganda & East Africa', large:false },
+    { ytId:'tUVd7uo9wvY', brand:'Mercedes-Benz', title:'AMG — Next Rides Uganda', sub:'Premium fleet · Kampala', large:false },
   ],
 
   /* ── News Articles ──────────────────────────────────── */
