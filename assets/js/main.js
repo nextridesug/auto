@@ -256,6 +256,15 @@ function ytWallPlay(playBtn, ytId) {
 const wa_num = () => window.NR?.biz?.wa || '256771572016';
 
 /* ── Car Card HTML ─────────────────────────────────────── */
+/* ── Image fade-in on load ── */
+document.head.insertAdjacentHTML('beforeend', `<style>
+  .cc-slide img { opacity:0; transition:opacity .35s ease; }
+  .cc-slide img.loaded { opacity:1; }
+</style>`);
+document.addEventListener('load', e => {
+  if (e.target.tagName === 'IMG') e.target.classList.add('loaded');
+}, true);
+
 function buildCarCard(c) {
   const waMsg = encodeURIComponent(`Hi Next Rides! 👋\nI'm interested in the ${c.year} ${c.brand} ${c.model}${c.price > 0 ? ' (' + fmtUSD(c.price) + ')' : ''}.\nCould you please share more details?`);
   const wa    = `https://wa.me/${wa_num()}?text=${waMsg}`;
@@ -292,8 +301,11 @@ function buildCarCard(c) {
     : '';
   const imgSlides = photoSlideImgs.map((src,i) =>
     `<div class="cc-slide">
-      <img src="${src}" alt="${c.brand} ${c.model} ${c.year} ${i+1}" loading="${i===0?'eager':'lazy'}"
-           onerror="this.src='https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80'">
+      <img src="${src}" alt="${c.brand} ${c.model} ${c.year} ${i+1}"
+           loading="${i===0?'eager':'lazy'}"
+           fetchpriority="${i===0?'high':'low'}"
+           decoding="${i===0?'sync':'async'}"
+           onerror="this.style.display='none'">
     </div>`
   ).join('');
   /* Photos first, then video as its own last slide */
@@ -389,8 +401,9 @@ function buildRentCard(r) {
   <div class="rent-card rv">
     ${r.badge ? `<div class="rc-badge">${r.badge}</div>` : ''}
     <div class="rc-img">
-      <img src="${r.img}" alt="${r.brand} ${r.model}" loading="lazy"
-           onerror="this.src='https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80'">
+      <img src="${r.img}" alt="${r.brand} ${r.model}"
+           loading="eager" fetchpriority="high" decoding="async"
+           onerror="this.style.display='none'">
     </div>
     <div class="rc-body">
       <div class="rc-brand">${r.brand}</div>
@@ -472,7 +485,18 @@ document.addEventListener('DOMContentLoaded', () => {
   /* Featured Cars (homepage) */
   const feat = document.getElementById('featured-cars');
   if (feat) {
-    render('featured-cars', D.cars.filter(c => c.featured && c.visible !== false).map(buildCarCard).join(''));
+    const featuredCars = D.cars.filter(c => c.featured && c.visible !== false);
+    render('featured-cars', featuredCars.map(buildCarCard).join(''));
+    /* Preload first 4 featured car images for instant display */
+    featuredCars.slice(0,4).forEach(c => {
+      const src = (c.images && c.images[0]) || c.img;
+      if (src && !src.endsWith('.mp4')) {
+        const lnk = document.createElement('link');
+        lnk.rel = 'preload'; lnk.as = 'image'; lnk.href = src;
+        lnk.fetchPriority = 'high';
+        document.head.appendChild(lnk);
+      }
+    });
   }
 
   /* Full Inventory */
@@ -1106,9 +1130,12 @@ if (contactForm) {
     /* Photo slides HTML */
     const slidesHtml = imgs.map((src,i) => `
       <div class="nm-slide" style="flex-shrink:0;width:100%;height:100%;position:relative">
-        <img src="${src}" alt="${c.brand} ${c.model}" loading="${i?'lazy':'eager'}"
+        <img src="${src}" alt="${c.brand} ${c.model}"
+             loading="${i?'lazy':'eager'}"
+             fetchpriority="${i?'low':'high'}"
+             decoding="async"
              style="width:100%;height:100%;object-fit:cover"
-             onerror="this.src='https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80'">
+             onerror="this.style.display='none'">
       </div>`).join('');
 
     /* Total slides = photos + video (if any) */
