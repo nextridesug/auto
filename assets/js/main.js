@@ -256,21 +256,6 @@ function ytWallPlay(playBtn, ytId) {
 const wa_num = () => window.NR?.biz?.wa || '256771572016';
 
 /* ── Car Card HTML ─────────────────────────────────────── */
-/* ── Image fade-in — safe version (handles cached/fast images) ── */
-document.head.insertAdjacentHTML('beforeend', `<style>
-  .cc-slide img { opacity:0; transition:opacity .4s ease; }
-  .cc-slide img.nr-loaded { opacity:1; }
-</style>`);
-function nrImgLoaded(img) {
-  img.classList.add('nr-loaded');
-}
-/* Catch images that already loaded before this script ran */
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.cc-slide img').forEach(img => {
-    if (img.complete) img.classList.add('nr-loaded');
-  });
-});
-
 function buildCarCard(c) {
   const waMsg = encodeURIComponent(`Hi Next Rides! 👋\nI'm interested in the ${c.year} ${c.brand} ${c.model}${c.price > 0 ? ' (' + fmtUSD(c.price) + ')' : ''}.\nCould you please share more details?`);
   const wa    = `https://wa.me/${wa_num()}?text=${waMsg}`;
@@ -311,8 +296,7 @@ function buildCarCard(c) {
            loading="${i===0?'eager':'lazy'}"
            fetchpriority="${i===0?'high':'low'}"
            decoding="async"
-           onload="nrImgLoaded(this)"
-           onerror="this.classList.add('nr-loaded');this.style.opacity='0.3'">
+           onerror="this.style.opacity='0'">
     </div>`
   ).join('');
   /* Photos first, then video as its own last slide */
@@ -410,8 +394,7 @@ function buildRentCard(r) {
     <div class="rc-img">
       <img src="${r.img}" alt="${r.brand} ${r.model}"
            loading="eager" fetchpriority="high" decoding="async"
-           onload="nrImgLoaded(this)"
-           onerror="this.classList.add('nr-loaded');this.style.opacity='0.3'">
+           onerror="this.style.opacity='0'">
     </div>
     <div class="rc-body">
       <div class="rc-brand">${r.brand}</div>
