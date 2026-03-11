@@ -256,14 +256,20 @@ function ytWallPlay(playBtn, ytId) {
 const wa_num = () => window.NR?.biz?.wa || '256771572016';
 
 /* ── Car Card HTML ─────────────────────────────────────── */
-/* ── Image fade-in on load ── */
+/* ── Image fade-in — safe version (handles cached/fast images) ── */
 document.head.insertAdjacentHTML('beforeend', `<style>
-  .cc-slide img { opacity:0; transition:opacity .35s ease; }
-  .cc-slide img.loaded { opacity:1; }
+  .cc-slide img { opacity:0; transition:opacity .4s ease; }
+  .cc-slide img.nr-loaded { opacity:1; }
 </style>`);
-document.addEventListener('load', e => {
-  if (e.target.tagName === 'IMG') e.target.classList.add('loaded');
-}, true);
+function nrImgLoaded(img) {
+  img.classList.add('nr-loaded');
+}
+/* Catch images that already loaded before this script ran */
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.cc-slide img').forEach(img => {
+    if (img.complete) img.classList.add('nr-loaded');
+  });
+});
 
 function buildCarCard(c) {
   const waMsg = encodeURIComponent(`Hi Next Rides! 👋\nI'm interested in the ${c.year} ${c.brand} ${c.model}${c.price > 0 ? ' (' + fmtUSD(c.price) + ')' : ''}.\nCould you please share more details?`);
@@ -304,8 +310,9 @@ function buildCarCard(c) {
       <img src="${src}" alt="${c.brand} ${c.model} ${c.year} ${i+1}"
            loading="${i===0?'eager':'lazy'}"
            fetchpriority="${i===0?'high':'low'}"
-           decoding="${i===0?'sync':'async'}"
-           onerror="this.style.display='none'">
+           decoding="async"
+           onload="nrImgLoaded(this)"
+           onerror="this.classList.add('nr-loaded');this.style.opacity='0.3'">
     </div>`
   ).join('');
   /* Photos first, then video as its own last slide */
@@ -403,7 +410,8 @@ function buildRentCard(r) {
     <div class="rc-img">
       <img src="${r.img}" alt="${r.brand} ${r.model}"
            loading="eager" fetchpriority="high" decoding="async"
-           onerror="this.style.display='none'">
+           onload="nrImgLoaded(this)"
+           onerror="this.classList.add('nr-loaded');this.style.opacity='0.3'">
     </div>
     <div class="rc-body">
       <div class="rc-brand">${r.brand}</div>
@@ -1134,8 +1142,9 @@ if (contactForm) {
              loading="${i?'lazy':'eager'}"
              fetchpriority="${i?'low':'high'}"
              decoding="async"
-             style="width:100%;height:100%;object-fit:cover"
-             onerror="this.style.display='none'">
+             style="width:100%;height:100%;object-fit:cover;opacity:${i?0:1};transition:opacity .4s"
+             onload="this.style.opacity='1'"
+             onerror="this.style.opacity='0.2'">
       </div>`).join('');
 
     /* Total slides = photos + video (if any) */
