@@ -9,8 +9,8 @@ const D = {
   biz: {
     name: 'Next Rides Uganda',
     wa:   '256771572016',
-    phone1: '+256 0753 717 412',
-    phone2: '+256 0771 572 016',
+    phone1: '+256 753 717 412',
+    phone2: '+256 771 572 016',
     email:  'info.nextridesug@gmail.com',
     address:'Naguru Road, Cadam Enterprises, Naguru, Kampala',
     ig:  'https://www.instagram.com/next_rides_ug',
@@ -716,10 +716,21 @@ const D = {
 
   /* ── YouTube Videos ──────────────────────────────────── */
   ytVideos: [
-    { src:'assets/img/g63.mp4',     brand:'Mercedes-Benz', title:'G 350d AMG — Next Rides Uganda',   sub:'Custom carbon kit · Stage remap · Kampala',     large:true  },
-    { src:'assets/img/range.mp4',   brand:'Range Rover',   title:'Sport Autobiography 2018',          sub:'3.0L V6 turbo diesel · 270M · For sale',        large:false },
-    { src:'assets/img/PORSCHE.mp4', brand:'Porsche',       title:'911 BRABUS Edition',                sub:'1/1 in Uganda & East Africa · Rare Find',       large:false },
-    { src:'assets/img/porshe.mp4',  brand:'Porsche',       title:'911 BRABUS 820 — Yellow Beast',     sub:'820hp · 0–100 in 2.5s · Price on Request',     large:false },
+    /* ── Row 1: Mercedes + Porsche pair ── */
+    { src:'assets/img/g63.mp4',     brand:'Mercedes-Benz', title:'G 350d AMG Kit 2021',               sub:'Custom carbon · Stage remap · Next Rides Uganda',  large:true  },
+    { src:'assets/img/PORSCHE.mp4', brand:'Porsche',       title:'911 BRABUS — 1/1 in 🇺🇬',           sub:'1 of 1 in Uganda & East Africa · Rare Find',        large:false },
+    { src:'assets/img/porshe.mp4',  brand:'Porsche',       title:'911 BRABUS 820 2022',               sub:'820hp · 0–100 in 2.5s · Price on Request',          large:false },
+    /* ── Row 2: New fleet ── */
+    { src:'assets/img/comp.mp4',    brand:'BMW',           title:'1/1 X6M Competition 2024 🔥',       sub:'Full carbon · 1 of 1 in Uganda',                    large:false },
+    { src:'assets/img/icon.mp4',    brand:'Range Rover',   title:'Iconic British Luxury 🔥🔥🔥',       sub:'The perfect blend of luxury and performance',        large:false },
+    { src:'assets/img/king.mp4',    brand:'Next Rides',    title:'King AD Fleet',                     sub:'Uganda finest collection · Next Rides Uganda',    large:false },
+    /* ── Row 3: G63 + Aston + Yaris ── */
+    { src:'assets/img/g63.mp4',     brand:'Mercedes-Benz', title:'G63 🔥🔥 1/2',                      sub:'AMG V8 biturbo · Kampala streets',                   large:false },
+    { src:'assets/img/aston.mp4',   brand:'Aston Martin',  title:'DBX 707 — 1/1 in Uganda',           sub:'707hp · 1 of 1 in Uganda · Ultra rare',              large:false },
+    { src:'assets/img/yaris.mp4',   brand:'Toyota',        title:'GR Yaris 1.6T — GR-DAT 4WD',       sub:'300hp · 8-Speed Auto · Light weight · Available',    large:false },
+    /* ── Row 4: AMG Brabus + Range ── */
+    { src:'assets/img/amg.mp4',     brand:'Mercedes-Benz', title:'GLE 53 AMG — Full Brabus Kit 🖤🔥', sub:'Forged carbon hood · lip · skirts · diffuser · spoiler', large:true },
+    { src:'assets/img/range.mp4',   brand:'Range Rover',   title:'Sport Autobiography 2018',          sub:'3.0L V6 diesel · 270M · For sale',                   large:false },
   ],
 
   /* ── News Articles ──────────────────────────────────── */
