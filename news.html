@@ -98,11 +98,11 @@
 </section>
 
 <!-- SOCIAL CTA -->
-<section class="sec" style="padding:60px 0;background:#F4F3EF;border-bottom:1px solid rgba(0,0,0,0.07)">
+<section class="sec" style="padding:60px 0;background:var(--page-bg);border-bottom:1px solid var(--bd)">
   <div class="w">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
       <a href="https://www.instagram.com/next_rides_ug" target="_blank" rel="noopener"
-         style="background:linear-gradient(135deg,rgba(220,39,67,.08),rgba(188,24,136,.06));border:1px solid rgba(220,39,67,.15);border-radius:var(--r2);padding:32px;display:flex;align-items:center;gap:20px;transition:transform .2s,box-shadow .2s"
+         style="background:var(--card-bg);border:1px solid rgba(220,39,67,.22);border-radius:var(--r2);padding:32px;display:flex;align-items:center;gap:20px;transition:transform .2s,box-shadow .2s"
          class="rv d1" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform=''">
         <svg viewBox="0 0 24 24" fill="#dc2743" width="40" height="40"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         <div>
@@ -111,7 +111,7 @@
         </div>
       </a>
       <a href="https://www.tiktok.com/@next_rides" target="_blank" rel="noopener"
-         style="background:linear-gradient(135deg,rgba(105,201,208,.07),rgba(238,29,82,.04));border:1px solid rgba(105,201,208,.14);border-radius:var(--r2);padding:32px;display:flex;align-items:center;gap:20px;transition:transform .2s"
+         style="background:var(--card-bg);border:1px solid rgba(105,201,208,.22);border-radius:var(--r2);padding:32px;display:flex;align-items:center;gap:20px;transition:transform .2s"
          class="rv d2" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform=''">
         <svg viewBox="0 0 24 24" fill="white" width="40" height="40"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.77 1.52V6.76a4.85 4.85 0 01-1-.07z"/></svg>
         <div>
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── Build news cards ── */
   function renderNews(cat) {
-    const pool = cat === 'all' ? news : news.filter(n => n.cat === cat);
+    const pool = (cat === 'all' ? news : news.filter(n => n.cat === cat)).filter(n => n.visible !== false);
     const grid = document.getElementById('news-grid');
     if (!grid) return;
     // Category color map
@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const stepsEl = document.getElementById('import-steps');
   if (stepsEl) {
     stepsEl.innerHTML = steps.map((s, i) => `
-      <div class="rv d${i+1}" style="background:#FFFFFF;border:1px solid rgba(0,0,0,0.08);border-radius:var(--r2);padding:28px 24px;box-shadow:0 4px 16px rgba(0,0,0,0.05)">
+      <div class="rv d${i+1}" style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--r2);padding:28px 24px;box-shadow:var(--card-shadow)">
         <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;line-height:1;color:var(--red);opacity:.35;margin-bottom:10px">${s.n}</div>
         <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:var(--text);margin-bottom:10px">${s.t}</div>
         <p style="font-size:.82rem;color:var(--muted);line-height:1.8">${s.d}</p>
@@ -219,6 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<script src="assets/js/main.js"></script>
+<script src="assets/js/firebase-config.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
