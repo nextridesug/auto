@@ -716,10 +716,10 @@ const D = {
 
   /* ── YouTube Videos ──────────────────────────────────── */
   ytVideos: [
-    { ytId:'ajiA6nVCil0', brand:'Mercedes-Benz', title:'G63 AMG — Full Reveal', sub:'King AD build · Stage remap · Custom carbon', large:true },
-    { ytId:'qMjE-PYA_ds', brand:'Range Rover',   title:'Sport Autobiography 2018', sub:'3.0L V6 turbo diesel · 270M', large:false },
-    { ytId:'4dN814qpssU', brand:'Porsche',       title:'911 BRABUS Edition', sub:'1/1 in Uganda & East Africa', large:false },
-    { ytId:'tUVd7uo9wvY', brand:'Mercedes-Benz', title:'AMG — Next Rides Uganda', sub:'Premium fleet · Kampala', large:false },
+    { src:'assets/img/g63.mp4',     brand:'Mercedes-Benz', title:'G 350d AMG — Next Rides Uganda',   sub:'Custom carbon kit · Stage remap · Kampala',     large:true  },
+    { src:'assets/img/range.mp4',   brand:'Range Rover',   title:'Sport Autobiography 2018',          sub:'3.0L V6 turbo diesel · 270M · For sale',        large:false },
+    { src:'assets/img/PORSCHE.mp4', brand:'Porsche',       title:'911 BRABUS Edition',                sub:'1/1 in Uganda & East Africa · Rare Find',       large:false },
+    { src:'assets/img/porshe.mp4',  brand:'Porsche',       title:'911 BRABUS 820 — Yellow Beast',     sub:'820hp · 0–100 in 2.5s · Price on Request',     large:false },
   ],
 
   /* ── News Articles ──────────────────────────────────── */
