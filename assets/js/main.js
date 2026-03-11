@@ -126,8 +126,11 @@ observeReveal();
 
 /* ── Counter Animation ─────────────────────────────────── */
 function animateCounter(el) {
-  const target = parseFloat(el.dataset.target);
+  const raw    = el.dataset.target || '';
   const suffix = el.dataset.suf || '';
+  /* If value contains K, M, ★ or + after digits, just display as-is */
+  if (/[KkMm★+]/.test(raw)) { el.textContent = raw + suffix; return; }
+  const target = parseFloat(raw);
   if (!target) return;
   const dur = 1800, start = performance.now();
   (function step(ts) {
@@ -257,18 +260,27 @@ function buildCarCard(c) {
   const waMsg = encodeURIComponent(`Hi Next Rides! 👋\nI'm interested in the ${c.year} ${c.brand} ${c.model}${c.price > 0 ? ' (' + fmtUSD(c.price) + ')' : ''}.\nCould you please share more details?`);
   const wa    = `https://wa.me/${wa_num()}?text=${waMsg}`;
   const bc    = c.badge ? (BADGE[c.badge] || 'b-feat') : '';
-  const imgs  = (c.images && c.images.length > 0) ? c.images : (c.img ? [c.img] : []);
+  /* ── Separate photo images from video on cards ── */
+  const isLocalVidSrc = v => v && (v.endsWith('.mp4') || v.startsWith('assets/img/'));
+  const rawImgsFull = (c.images && c.images.length > 0) ? c.images : (c.img ? [c.img] : []);
+  /* Filter mp4s out of photo slides */
+  const imgs  = rawImgsFull.filter(s => !isLocalVidSrc(s));
   const hasVid = !!c.video;
-  const totalSlides = imgs.length + (hasVid ? 1 : 0);
-  const cid   = 'cs_' + c.id;
+  const isLocalVid = hasVid && isLocalVidSrc(c.video);
 
-  /* If car has a local mp4 video, it goes FIRST and autoplays muted.
-     Images (if any) come after as additional slides. */
-  const isLocalVid = hasVid && (c.video.endsWith('.mp4') || c.video.startsWith('assets/'));
+  /* Toyota Crown (c18) — single image, no slideshow */
+  const noSlide = c.id === 'c18';
+  const photoSlideImgs = noSlide ? imgs.slice(0,1) : imgs;
+
+  /* Video slide — always LAST after photos, clearly separate */
   const vidSlide = isLocalVid
-    ? `<div class="cc-slide cc-slide-video">
+    ? `<div class="cc-slide cc-slide-video" style="position:relative">
         <video src="${c.video}" autoplay playsinline muted loop
                style="width:100%;height:100%;object-fit:cover"></video>
+        <div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);
+             background:rgba(0,0,0,.6);color:#fff;font-size:.55rem;font-weight:800;
+             letter-spacing:.1em;padding:3px 9px;border-radius:20px;
+             font-family:'Syne',sans-serif">▶ VIDEO</div>
        </div>`
     : '';
   const ytSlide = (hasVid && !isLocalVid)
@@ -278,19 +290,24 @@ function buildCarCard(c) {
                 allow="autoplay;encrypted-media" loading="lazy"></iframe>
        </div>`
     : '';
-  const imgSlides = imgs.map((src,i) =>
+  const imgSlides = photoSlideImgs.map((src,i) =>
     `<div class="cc-slide">
-      <img src="${src}" alt="${c.brand} ${c.model} ${c.year} ${i+1}" loading="${i===0 && !isLocalVid?'eager':'lazy'}"
+      <img src="${src}" alt="${c.brand} ${c.model} ${c.year} ${i+1}" loading="${i===0?'eager':'lazy'}"
            onerror="this.src='https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80'">
     </div>`
   ).join('');
-  /* Video first, then images */
-  const slides = vidSlide + imgSlides + ytSlide;
+  /* Photos first, then video as its own last slide */
+  const slides = imgSlides + vidSlide + ytSlide;
+  const totalSlides = noSlide ? 1 : (photoSlideImgs.length + (isLocalVid||ytSlide?1:0));
+  const cid   = 'cs_' + c.id;
 
   const dots = totalSlides > 1
-    ? `<div class="cc-dots">${Array.from({length:totalSlides},(_,i)=>
-        `<button class="cc-dot${i===0?' on':''}" onclick="ccGoto('${cid}',${i})" aria-label="Slide ${i+1}"></button>`
-      ).join('')}</div>` : '';
+    ? `<div class="cc-dots">${Array.from({length:totalSlides},(_,i)=>{
+        const isVidDot = isLocalVid && i === photoSlideImgs.length;
+        return `<button class="cc-dot${i===0?' on':''}" onclick="ccGoto('${cid}',${i})"
+          aria-label="${isVidDot?'Video':'Photo '+(i+1)}"
+          title="${isVidDot?'▶ Video':'📷 Photo '+(i+1)}"></button>`;
+      }).join('')}</div>` : '';
 
   const navBtns = totalSlides > 1
     ? `<button class="cc-nav prev" onclick="ccPrev('${cid}')" aria-label="Previous">&#8249;</button>
@@ -1060,11 +1077,33 @@ if (contactForm) {
     const waMsg  = encodeURIComponent(`Hi Next Rides! 👋\nI'm interested in the ${c.year} ${c.brand} ${c.model}.\nCould you please share more details?`);
     const wa     = `https://wa.me/${wa_num()}?text=${waMsg}`;
 
-    const imgs   = (c.images && c.images.length) ? c.images : (c.img ? [c.img] : []);
+    /* ── Separate photo slides from video slides ── */
+    const isLocalVid = v => v && (v.endsWith('.mp4') || v.startsWith('assets/img/'));
+
+    /* Photo-only images array (filter out any mp4 accidentally in images[]) */
+    const rawImgs = (c.images && c.images.length) ? c.images : (c.img ? [c.img] : []);
+    const photoImgs = rawImgs.filter(s => !isLocalVid(s));
+
+    /* Video slide (mp4 asset) — shown as its own dedicated slide AFTER photos */
+    const hasLocalVid = isLocalVid(c.video);
+    const videoSlide = hasLocalVid ? `
+      <div style="flex-shrink:0;width:100%;height:100%;position:relative;background:#000">
+        <video src="${c.video}" autoplay muted loop playsinline
+               style="width:100%;height:100%;object-fit:cover"></video>
+        <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);
+             background:rgba(0,0,0,.65);color:#fff;font-size:.62rem;font-weight:700;
+             letter-spacing:.12em;padding:4px 12px;border-radius:20px;
+             font-family:'Syne',sans-serif;backdrop-filter:blur(6px)">▶ VIDEO</div>
+      </div>` : '';
+
+    /* Toyota Crown c18 — no slideshow (single img, no dots/arrows) */
+    const noSlide = c.id === 'c18';
+    const imgs = noSlide ? (photoImgs.length ? [photoImgs[0]] : []) : photoImgs;
+
     const liked   = getLiked(cid);
     const [likes, reviews] = await Promise.all([getLikes(cid), getReviews(cid)]);
 
-    /* Slideshow */
+    /* Photo slides HTML */
     const slidesHtml = imgs.map((src,i) => `
       <div class="nm-slide" style="flex-shrink:0;width:100%;height:100%;position:relative">
         <img src="${src}" alt="${c.brand} ${c.model}" loading="${i?'lazy':'eager'}"
@@ -1072,10 +1111,17 @@ if (contactForm) {
              onerror="this.src='https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80'">
       </div>`).join('');
 
-    const dotsHtml = imgs.length > 1 ? `<div style="display:flex;justify-content:center;gap:6px;padding:10px 0">
-      ${imgs.map((_,i)=>`<button onclick="nmGoto(${i})" data-nm-dot="${i}"
-        style="width:${i===0?'20px':'8px'};height:8px;border-radius:4px;border:none;cursor:pointer;
-        background:${i===0?'#B81F0A':'rgba(0,0,0,.2)'};transition:all .25s"></button>`).join('')}
+    /* Total slides = photos + video (if any) */
+    const totalSlides = imgs.length + (hasLocalVid ? 1 : 0);
+
+    const dotsHtml = totalSlides > 1 ? `<div style="display:flex;justify-content:center;gap:6px;padding:10px 0">
+      ${Array.from({length:totalSlides},(_,i) => {
+        const isVid = hasLocalVid && i === imgs.length;
+        return `<button onclick="nmGoto(${i})" data-nm-dot="${i}"
+          style="width:${i===0?'20px':'8px'};height:8px;border-radius:4px;border:none;cursor:pointer;
+          background:${i===0?'#B81F0A':'rgba(0,0,0,.2)'};transition:all .25s"
+          title="${isVid?'Video':'Photo '+(i+1)}"></button>`;
+      }).join('')}
     </div>` : '';
 
     /* Spec chips */
@@ -1102,17 +1148,14 @@ if (contactForm) {
       <!-- Image slider -->
       <div style="position:relative;background:#000;height:clamp(240px,42vw,480px);overflow:hidden">
         <div id="nm-slides" style="display:flex;height:100%;transition:transform .35s cubic-bezier(.4,0,.2,1)">
-          ${c.video && (c.video.endsWith('.mp4')||c.video.startsWith('assets/')) ? `
-            <div style="flex-shrink:0;width:100%;height:100%">
-              <video src="${c.video}" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover"></video>
-            </div>` : ''}
           ${slidesHtml}
+          ${videoSlide}
         </div>
-        ${imgs.length > 1 ? `
+        ${totalSlides > 1 ? `
           <button onclick="nmPrev()" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);
             width:40px;height:40px;border-radius:50%;border:none;cursor:pointer;
             background:rgba(0,0,0,.5);color:#fff;font-size:1.4rem;backdrop-filter:blur(4px)">&#8249;</button>
-          <button onclick="nmNext(${imgs.length + (c.video?1:0)})" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);
+          <button onclick="nmNext(${totalSlides})" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);
             width:40px;height:40px;border-radius:50%;border:none;cursor:pointer;
             background:rgba(0,0,0,.5);color:#fff;font-size:1.4rem;backdrop-filter:blur(4px)">&#8250;</button>` : ''}
         ${c.badge ? `<div style="position:absolute;top:14px;left:14px;background:${c.enRoute?'#2563EB':'#B81F0A'};
