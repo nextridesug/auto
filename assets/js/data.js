@@ -354,9 +354,9 @@ const D = {
       badge:'RARE FIND', featured:true,
       ugxPrice:'Price on Request',
       desc:'PORSCHE 911 BRABUS — 1 of 1 in Uganda and East Africa. The rarest machine in the country. BRABUS-tuned performance, bespoke carbon fibre kit, full BRABUS interior upgrade. Contact us for exclusive viewing.',
-      img:'https://img.youtube.com/vi/4dN814qpssU/maxresdefault.jpg',
+      img:'assets/img/porshe.mp4',
       images:[],
-      video: '4dN814qpssU',
+      video: 'assets/img/porshe.mp4',
     },
     {
       id:'c26', visible:true, tag:'AVAILABLE',
@@ -452,9 +452,9 @@ const D = {
       badge:'RARE FIND', featured:true,
       ugxPrice:'Price on Request',
       desc:'PORSCHE 911 BRABUS 820 — 1 of 1 in East Africa 🇺🇬🇰🇪🇹🇿🇨🇩. 820hp BRABUS-tuned flat-six. The most exclusive Porsche on the continent. Bespoke build, full BRABUS certification. Contact for exclusive viewing.',
-      img:'https://img.youtube.com/vi/4dN814qpssU/maxresdefault.jpg',
+      img:'assets/img/porshe.mp4',
       images:[],
-      video: '4dN814qpssU',
+      video: 'assets/img/porshe.mp4',
     },
     {
       id:'c32', visible:true, tag:'HOT DEAL',
