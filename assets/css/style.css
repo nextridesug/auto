@@ -870,7 +870,7 @@ footer { background: linear-gradient(180deg, #FFFFFF 0%, #F7F5F0 50%, #F2EFE8 10
 .vp-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 260px);
+  grid-auto-rows: 260px;
   gap: 12px;
 }
 .vp-cell         { position: relative; border-radius: 14px; overflow: hidden;
