@@ -35,8 +35,8 @@
 
 /* ── Currency ───────────────────────────────────────────── */
 let UGX_RATE = 3700, showUGX = false;
-fetch('https://api.frankfurter.app/latest?from=USD&to=UGX')
-  .then(r => r.json())
+fetch('https://api.frankfurter.dev/v1/latest?from=USD&to=UGX')
+   .then(r => r.json())
   .then(d => { if (d.rates?.UGX) UGX_RATE = d.rates.UGX; })
   .catch(() => {});
 
