@@ -35,11 +35,10 @@
 
 /* ── Currency ───────────────────────────────────────────── */
 let UGX_RATE = 3700, showUGX = false;
-fetch('https://api.frankfurter.dev/v1/latest?from=USD&to=UGX')
-   .then(r => r.json())
+fetch('https://open.er-api.com/v6/latest/USD')
+  .then(r => r.json())
   .then(d => { if (d.rates?.UGX) UGX_RATE = d.rates.UGX; })
   .catch(() => {});
-
 const fmtUSD = n => '$' + Number(n).toLocaleString('en-US');
 const fmtUGX = n => 'UGX ' + Math.round(n * UGX_RATE).toLocaleString('en-UG');
 
