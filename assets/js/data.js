@@ -330,7 +330,6 @@ const D = {
       badge:'NEW ARRIVAL', featured:true,
       ugxPrice:'420,000,000',
       desc:'2023 Audi RS Q8 — black, bold, built to dominate. 4.0L twin-turbo V8 with 591hp, quattro AWD, 0-100km/h in 3.6 seconds. Power meets precision. Luxury and performance on an entirely different level.',
-      img:'assets/img/get.jpeg',
       images:[
         'assets/img/get.jpeg',
         'assets/img/get (1).jpeg',
