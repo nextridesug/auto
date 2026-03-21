@@ -441,7 +441,7 @@ const D = {
       ugxPrice:'550,000,000',
       desc:'2021 Mercedes-Benz G350d diesel with full G63 AMG kit. Blackboost engine dress-up, custom carbon hood with viewing panel, carbon rear wing, carbon interior trim. Top condition — mint throughout.',
        img:'https://img.youtube.com/vi/ajiA6nVCil0/maxresdefault.jpg',
-      images:['https://img.youtube.com/vi/ajiA6nVCil0/maxresdefault.jpg', 'https://img.youtube.com/vi/ajiA6nVCil0/mqdefault.jpg','assets/img/benz.jpg'],
+      images:['assets/img/benz.jpg'],
       video: 'assets/img/g63.mp4',
     },
     {
