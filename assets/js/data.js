@@ -411,7 +411,7 @@ const D = {
       img:'assets/img/range.jpg',
       images:[
         'assets/img/range.jpg',
-        'assets/img/rande2.jpg',
+        'assets/img/range2.jpg',
         'assets/img/range3.jpg',
         'assets/img/range4.jpg',
         'assets/img/range5.jpg',
