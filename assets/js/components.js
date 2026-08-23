@@ -21,17 +21,18 @@
   if (!document.querySelector('link[href^="assets/css/editorial-v4.css"]')) {
     const editorial = document.createElement('link');
     editorial.rel = 'stylesheet';
-    editorial.href = 'assets/css/editorial-v4.css?v=20260823-logo-blend-v6';
+    editorial.href = 'assets/css/editorial-v4.css?v=20260823-home-nav-v7';
     document.head.appendChild(editorial);
   }
   if (!document.querySelector('script[src^="assets/js/motion.js"]')) {
     const motion = document.createElement('script');
-    motion.src = 'assets/js/motion.js?v=20260823-logo-blend-v6';
+    motion.src = 'assets/js/motion.js?v=20260823-home-nav-v7';
     motion.defer = true;
     document.head.appendChild(motion);
   }
 
   const links = [
+    { h: 'index.html',     l: 'Home', home: true   },
     { h: 'inventory.html', l: 'Cars for sale' },
     { h: 'rent.html',      l: 'Hire a car'    },
     { h: 'events.html',    l: 'Occasions'     },
@@ -148,7 +149,7 @@
         ${logoFull()}
         <div id="mob-nav">
           <div class="nav-links">
-            ${links.map(l => `<a href="${l.h}" class="nav-a${page === l.h ? ' act' : ''}">${l.l}</a>`).join('')}
+            ${links.map(l => `<a href="${l.h}" class="nav-a${l.home ? ' nav-a--home' : ''}${page === l.h ? ' act' : ''}"${l.home ? ' aria-label="Home" title="Home"' : ''}>${l.home ? '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7"/><path d="M5 9v11h14V9"/><path d="M9 20v-6h6v6"/></svg><span>Home</span>' : l.l}</a>`).join('')}
           </div>
           <div class="nav-acts">
             <button id="theme-toggle" aria-label="Toggle theme" title="Toggle dark / light mode">

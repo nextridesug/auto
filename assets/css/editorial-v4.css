@@ -64,6 +64,11 @@ html.nr-v4 .nav-links { gap:clamp(18px,2.2vw,38px); }
 html.nr-v4 .nav-a { padding:8px 0; border-radius:0; color:var(--v4-ink); font:600 .72rem/1 'Inter Tight',sans-serif; letter-spacing:.01em; text-transform:none; }
 html.nr-v4 .nav-a::after { bottom:0; height:2px; background:var(--v4-signal); }
 html.nr-v4 .nav-a:hover,html.nr-v4 .nav-a.act { color:var(--v4-signal); }
+html.nr-v4 .nav-a--home { display:flex; align-items:center; justify-content:center; width:38px; height:38px; padding:0; border:1px solid var(--v4-line); }
+html.nr-v4 .nav-a--home::after { display:none; }
+html.nr-v4 .nav-a--home svg { width:16px; height:16px; }
+html.nr-v4 .nav-a--home span { display:none; }
+html.nr-v4 .nav-a--home:hover,html.nr-v4 .nav-a--home.act { border-color:var(--v4-signal); background:var(--v4-signal); color:#fff !important; }
 html.nr-v4 #theme-toggle { position:relative; display:flex; align-items:center; justify-content:center; width:42px; height:42px; padding:0; border:1px solid var(--v4-line); border-radius:0; background:transparent; color:var(--v4-ink); cursor:pointer; transition:background .25s ease,color .25s ease,border-color .25s ease; }
 html.nr-v4 #theme-toggle:hover { border-color:var(--v4-signal); background:var(--v4-signal); color:#fff; transform:none; }
 html.nr-v4 #theme-toggle .tt-sun,html.nr-v4 #theme-toggle .tt-moon { position:absolute; transition:opacity .25s ease,transform .25s ease; }
@@ -76,6 +81,8 @@ html.nr-v4[data-theme='dark'] #nav.sc .nr-brand-logo .logo-img { filter:drop-sha
 html.nr-v4 body.home-editorial #nav:not(.sc),
 html.nr-v4 body:has(.pg-hero) #nav:not(.sc) { color:#fff; }
 html.nr-v4 body:has(.pg-hero) #nav:not(.sc) { background:rgba(8,9,11,.52) !important; border-bottom-color:rgba(255,255,255,.13) !important; backdrop-filter:blur(18px) saturate(125%); }
+html.nr-v4 body.home-editorial #nav:not(.sc) .nav-a--home,
+html.nr-v4 body:has(.pg-hero) #nav:not(.sc) .nav-a--home { border-color:rgba(255,255,255,.28); }
 html.nr-v4 body.home-editorial #nav:not(.sc) .nav-a,
 html.nr-v4 body:has(.pg-hero) #nav:not(.sc) .nav-a { color:rgba(255,255,255,.82) !important; }
 html.nr-v4 body.home-editorial #nav:not(.sc) .nr-brand-logo .logo-img,
@@ -401,6 +408,10 @@ html.nr-motion.nr-v4 [data-nr-motion].is-visible { opacity:1; transform:none; }
 @media (max-width:900px) {
   html.nr-v4 #mob-nav { top:64px; left:0; right:0; border-bottom:1px solid var(--v4-line); border-radius:0; background:var(--v4-paper) !important; }
   html.nr-v4 .nav-a { color:var(--v4-ink) !important; font-size:1.15rem; padding:14px 0; }
+  html.nr-v4 .nav-a--home { justify-content:flex-start; width:auto; height:auto; gap:12px; border:0; background:transparent; }
+  html.nr-v4 .nav-a--home span { display:inline; }
+  html.nr-v4 .nav-a--home svg { width:19px; height:19px; }
+  html.nr-v4 .nav-a--home:hover,html.nr-v4 .nav-a--home.act { background:transparent; color:var(--v4-signal) !important; }
   html.nr-v4 .quick-find__form { grid-template-columns:1fr 1fr; }
   html.nr-v4 .quick-find button { grid-column:1/-1; }
   html.nr-v4 .cars-grid > .car-card:nth-child(n),html.nr-v4 .events-grid > .event-card:nth-child(n) { grid-column:span 6; }
