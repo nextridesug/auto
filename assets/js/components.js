@@ -18,21 +18,21 @@
   document.documentElement.classList.add('nr-v2','nr-v3');
   document.documentElement.removeAttribute('data-theme');
   document.body.dataset.page = page.replace('.html','') || 'home';
-  if (!document.querySelector('link[href="assets/css/showroom-v2.css"]')) {
+  if (!document.querySelector('link[href^="assets/css/showroom-v2.css"]')) {
     const visual = document.createElement('link');
     visual.rel = 'stylesheet';
     visual.href = 'assets/css/showroom-v2.css';
     document.head.appendChild(visual);
   }
-  if (!document.querySelector('link[href="assets/css/showroom-v3.css"]')) {
+  if (!document.querySelector('link[href^="assets/css/showroom-v3.css"]')) {
     const studio = document.createElement('link');
     studio.rel = 'stylesheet';
-    studio.href = 'assets/css/showroom-v3.css';
+    studio.href = 'assets/css/showroom-v3.css?v=20260823-rounded';
     document.head.appendChild(studio);
   }
-  if (!document.querySelector('script[src="assets/js/motion.js"]')) {
+  if (!document.querySelector('script[src^="assets/js/motion.js"]')) {
     const motion = document.createElement('script');
-    motion.src = 'assets/js/motion.js';
+    motion.src = 'assets/js/motion.js?v=20260823-rounded';
     motion.defer = true;
     document.head.appendChild(motion);
   }
