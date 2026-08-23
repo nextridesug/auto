@@ -637,6 +637,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* ── Search (on homepage and inventory page) ───────────── */
 function doSearch() {
+  const query  = (document.getElementById('s-query')?.value || '').trim().toLowerCase();
   const brand  = document.getElementById('s-brand')?.value  || '';
   const budget = document.getElementById('s-budget')?.value || '';
   const type   = document.getElementById('s-type')?.value   || '';
@@ -644,6 +645,8 @@ function doSearch() {
   if (!D) return;
 
   const res = D.cars.filter(c => {
+    const haystack = `${c.brand} ${c.model} ${c.year} ${c.fuel} ${c.trans} ${c.condition || ''} ${c.desc || ''}`.toLowerCase();
+    const qOk  = !query || haystack.includes(query);
     const bOk  = !brand  || c.brand === brand;
     const tOk  = !type   || c.trans === type;
     const buOk = !budget || (() => {
@@ -654,7 +657,7 @@ function doSearch() {
       if (b === 999999) return c.price >= 100000;
       return true;
     })();
-    return bOk && tOk && buOk;
+    return qOk && bOk && tOk && buOk;
   });
 
   const target = document.getElementById('inventory-grid') || document.getElementById('featured-cars');
@@ -672,6 +675,19 @@ function doSearch() {
   target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 document.getElementById('search-btn')?.addEventListener('click', doSearch);
+document.getElementById('s-query')?.addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
+
+/* Deep-link inventory filters from homepage and search engines. */
+if (document.getElementById('inventory-grid')) {
+  const params = new URLSearchParams(location.search);
+  const linkedBrand = params.get('brand');
+  const linkedQuery = params.get('q');
+  const brandField = document.getElementById('s-brand');
+  const queryField = document.getElementById('s-query');
+  if (linkedBrand && brandField && [...brandField.options].some(o => o.value === linkedBrand)) brandField.value = linkedBrand;
+  if (linkedQuery && queryField) queryField.value = linkedQuery;
+  if (linkedBrand || linkedQuery) document.addEventListener('DOMContentLoaded', doSearch, { once:true });
+}
 
 /* ── Order Form ────────────────────────────────────────── */
 const orderForm = document.getElementById('order-form');

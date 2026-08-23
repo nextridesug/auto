@@ -14,15 +14,12 @@
   const root  = '';  // all pages are siblings — no relative-path traversal needed
 
   const links = [
-    { h: 'index.html',     l: 'Home'      },
-    { h: 'inventory.html', l: 'Buy a Car' },
-    { h: 'rent.html',      l: 'Rent'      },
-    { h: 'brands.html',    l: 'Brands'    },
-    { h: 'events.html',    l: 'Events'    },
-    { h: 'news.html',      l: 'News'      },
-    { h: 'social.html',    l: 'Social'    },
-    { h: 'about.html',     l: 'About'     },
-    { h: 'contact.html',   l: 'Contact'   },
+    { h: 'inventory.html', l: 'Cars for sale' },
+    { h: 'rent.html',      l: 'Hire a car'    },
+    { h: 'events.html',    l: 'Occasions'     },
+    { h: 'order.html',     l: 'Import a car'  },
+    { h: 'social.html',    l: 'Stories'       },
+    { h: 'about.html',     l: 'Our showroom'  },
   ];
 
   /* ── SVG Icons ── */
@@ -74,8 +71,8 @@
               <svg class="tt-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
               <svg class="tt-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
             </button>
-            <button class="btn btn-gl btn-sm" id="ugx-btn">Show UGX</button>
-            <a href="order.html" class="btn btn-r btn-sm">Order a Car</a>
+            <button class="btn btn-gl btn-sm nav-currency" id="ugx-btn">UGX prices</button>
+            <a href="contact.html" class="btn btn-r btn-sm">Talk to us</a>
           </div>
         </div>
         <button id="burg" aria-label="Open menu">
@@ -100,8 +97,7 @@
 
             <div class="footer-brand">
               ${logoFull()}
-              <p>Uganda's most exclusive destination for premium automobiles.
-              Buy, rent, or custom-order your dream car — delivered right here in Kampala.</p>
+              <p>Cars for Uganda, selected in Kampala. Buy from current stock, custom-import a specific model, or book transport for your next occasion.</p>
               <div class="footer-soc">
                 <a href="${B.ig||'https://www.instagram.com/next_rides_ug'}" target="_blank" rel="noopener" class="fsb" title="Instagram">${SVG.ig}</a>
                 <a href="${B.tt||'https://www.tiktok.com/@next_rides'}" target="_blank" rel="noopener" class="fsb" title="TikTok">${SVG.tt}</a>
@@ -112,22 +108,21 @@
             </div>
 
             <div class="fc">
-              <h4>Buy &amp; Rent</h4>
+              <h4>Find a vehicle</h4>
               <nav>
                 <a href="inventory.html">Cars for Sale</a>
-                <a href="rent.html">Rent a Car</a>
-                <a href="brands.html">Our Brands</a>
-                <a href="order.html">Custom Order</a>
+                <a href="order.html">Custom Import</a>
+                <a href="rent.html">Wedding &amp; Event Hire</a>
+                <a href="rent.html#rental-fleet">Airport &amp; Convoy Hire</a>
               </nav>
             </div>
 
             <div class="fc">
-              <h4>Company</h4>
+              <h4>Next Rides</h4>
               <nav>
                 <a href="about.html">About Us</a>
-                <a href="events.html">Events</a>
-                <a href="news.html">News</a>
-                <a href="social.html">Social Feed</a>
+                <a href="events.html">Occasions &amp; Car Events</a>
+                <a href="social.html">Latest Stories</a>
                 <a href="contact.html">Contact</a>
                 <a href="terms.html">Terms</a>
                 <a href="privacy.html">Privacy</a>
@@ -139,7 +134,7 @@
               <div class="fci">
                 <div class="fct">${SVG.loc}<span>${B.address||'Naguru Road, Cadam Enterprises, Kampala'}</span></div>
                 <div class="fct">${SVG.ph}<div>
-                  <a href="tel:+256771572016">+256 0753 717 412</a><br>
+                  <a href="tel:+256753717412">+256 0753 717 412</a><br>
                   <a href="tel:+256771572016">+256 0771 572 016</a>
                 </div></div>
                 <div class="fct">${SVG.em}<a href="mailto:info.nextridesug@gmail.com">info.nextridesug@gmail.com</a></div>

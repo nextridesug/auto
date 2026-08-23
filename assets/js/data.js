@@ -893,6 +893,16 @@ const D = {
   /* ── Events ─────────────────────────────────────────── */
   events: [
     {
+      id:'e10', visible:true, status:'UPCOMING',
+      name:'East Africa Drift & Drag Championship — Jinja',
+      date:'August 21–23, 2026',
+      endDate:'2026-08-24',
+      location:'Jinja, Uganda',
+      desc:'A regional drift and drag weekend at a purpose-built track, with international participation and King AD supporting the championship. Confirm same-day programme details with the organiser before travelling.',
+      img:'assets/img/mvm2.jpg',
+      link:'https://nbssport.co.ug/article/jinja-gears-up-for-east-africas-drift-and-drag-showdown',
+    },
+    {
       id:'e01', visible:true, status:'UPCOMING',
       name:'Next Rides Monthly Open Day',
       date:'Every Last Saturday of the Month',
@@ -923,15 +933,15 @@ const D = {
       link:'contact.html',
     },
     {
-      id:'e07', visible:true, status:'UPCOMING',
-      name:'Man vs Machine II — Uganda Street Racers',
-      date:'2026 — Date TBA',
-      endDate: '2026-12-31',
+      id:'e07', visible:true, status:'PAST',
+      name:'Man vs Machine 2026 — Namanve',
+      date:'April 17–19, 2026',
+      endDate: '2026-04-19',
       location:'Namanve Industrial Park, Kampala',
-      desc:"Following the electrifying first edition, Uganda Street Racers Association is planning the return of Uganda's most thrilling motorsport spectacle — 80+ cars and bikes compete in timed drag sprints. Drifting, Time and Trial, and star appearances from Uganda's elite car enthusiasts including King AD. Entry open to all performance vehicles.",
+      desc:'The 2026 Man vs Machine weekend brought more than 80 cars together for drags, drifting and time trials, with Next Rides and King AD among the event sponsors.',
       img:'assets/img/mvm.jpg',
       images:['assets/img/mvm.jpg','assets/img/mvm2.jpg'],
-      link:'https://www.facebook.com/UgandaStreetRacersAssociation',
+      link:'https://pearlsportsug.com/king-ad-powers-man-v-machine-event/',
     },
     {
       id:'e08', visible:true, status:'UPCOMING',
