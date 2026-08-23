@@ -21,12 +21,12 @@
   if (!document.querySelector('link[href^="assets/css/editorial-v4.css"]')) {
     const editorial = document.createElement('link');
     editorial.rel = 'stylesheet';
-    editorial.href = 'assets/css/editorial-v4.css?v=20260823-hero-v3';
+    editorial.href = 'assets/css/editorial-v4.css?v=20260823-logo-v4';
     document.head.appendChild(editorial);
   }
   if (!document.querySelector('script[src^="assets/js/motion.js"]')) {
     const motion = document.createElement('script');
-    motion.src = 'assets/js/motion.js?v=20260823-hero-v3';
+    motion.src = 'assets/js/motion.js?v=20260823-logo-v4';
     motion.defer = true;
     document.head.appendChild(motion);
   }
@@ -130,9 +130,10 @@
 
   /* ── Logo builder ── */
   function logoFull() {
-    return `<a href="index.html" class="logo nr-wordmark" aria-label="Next Rides Uganda — home">
-      <span class="nr-wordmark__badge" aria-hidden="true">NR</span>
-      <span class="nr-wordmark__name">NEXT RIDES<small>UGANDA</small></span>
+    return `<a href="index.html" class="logo nr-brand-logo" aria-label="Next Rides Uganda — home">
+      <span class="nr-brand-logo__crop">
+        <img src="assets/img/logo.png" alt="Next Rides Uganda" class="logo-img">
+      </span>
     </a>`;
   }
 

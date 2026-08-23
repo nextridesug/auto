@@ -57,11 +57,9 @@ html.nr-v4 .text-link { color:var(--v4-ink); font-size:.78rem; font-weight:800; 
 html.nr-v4 #nav { position:fixed; z-index:1000; top:0; left:0; right:0; width:100%; height:76px; padding:0; border:0 !important; border-bottom:1px solid transparent !important; border-radius:0 !important; background:transparent !important; box-shadow:none !important; backdrop-filter:none; transition:height .35s var(--v4-ease),background .35s ease,border-color .35s ease; }
 html.nr-v4 #nav::before { display:none !important; }
 html.nr-v4 #nav .ni { height:100%; max-width:none; padding-inline:clamp(20px,3.2vw,52px); }
-html.nr-v4 #nav .logo-img { height:39px !important; }
-html.nr-v4 .nr-wordmark { display:flex; align-items:center; gap:10px; color:inherit; line-height:1; text-decoration:none; }
-html.nr-v4 .nr-wordmark__badge { display:grid; place-items:center; width:38px; height:38px; background:var(--v4-signal); color:#fff; font-size:.74rem; font-weight:850; letter-spacing:-.04em; }
-html.nr-v4 .nr-wordmark__name { display:flex; flex-direction:column; gap:3px; color:inherit; font-size:.88rem; font-weight:800; letter-spacing:.12em; }
-html.nr-v4 .nr-wordmark__name small { color:var(--v4-signal); font-size:.49rem; font-weight:800; letter-spacing:.24em; }
+html.nr-v4 .nr-brand-logo { display:block; width:132px; height:48px; overflow:hidden; background:#fff; text-decoration:none; }
+html.nr-v4 .nr-brand-logo__crop { position:relative; display:block; width:100%; height:100%; overflow:hidden; }
+html.nr-v4 #nav .nr-brand-logo .logo-img { position:absolute; top:50%; left:50%; width:148px !important; max-width:none; height:auto !important; filter:none !important; transform:translate(-50%,-50%); }
 html.nr-v4 .nav-links { gap:clamp(18px,2.2vw,38px); }
 html.nr-v4 .nav-a { padding:8px 0; border-radius:0; color:var(--v4-ink); font:600 .72rem/1 'Inter Tight',sans-serif; letter-spacing:.01em; text-transform:none; }
 html.nr-v4 .nav-a::after { bottom:0; height:2px; background:var(--v4-signal); }
@@ -81,7 +79,7 @@ html.nr-v4 body:has(.pg-hero) #nav:not(.sc) { background:rgba(8,9,11,.52) !impor
 html.nr-v4 body.home-editorial #nav:not(.sc) .nav-a,
 html.nr-v4 body:has(.pg-hero) #nav:not(.sc) .nav-a { color:rgba(255,255,255,.82) !important; }
 html.nr-v4 body.home-editorial #nav:not(.sc) .logo-img,
-html.nr-v4 body:has(.pg-hero) #nav:not(.sc) .logo-img { filter:brightness(0) invert(1); }
+html.nr-v4 body:has(.pg-hero) #nav:not(.sc) .logo-img { filter:none !important; }
 html.nr-v4 body.home-editorial #nav:not(.sc) #theme-toggle,
 html.nr-v4 body:has(.pg-hero) #nav:not(.sc) #theme-toggle { border-color:rgba(255,255,255,.34); color:#fff; }
 html.nr-v4 body.home-editorial #nav:not(.sc) #burg span,
