@@ -11,6 +11,7 @@ html.nr-v4 {
   --v4-signal:#ed4c2b;
   --v4-signal-deep:#bd3318;
   --v4-lime:#d9ff43;
+  --v4-night:#08090b;
   --v4-ease:cubic-bezier(.22,1,.36,1);
   color-scheme:light;
   scroll-behavior:smooth;
@@ -57,6 +58,10 @@ html.nr-v4 #nav { position:fixed; z-index:1000; top:0; left:0; right:0; width:10
 html.nr-v4 #nav::before { display:none !important; }
 html.nr-v4 #nav .ni { height:100%; max-width:none; padding-inline:clamp(20px,3.2vw,52px); }
 html.nr-v4 #nav .logo-img { height:39px !important; }
+html.nr-v4 .nr-wordmark { display:flex; align-items:center; gap:10px; color:inherit; line-height:1; text-decoration:none; }
+html.nr-v4 .nr-wordmark__badge { display:grid; place-items:center; width:38px; height:38px; background:var(--v4-signal); color:#fff; font-size:.74rem; font-weight:850; letter-spacing:-.04em; }
+html.nr-v4 .nr-wordmark__name { display:flex; flex-direction:column; gap:3px; color:inherit; font-size:.88rem; font-weight:800; letter-spacing:.12em; }
+html.nr-v4 .nr-wordmark__name small { color:var(--v4-signal); font-size:.49rem; font-weight:800; letter-spacing:.24em; }
 html.nr-v4 .nav-links { gap:clamp(18px,2.2vw,38px); }
 html.nr-v4 .nav-a { padding:8px 0; border-radius:0; color:var(--v4-ink); font:600 .72rem/1 'Inter Tight',sans-serif; letter-spacing:.01em; text-transform:none; }
 html.nr-v4 .nav-a::after { bottom:0; height:2px; background:var(--v4-signal); }
@@ -72,6 +77,7 @@ html.nr-v4[data-theme='dark'] #nav.sc { background:rgba(12,13,15,.94) !important
 html.nr-v4[data-theme='dark'] #nav.sc .logo-img { filter:brightness(0) invert(1); }
 html.nr-v4 body.home-editorial #nav:not(.sc),
 html.nr-v4 body:has(.pg-hero) #nav:not(.sc) { color:#fff; }
+html.nr-v4 body:has(.pg-hero) #nav:not(.sc) { background:rgba(8,9,11,.52) !important; border-bottom-color:rgba(255,255,255,.13) !important; backdrop-filter:blur(18px) saturate(125%); }
 html.nr-v4 body.home-editorial #nav:not(.sc) .nav-a,
 html.nr-v4 body:has(.pg-hero) #nav:not(.sc) .nav-a { color:rgba(255,255,255,.82) !important; }
 html.nr-v4 body.home-editorial #nav:not(.sc) .logo-img,
@@ -245,7 +251,7 @@ html.nr-v4 .showroom-visit h2 { color:#fff; font-family:'DM Serif Display',serif
 html.nr-v4 .showroom-visit p { max-width:700px; color:rgba(255,255,255,.72); }
 
 /* Inner page heroes vary by content family and avoid the repeated floating rectangle. */
-html.nr-v4 .pg-hero { position:relative; isolation:isolate; width:100%; min-height:86svh; margin:0; display:flex; align-items:flex-end; padding:160px 0 clamp(78px,10vh,120px) !important; border-radius:0; overflow:hidden; background:var(--v4-ink) !important; box-shadow:none; }
+html.nr-v4 .pg-hero { position:relative; isolation:isolate; width:100%; min-height:86svh; margin:0; display:flex; align-items:flex-end; padding:160px 0 clamp(78px,10vh,120px) !important; border-radius:0; overflow:hidden; background:var(--v4-night) !important; box-shadow:none; }
 html.nr-v4 .pg-hero::before { content:''; position:absolute; z-index:-2; inset:0; opacity:.72; background-image:linear-gradient(90deg,rgba(6,7,8,.9),rgba(6,7,8,.4) 58%,rgba(6,7,8,.08)),var(--v4-hero) !important; background-position:center !important; background-size:cover !important; transform:scale(1.025); }
 html.nr-v4 .pg-hero::after { content:''; position:absolute; z-index:-1; inset:0; background:linear-gradient(0deg,rgba(5,6,7,.68),transparent 58%); }
 html.nr-v4 body[data-page='inventory'] { --v4-hero:url('../img/landcruiser-0.jpg'); }
@@ -260,23 +266,29 @@ html.nr-v4 body[data-page='contact'] { --v4-hero:url('../img/landcruiser-0.jpg')
 html.nr-v4 body[data-page='privacy'],html.nr-v4 body[data-page='terms'] { --v4-hero:url('../img/gle63s.jpg'); }
 html.nr-v4 .pg-hero > .w { position:relative; z-index:2; width:100%; }
 html.nr-v4 .pg-crumb { margin-bottom:clamp(38px,7vh,72px); color:rgba(255,255,255,.55) !important; }
-html.nr-v4 .pg-hero .pill,html.nr-v4 .pg-hero .pill-g { color:var(--v4-lime) !important; }
+html.nr-v4 .pg-hero .pill,html.nr-v4 .pg-hero .pill-g { background:transparent !important; color:var(--v4-lime) !important; }
 html.nr-v4 .pg-hero h1 { max-width:1250px; color:#fff !important; font-size:clamp(4rem,9vw,10.2rem) !important; font-weight:560 !important; line-height:.76 !important; letter-spacing:-.072em !important; text-transform:none; }
 html.nr-v4 .pg-hero h1 .t-r,html.nr-v4 .pg-hero h1 .t-g { color:#fff !important; font-family:'DM Serif Display',serif !important; font-weight:400; }
 html.nr-v4 .pg-lead { max-width:740px; margin-top:30px; color:rgba(255,255,255,.7) !important; font-size:clamp(1rem,1.45vw,1.25rem); }
 
 html.nr-v4 body[data-page='about'] .pg-hero,
 html.nr-v4 body[data-page='contact'] .pg-hero,
-html.nr-v4 body[data-page='order'] .pg-hero { min-height:72svh; }
+html.nr-v4 body[data-page='order'] .pg-hero { min-height:clamp(680px,78svh,920px); }
 html.nr-v4 body[data-page='about'] .pg-hero::before,
 html.nr-v4 body[data-page='contact'] .pg-hero::before,
-html.nr-v4 body[data-page='order'] .pg-hero::before { inset:0 0 0 43%; opacity:.88; background-image:var(--v4-hero) !important; }
+html.nr-v4 body[data-page='order'] .pg-hero::before { inset:0 0 0 50%; opacity:.95; background-image:var(--v4-hero) !important; background-position:center 55% !important; transform:none; }
 html.nr-v4 body[data-page='about'] .pg-hero::after,
 html.nr-v4 body[data-page='contact'] .pg-hero::after,
-html.nr-v4 body[data-page='order'] .pg-hero::after { background:linear-gradient(90deg,var(--v4-ink) 0 48%,rgba(13,14,16,.68) 64%,transparent); }
+html.nr-v4 body[data-page='order'] .pg-hero::after { background:linear-gradient(90deg,#08090b 0 45%,rgba(8,9,11,.94) 50%,rgba(8,9,11,.56) 64%,rgba(8,9,11,.08) 82%),linear-gradient(0deg,rgba(8,9,11,.58),transparent 48%); }
 html.nr-v4 body[data-page='about'] .pg-hero h1,
 html.nr-v4 body[data-page='contact'] .pg-hero h1,
-html.nr-v4 body[data-page='order'] .pg-hero h1 { max-width:760px; font-size:clamp(3.5rem,7vw,8rem) !important; }
+html.nr-v4 body[data-page='order'] .pg-hero h1 { max-width:720px; font-size:clamp(3.7rem,6vw,7.25rem) !important; line-height:.8 !important; }
+html.nr-v4 body[data-page='order'] .pg-lead { max-width:620px; }
+html.nr-v4 .import-hero__route { display:grid; grid-template-columns:repeat(3,1fr); max-width:650px; margin-top:42px; border-top:1px solid rgba(255,255,255,.25); border-bottom:1px solid rgba(255,255,255,.25); }
+html.nr-v4 .import-hero__route span { padding:15px 16px 16px 0; border-right:1px solid rgba(255,255,255,.2); color:rgba(255,255,255,.76); font-size:.76rem; font-weight:650; }
+html.nr-v4 .import-hero__route span + span { padding-left:16px; }
+html.nr-v4 .import-hero__route span:last-child { border-right:0; }
+html.nr-v4 .import-hero__route small { display:block; margin-bottom:5px; color:var(--v4-lime); font-size:.58rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
 
 /* Import logistics: a sequential route followed by a full carrier story. */
 html.nr-v4 .import-journey { padding:clamp(80px,9vw,140px) 0; background:var(--v4-bone) !important; }

@@ -21,12 +21,12 @@
   if (!document.querySelector('link[href^="assets/css/editorial-v4.css"]')) {
     const editorial = document.createElement('link');
     editorial.rel = 'stylesheet';
-    editorial.href = 'assets/css/editorial-v4.css?v=20260823-adaptive-v2';
+    editorial.href = 'assets/css/editorial-v4.css?v=20260823-hero-v3';
     document.head.appendChild(editorial);
   }
   if (!document.querySelector('script[src^="assets/js/motion.js"]')) {
     const motion = document.createElement('script');
-    motion.src = 'assets/js/motion.js?v=20260823-adaptive-v2';
+    motion.src = 'assets/js/motion.js?v=20260823-hero-v3';
     motion.defer = true;
     document.head.appendChild(motion);
   }
@@ -129,20 +129,10 @@
   };
 
   /* ── Logo builder ── */
-  const logoId = 'lf' + Math.random().toString(36).slice(2);
   function logoFull() {
-    /* Try logo.png first, fallback to logo.svg, fallback to styled text */
-    return `<a href="index.html" class="logo" style="display:flex;align-items:center;gap:10px;text-decoration:none">
-      <img src="assets/img/logo.png" alt="Next Rides Uganda"
-           class="logo-img" id="logo-img-${logoId}"
-           style="height:44px;width:auto;object-fit:contain;display:block"
-           onerror="this.onerror=null;this.src='assets/img/logo.svg';this.onerror=function(){this.style.display='none';var f=document.getElementById('lf-${logoId}');if(f)f.style.display='flex'}">
-      <div id="lf-${logoId}" style="display:none;align-items:center;gap:6px">
-        <div style="display:flex;align-items:center">
-          <span class="logo-nex">NEX</span><span class="logo-t">T</span>
-        </div>
-        <span class="logo-sub">Rides Uganda</span>
-      </div>
+    return `<a href="index.html" class="logo nr-wordmark" aria-label="Next Rides Uganda — home">
+      <span class="nr-wordmark__badge" aria-hidden="true">NR</span>
+      <span class="nr-wordmark__name">NEXT RIDES<small>UGANDA</small></span>
     </a>`;
   }
 
