@@ -527,12 +527,30 @@ document.addEventListener('DOMContentLoaded', () => {
   /* Rentals */
   const rentEl = document.getElementById('rental-grid');
   if (rentEl) {
+    const rentScrollButtons = [...document.querySelectorAll('[data-rent-scroll]')];
+    const updateRentScrollButtons = () => {
+      if (!rentScrollButtons.length) return;
+      const max = Math.max(0, rentEl.scrollWidth - rentEl.clientWidth);
+      rentScrollButtons.forEach(btn => {
+        btn.disabled = Number(btn.dataset.rentScroll) < 0
+          ? rentEl.scrollLeft <= 3
+          : rentEl.scrollLeft >= max - 3;
+      });
+    };
     const drawRentals = use => {
       let pool = D.rentals.filter(r => r.visible !== false && (!use || (r.uses || []).includes(use)));
       if (!document.querySelector('[data-rent-filter]')) pool = pool.slice(0, 3);
       render('rental-grid', pool.map(buildRentCard).join(''));
+      rentEl.scrollLeft = 0;
+      requestAnimationFrame(updateRentScrollButtons);
     };
     drawRentals('');
+    rentScrollButtons.forEach(btn => btn.addEventListener('click', () => {
+      const distance = Math.max(320, rentEl.clientWidth * .82);
+      rentEl.scrollBy({ left:Number(btn.dataset.rentScroll) * distance, behavior:'smooth' });
+    }));
+    rentEl.addEventListener('scroll', updateRentScrollButtons, { passive:true });
+    window.addEventListener('resize', updateRentScrollButtons, { passive:true });
     document.querySelectorAll('[data-rent-filter]').forEach(btn => btn.addEventListener('click', () => {
       document.querySelectorAll('[data-rent-filter]').forEach(b => b.classList.remove('on'));
       btn.classList.add('on');

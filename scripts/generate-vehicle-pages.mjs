@@ -79,14 +79,14 @@ for (const car of cars.filter(car => car.visible !== false)) {
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" as="image" href="${esc(images[0])}" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/editorial-v4.css?v=20260823-home-nav-v7">
+  <link rel="stylesheet" href="assets/css/editorial-v4.css?v=20260823-rent-scroll-v8">
   <link rel="icon" type="image/png" href="logo.png">
   <script type="application/ld+json">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script>
   <script type="application/ld+json">${JSON.stringify(breadcrumbSchema).replace(/</g, '\\u003c')}</script>
 </head>
 <body>
-  <script src="assets/js/data.js?v=20260823-home-nav-v7"></script>
-  <script src="assets/js/components.js?v=20260823-home-nav-v7"></script>
+  <script src="assets/js/data.js?v=20260823-rent-scroll-v8"></script>
+  <script src="assets/js/components.js?v=20260823-rent-scroll-v8"></script>
   <main class="vehicle-page">
     <div class="w">
       <nav class="vehicle-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>›</span><a href="inventory.html">Cars for sale in Kampala</a><span>›</span><span>${esc(car.brand)} ${esc(car.model)}</span></nav>
@@ -115,7 +115,7 @@ for (const car of cars.filter(car => car.visible !== false)) {
       </section>
     </div>
   </main>
-  <script src="assets/js/main.js?v=20260823-home-nav-v7"></script>
+  <script src="assets/js/main.js?v=20260823-rent-scroll-v8"></script>
 </body>
 </html>`;
   fs.writeFileSync(path.join(outDir, `${carSlug}.html`), html);

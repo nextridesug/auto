@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/editorial-v4.css?v=20260823-home-nav-v7">
+  <link rel="stylesheet" href="assets/css/editorial-v4.css?v=20260823-rent-scroll-v8">
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="shortcut icon" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
@@ -32,8 +32,8 @@
   </script>
 </head>
 <body>
-<script src="assets/js/data.js?v=20260823-home-nav-v7"></script>
-<script src="assets/js/components.js?v=20260823-home-nav-v7"></script>
+<script src="assets/js/data.js?v=20260823-rent-scroll-v8"></script>
+<script src="assets/js/components.js?v=20260823-rent-scroll-v8"></script>
 
 <!-- PAGE HERO -->
 <div class="pg-hero">
@@ -135,7 +135,14 @@
       <button data-rent-filter="Daily Hire">Daily hire</button>
       <button data-rent-filter="Upcountry">Upcountry</button>
     </div>
-    <div class="rent-grid" id="rental-grid"></div>
+    <div class="rent-carousel-controls" aria-label="Rental fleet carousel controls">
+      <span>Swipe, scroll or use the arrows</span>
+      <div>
+        <button type="button" data-rent-scroll="-1" aria-label="Show previous rental vehicles" aria-controls="rental-grid" disabled>←</button>
+        <button type="button" data-rent-scroll="1" aria-label="Show next rental vehicles" aria-controls="rental-grid">→</button>
+      </div>
+    </div>
+    <div class="rent-grid" id="rental-grid" tabindex="0" aria-label="Rental vehicles"></div>
 
     <!-- Rental T&Cs note -->
     <div class="rv" style="margin-top:56px;background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:var(--r3);padding:36px 40px">
@@ -194,6 +201,6 @@
 </div>
 
 <script src="assets/js/firebase-config.js"></script>
-  <script src="assets/js/main.js?v=20260823-home-nav-v7"></script>
+  <script src="assets/js/main.js?v=20260823-rent-scroll-v8"></script>
 </body>
 </html>
