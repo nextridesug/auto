@@ -263,6 +263,51 @@ function ytWallPlay(playBtn, ytId) {
   const thumb = cell.querySelector('.yt-wall-thumb');
   if (thumb) thumb.style.opacity = '0';
 }
+
+/* ── In-site media player ─────────────────────────────── */
+function openSiteVideo({ src, youtubeId, title = 'Next Rides video', externalUrl = '' }) {
+  let dialog = document.getElementById('nr-video-dialog');
+  if (!dialog) {
+    dialog = document.createElement('dialog');
+    dialog.id = 'nr-video-dialog';
+    dialog.className = 'nr-video-dialog';
+    dialog.innerHTML = `<div class="nr-video-dialog__panel">
+      <button class="nr-video-dialog__close" type="button" aria-label="Close video">×</button>
+      <div class="nr-video-dialog__media"></div>
+      <div class="nr-video-dialog__foot"><strong></strong><a target="_blank" rel="noopener">View original post ↗</a></div>
+    </div>`;
+    document.body.appendChild(dialog);
+    const clear = () => { dialog.querySelector('.nr-video-dialog__media').innerHTML = ''; };
+    dialog.querySelector('.nr-video-dialog__close').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+    dialog.addEventListener('close', clear);
+  }
+  const media = dialog.querySelector('.nr-video-dialog__media');
+  media.innerHTML = youtubeId
+    ? `<iframe src="https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1" title="${title}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`
+    : `<video src="${src}" autoplay controls playsinline title="${title}"></video>`;
+  dialog.querySelector('.nr-video-dialog__foot strong').textContent = title;
+  const original = dialog.querySelector('.nr-video-dialog__foot a');
+  original.href = externalUrl || '#';
+  original.hidden = !externalUrl;
+  dialog.showModal();
+}
+
+document.addEventListener('click', event => {
+  const localTrigger = event.target.closest('[data-inline-video]');
+  if (localTrigger && !event.target.closest('video')) {
+    event.preventDefault();
+    openSiteVideo({ src:localTrigger.dataset.inlineVideo, title:localTrigger.dataset.videoTitle || 'Next Rides video', externalUrl:localTrigger.href || '' });
+    return;
+  }
+  const youtubeCard = event.target.closest('a.yt-card[href*="youtube.com/watch"]');
+  if (youtubeCard) {
+    const id = new URL(youtubeCard.href).searchParams.get('v');
+    if (!id) return;
+    event.preventDefault();
+    openSiteVideo({ youtubeId:id, title:youtubeCard.querySelector('.yt-title')?.textContent.trim() || 'Next Rides YouTube video', externalUrl:youtubeCard.href });
+  }
+});
 const wa_num = () => window.NR?.biz?.wa || '256771572016';
 
 /* ── Car Card HTML ─────────────────────────────────────── */
@@ -560,17 +605,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const latestSocial = document.getElementById('latest-social-grid');
   if (latestSocial && D.latestSocial) {
-    render('latest-social-grid', D.latestSocial.map(p => `
-      <a class="latest-social-card rv" href="${p.url}" target="_blank" rel="noopener">
+    render('latest-social-grid', D.latestSocial.map((p,index) => p.video ? `
+      <article class="latest-social-card latest-social-card--video rv" id="latest-video-${index}">
         <div class="latest-social-media">
-          <img src="${p.img}" alt="${p.title} — Next Rides Uganda" loading="lazy" decoding="async">
-          <span class="latest-social-play" aria-hidden="true">▶</span>
+          <video data-nr-video data-src="${p.video}" poster="${p.img}" preload="none" controls muted loop playsinline aria-label="${p.title} video"></video>
         </div>
         <div class="latest-social-copy">
           <span>${p.type} · ${p.date}</span>
           <h3>${p.title}</h3>
           <p>${p.meta}</p>
+          <a class="latest-social-original" href="${p.url}" target="_blank" rel="noopener">View original post ↗</a>
         </div>
+      </article>` : `
+      <a class="latest-social-card rv" href="${p.url}" target="_blank" rel="noopener">
+        <div class="latest-social-media"><img src="${p.img}" alt="${p.title} — Next Rides Uganda" loading="lazy" decoding="async"><span class="latest-social-play" aria-hidden="true">▶</span></div>
+        <div class="latest-social-copy"><span>${p.type} · ${p.date}</span><h3>${p.title}</h3><p>${p.meta}</p></div>
       </a>`).join(''));
   }
 

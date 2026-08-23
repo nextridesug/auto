@@ -261,6 +261,19 @@ html.nr-v4 .video-showcase__card video { position:absolute; inset:0; width:100%;
 html.nr-v4 .video-showcase__shade { position:absolute; inset:auto 0 0; height:42%; pointer-events:none; background:linear-gradient(transparent,rgba(0,0,0,.86)); }
 html.nr-v4 .video-showcase__copy { position:absolute; z-index:2; right:14px; bottom:52px; left:18px; pointer-events:none; }
 html.nr-v4 .video-showcase__card::after { content:'VIDEO'; position:absolute; z-index:2; top:14px; left:14px; padding:6px 8px; background:var(--v4-lime); color:#08090b; font-size:.56rem; font-weight:850; letter-spacing:.14em; }
+html.nr-v4 .latest-social-card--video { color:var(--v4-ink); }
+html.nr-v4 .latest-social-card--video .latest-social-media video { width:100%; height:100%; object-fit:cover; background:#08090b; }
+html.nr-v4 .latest-social-original { display:inline-block; margin-top:14px; color:var(--v4-signal); font-size:.7rem; font-weight:800; text-decoration:none; }
+html.nr-v4 .nr-video-dialog { width:min(1100px,calc(100vw - 32px)); max-width:none; padding:0; border:1px solid rgba(255,255,255,.18); border-radius:0; background:#08090b; color:#fff; box-shadow:0 35px 100px rgba(0,0,0,.65); }
+html.nr-v4 .nr-video-dialog::backdrop { background:rgba(3,4,5,.84); backdrop-filter:blur(12px); }
+html.nr-v4 .nr-video-dialog__panel { position:relative; }
+html.nr-v4 .nr-video-dialog__media { display:grid; place-items:center; min-height:min(70vh,720px); background:#000; }
+html.nr-v4 .nr-video-dialog__media video,html.nr-v4 .nr-video-dialog__media iframe { display:block; width:100%; height:min(76vh,760px); border:0; object-fit:contain; }
+html.nr-v4 .nr-video-dialog__close { position:absolute; z-index:3; top:12px; right:12px; display:grid; place-items:center; width:44px; height:44px; border:1px solid rgba(255,255,255,.35); border-radius:0; background:rgba(8,9,11,.78); color:#fff; font:400 1.5rem/1 sans-serif; cursor:pointer; }
+html.nr-v4 .nr-video-dialog__close:hover { background:var(--v4-signal); border-color:var(--v4-signal); }
+html.nr-v4 .nr-video-dialog__foot { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:18px 20px; border-top:1px solid rgba(255,255,255,.14); }
+html.nr-v4 .nr-video-dialog__foot strong { font-size:.86rem; }
+html.nr-v4 .nr-video-dialog__foot a { color:var(--v4-lime); font-size:.72rem; font-weight:800; text-decoration:none; }
 
 /* Service chapters are rows, not three matching cards. */
 html.nr-v4 .home-guide { padding:clamp(100px,12vw,190px) 0; background:var(--v4-bone); color:var(--v4-ink); }
