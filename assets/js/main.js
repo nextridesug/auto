@@ -534,7 +534,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* Featured Cars (homepage) */
   const feat = document.getElementById('featured-cars');
   if (feat) {
-    const homePriority = ['c43','c44','c37','c41','c40','c38'];
+    const homePriority = ['c43','c45','c46','c47','c48','c44'];
     const featuredCars = homePriority.map(id => D.cars.find(c => c && c.id === id)).filter(Boolean);
     render('featured-cars', featuredCars.map(buildCarCard).join(''));
     /* Preload first 4 featured car images for instant display */

@@ -373,4 +373,32 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://www.nextridesug.com/cars/2024-bmw-xm-label-red.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <image:image><image:loc>https://www.nextridesug.com/assets/img/inventory/bmw-xm-label-red/01.jpg</image:loc><image:title>2024 BMW XM Label Red</image:title></image:image>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.nextridesug.com/cars/2026-mercedes-benz-amg-g-63-hybrid.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <image:image><image:loc>https://www.nextridesug.com/assets/img/inventory/2026-mercedes-amg-g63-hybrid/01.jpg</image:loc><image:title>2026 Mercedes-Benz AMG G 63 Hybrid</image:title></image:image>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.nextridesug.com/cars/2022-mercedes-benz-e-450-4matic-convertible.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <image:image><image:loc>https://www.nextridesug.com/assets/img/inventory/2022-mercedes-e450-convertible/01.jpg</image:loc><image:title>2022 Mercedes-Benz E 450 4MATIC Convertible</image:title></image:image>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.nextridesug.com/cars/2026-next-rides-brand-new-ev-cab.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <image:image><image:loc>https://www.nextridesug.com/assets/img/social-ev-cab.jpg</image:loc><image:title>2026 Next Rides Brand-New EV Cab</image:title></image:image>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
