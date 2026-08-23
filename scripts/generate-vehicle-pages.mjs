@@ -55,7 +55,7 @@ for (const car of cars.filter(car => car.visible !== false)) {
   const gallery = images.slice(0, 8).map((image, index) => `<img src="${image}" alt="${esc(car.year)} ${esc(car.brand)} ${esc(car.model)} photo ${index + 1}" loading="${index ? 'lazy' : 'eager'}" decoding="async">`).join('');
   const whatsapp = `https://wa.me/${biz.wa}?text=${encodeURIComponent(`Hi Next Rides! I'm interested in the ${car.year} ${car.brand} ${car.model}. Please confirm availability and price.`)}`;
   const html = `<!DOCTYPE html>
-<html lang="en" class="nr-v2 nr-v3">
+<html lang="en" class="nr-v4">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,15 +74,14 @@ for (const car of cars.filter(car => car.visible !== false)) {
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" as="image" href="${esc(images[0])}" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/showroom-v2.css">
-  <link rel="stylesheet" href="assets/css/showroom-v3.css?v=20260823-rounded">
+  <link rel="stylesheet" href="assets/css/editorial-v4.css?v=20260823-editorial">
   <link rel="icon" type="image/png" href="logo.png">
   <script type="application/ld+json">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script>
   <script type="application/ld+json">${JSON.stringify(breadcrumbSchema).replace(/</g, '\\u003c')}</script>
 </head>
 <body>
-  <script src="assets/js/data.js?v=20260823-rounded"></script>
-  <script src="assets/js/components.js?v=20260823-rounded"></script>
+  <script src="assets/js/data.js?v=20260823-editorial"></script>
+  <script src="assets/js/components.js?v=20260823-editorial"></script>
   <main class="vehicle-page">
     <div class="w">
       <nav class="vehicle-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>›</span><a href="inventory.html">Cars for sale in Kampala</a><span>›</span><span>${esc(car.brand)} ${esc(car.model)}</span></nav>
@@ -107,7 +106,7 @@ for (const car of cars.filter(car => car.visible !== false)) {
       </section>
     </div>
   </main>
-  <script src="assets/js/main.js?v=20260823-rounded"></script>
+  <script src="assets/js/main.js?v=20260823-editorial"></script>
 </body>
 </html>`;
   fs.writeFileSync(path.join(outDir, `${carSlug}.html`), html);

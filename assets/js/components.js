@@ -13,26 +13,21 @@
   const page  = location.pathname.split('/').pop() || 'index.html';
   const root  = '';  // all pages are siblings — no relative-path traversal needed
 
-  /* Final visual system and motion are loaded after the legacy bundle so the
-     whole site shares one deterministic cascade without a risky rewrite. */
-  document.documentElement.classList.add('nr-v2','nr-v3');
+  /* The editorial system is the only active visual layer. It loads after the
+     legacy base for shared utility compatibility, without the previous skins. */
+  document.documentElement.classList.remove('nr-v2','nr-v3');
+  document.documentElement.classList.add('nr-v4');
   document.documentElement.removeAttribute('data-theme');
   document.body.dataset.page = page.replace('.html','') || 'home';
-  if (!document.querySelector('link[href^="assets/css/showroom-v2.css"]')) {
-    const visual = document.createElement('link');
-    visual.rel = 'stylesheet';
-    visual.href = 'assets/css/showroom-v2.css';
-    document.head.appendChild(visual);
-  }
-  if (!document.querySelector('link[href^="assets/css/showroom-v3.css"]')) {
-    const studio = document.createElement('link');
-    studio.rel = 'stylesheet';
-    studio.href = 'assets/css/showroom-v3.css?v=20260823-rounded';
-    document.head.appendChild(studio);
+  if (!document.querySelector('link[href^="assets/css/editorial-v4.css"]')) {
+    const editorial = document.createElement('link');
+    editorial.rel = 'stylesheet';
+    editorial.href = 'assets/css/editorial-v4.css?v=20260823-editorial';
+    document.head.appendChild(editorial);
   }
   if (!document.querySelector('script[src^="assets/js/motion.js"]')) {
     const motion = document.createElement('script');
-    motion.src = 'assets/js/motion.js?v=20260823-rounded';
+    motion.src = 'assets/js/motion.js?v=20260823-editorial';
     motion.defer = true;
     document.head.appendChild(motion);
   }
