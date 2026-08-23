@@ -17,17 +17,16 @@
      legacy base for shared utility compatibility, without the previous skins. */
   document.documentElement.classList.remove('nr-v2','nr-v3');
   document.documentElement.classList.add('nr-v4');
-  document.documentElement.removeAttribute('data-theme');
   document.body.dataset.page = page.replace('.html','') || 'home';
   if (!document.querySelector('link[href^="assets/css/editorial-v4.css"]')) {
     const editorial = document.createElement('link');
     editorial.rel = 'stylesheet';
-    editorial.href = 'assets/css/editorial-v4.css?v=20260823-editorial';
+    editorial.href = 'assets/css/editorial-v4.css?v=20260823-adaptive-v2';
     document.head.appendChild(editorial);
   }
   if (!document.querySelector('script[src^="assets/js/motion.js"]')) {
     const motion = document.createElement('script');
-    motion.src = 'assets/js/motion.js?v=20260823-editorial';
+    motion.src = 'assets/js/motion.js?v=20260823-adaptive-v2';
     motion.defer = true;
     document.head.appendChild(motion);
   }

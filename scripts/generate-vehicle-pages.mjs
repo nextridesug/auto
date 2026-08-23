@@ -52,11 +52,16 @@ for (const car of cars.filter(car => car.visible !== false)) {
   };
   const numericMileage = Number(String(car.mileage || '').replace(/[^0-9.]/g, ''));
   if (numericMileage) schema.mileageFromOdometer = { '@type':'QuantitativeValue', value:numericMileage, unitCode:'KMT' };
-  const gallery = images.slice(0, 8).map((image, index) => `<img src="${image}" alt="${esc(car.year)} ${esc(car.brand)} ${esc(car.model)} photo ${index + 1}" loading="${index ? 'lazy' : 'eager'}" decoding="async">`).join('');
+  const interiorStart = Number.isInteger(car.interiorStart) ? Math.min(car.interiorStart, images.length) : images.length;
+  const exteriorImages = images.slice(0, interiorStart);
+  const interiorImages = images.slice(interiorStart);
+  const exteriorGallery = exteriorImages.map((image, index) => `<img src="${image}" alt="${esc(car.year)} ${esc(car.brand)} ${esc(car.model)} exterior photo ${index + 1}" loading="${index ? 'lazy' : 'eager'}" decoding="async">`).join('');
+  const interiorGallery = interiorImages.map((image, index) => `<img src="${image}" alt="${esc(car.year)} ${esc(car.brand)} ${esc(car.model)} interior photo ${index + 1}" loading="lazy" decoding="async">`).join('');
   const whatsapp = `https://wa.me/${biz.wa}?text=${encodeURIComponent(`Hi Next Rides! I'm interested in the ${car.year} ${car.brand} ${car.model}. Please confirm availability and price.`)}`;
   const html = `<!DOCTYPE html>
 <html lang="en" class="nr-v4">
 <head>
+  <script>try{var t=localStorage.getItem('nr-theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <base href="../">
@@ -74,19 +79,23 @@ for (const car of cars.filter(car => car.visible !== false)) {
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" as="image" href="${esc(images[0])}" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/editorial-v4.css?v=20260823-editorial">
+  <link rel="stylesheet" href="assets/css/editorial-v4.css?v=20260823-adaptive-v2">
   <link rel="icon" type="image/png" href="logo.png">
   <script type="application/ld+json">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script>
   <script type="application/ld+json">${JSON.stringify(breadcrumbSchema).replace(/</g, '\\u003c')}</script>
 </head>
 <body>
-  <script src="assets/js/data.js?v=20260823-editorial"></script>
-  <script src="assets/js/components.js?v=20260823-editorial"></script>
+  <script src="assets/js/data.js?v=20260823-adaptive-v2"></script>
+  <script src="assets/js/components.js?v=20260823-adaptive-v2"></script>
   <main class="vehicle-page">
     <div class="w">
       <nav class="vehicle-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>›</span><a href="inventory.html">Cars for sale in Kampala</a><span>›</span><span>${esc(car.brand)} ${esc(car.model)}</span></nav>
       <section class="vehicle-layout">
-        <div class="vehicle-gallery">${gallery}</div>
+        <div class="vehicle-visuals">
+          <header class="vehicle-visuals__head"><span>01 / Exterior</span><h2>Body, stance<br>and condition.</h2></header>
+          <div class="vehicle-gallery">${exteriorGallery}</div>
+          ${interiorImages.length ? `<header class="vehicle-visuals__head vehicle-visuals__head--interior"><span>02 / Interior</span><h2>Inside the<br>${esc(car.model)}.</h2><p>Matching cabin photographs from this vehicle's own image set.</p></header><div class="vehicle-gallery vehicle-gallery--interior">${interiorGallery}</div>` : `<div class="vehicle-interior-note"><span>Interior photographs</span><p>Ask the showroom for the current cabin photo set before confirming availability.</p></div>`}
+        </div>
         <aside class="vehicle-summary">
           <span class="vehicle-kicker">${esc(car.badge || car.tag || 'Available')}</span>
           <h1>${esc(car.year)} ${esc(car.brand)}<br>${esc(car.model)}</h1>
@@ -106,7 +115,7 @@ for (const car of cars.filter(car => car.visible !== false)) {
       </section>
     </div>
   </main>
-  <script src="assets/js/main.js?v=20260823-editorial"></script>
+  <script src="assets/js/main.js?v=20260823-adaptive-v2"></script>
 </body>
 </html>`;
   fs.writeFileSync(path.join(outDir, `${carSlug}.html`), html);

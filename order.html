@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" class="nr-v4">
 <head>
-  <script>/* No-FOUC theme init */try{var t=localStorage.getItem('nr-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}</script>
+  <script>/* Adaptive theme before paint */try{var t=localStorage.getItem('nr-theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
   <base href="./">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Import a Car to Uganda | Custom Vehicle Order Kampala</title>
-  <meta name="description" content="Ask Next Rides Uganda to source and import your exact car from Japan, Europe, the UK or UAE, with inspection, shipping, URA clearance and Kampala delivery.">
+  <meta name="description" content="Ask Next Rides Uganda to source and import your exact car from Japan, Europe, the UK or UAE, with inspection, shipping, car-carrier transport from Mombasa, URA clearance and Kampala delivery.">
   <link rel="canonical" href="https://www.nextridesug.com/order.html">
   <meta property="og:title" content="Import Your Exact Car to Uganda | Next Rides">
-  <meta property="og:description" content="Specify the model, year, colour and budget. Next Rides handles sourcing, inspection, shipping and URA clearance.">
+  <meta property="og:description" content="Specify the model, year, colour and budget. Next Rides coordinates sourcing, inspection, shipping, Mombasa-to-Kampala car-carrier transport and URA clearance.">
   <meta property="og:image" content="https://www.nextridesug.com/assets/img/porsche-brabus-preview.png">
   <meta property="og:url" content="https://www.nextridesug.com/order.html">
   <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Vehicle Import and Car-Carrier Transport to Uganda","serviceType":"Vehicle sourcing, import clearance and car-carrier transport","provider":{"@type":"AutoDealer","name":"Next Rides Uganda","url":"https://www.nextridesug.com/"},"areaServed":[{"@type":"City","name":"Kampala"},{"@type":"Country","name":"Uganda"}],"description":"Vehicle sourcing, inspection, ocean shipping, specialist car-carrier coordination from Mombasa, URA clearance, registration and Kampala handover."}</script>
   <link rel="preconnect" href="https://img.youtube.com" crossorigin>
   <link rel="dns-prefetch" href="https://img.youtube.com">
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
@@ -22,14 +23,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/editorial-v4.css?v=20260823-editorial">
+  <link rel="stylesheet" href="assets/css/editorial-v4.css?v=20260823-adaptive-v2">
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="shortcut icon" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
 </head>
 <body>
-<script src="assets/js/data.js?v=20260823-editorial"></script>
-<script src="assets/js/components.js?v=20260823-editorial"></script>
+<script src="assets/js/data.js?v=20260823-adaptive-v2"></script>
+<script src="assets/js/components.js?v=20260823-adaptive-v2"></script>
 
 <!-- PAGE HERO -->
 <div class="pg-hero">
@@ -41,35 +42,40 @@
     </div>
     <div class="pill">Import on demand</div>
     <h1>Your exact car.<br><span class="t-r">Sourced properly.</span></h1>
-    <p class="pg-lead">From a clear brief to inspection, shipping, URA clearance and Kampala handover—we coordinate the complete import journey.</p>
+    <p class="pg-lead">From a clear brief to inspection, shipping, specialist car-carrier transport, URA clearance and Kampala handover—we coordinate the complete import journey.</p>
   </div>
 </div>
 
 <!-- INTRO -->
-<section style="background:var(--page-bg);padding:60px 0 0">
+<section class="import-journey">
   <div class="w">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:2px;border-radius:var(--r3);overflow:hidden">
-      <div style="background:var(--glass);border:1px solid var(--border);padding:36px 28px;text-align:center" class="rv d1">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:.04em;line-height:1;margin-bottom:6px" class="t-r">01</div>
-        <div style="font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:var(--text);margin-bottom:6px">Place Order</div>
-        <div style="font-size:.8rem;color:var(--muted)">Fill in the form below</div>
-      </div>
-      <div style="background:var(--glass);border:1px solid var(--border);padding:36px 28px;text-align:center" class="rv d2">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:.04em;line-height:1;margin-bottom:6px" class="t-r">02</div>
-        <div style="font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:var(--text);margin-bottom:6px">We Source It</div>
-        <div style="font-size:.8rem;color:var(--muted)">Our team finds your car in Europe or Japan</div>
-      </div>
-      <div style="background:var(--glass);border:1px solid var(--border);padding:36px 28px;text-align:center" class="rv d3">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:.04em;line-height:1;margin-bottom:6px" class="t-r">03</div>
-        <div style="font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:var(--text);margin-bottom:6px">URA Clearance</div>
-        <div style="font-size:.8rem;color:var(--muted)">All duties and paperwork handled</div>
-      </div>
-      <div style="background:var(--glass);border:1px solid var(--border);padding:36px 28px;text-align:center" class="rv d4">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:.04em;line-height:1;margin-bottom:6px" class="t-r">04</div>
-        <div style="font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:var(--text);margin-bottom:6px">Delivered to You</div>
-        <div style="font-size:.8rem;color:var(--muted)">Kampala delivery in 6–10 weeks</div>
-      </div>
+    <p class="eyebrow">One managed route</p>
+    <div class="import-journey__steps">
+      <article><span>01</span><h2>Brief</h2><p>Model, year, trim, interior and budget.</p></article>
+      <article><span>02</span><h2>Source</h2><p>Verified dealer or auction, then inspection.</p></article>
+      <article><span>03</span><h2>Ship</h2><p>Ocean freight with documents and tracking.</p></article>
+      <article><span>04</span><h2>Carry</h2><p>Specialist vehicle carrier from Mombasa.</p></article>
+      <article><span>05</span><h2>Handover</h2><p>URA clearance, registration and Kampala delivery.</p></article>
     </div>
+  </div>
+</section>
+
+<section class="carrier-story">
+  <figure class="carrier-story__media">
+    <img src="https://trakana.co.ke/wp-content/uploads/WhatsApp-Image-2024-06-14-at-5.56.04-PM.jpeg" alt="Specialist car carrier loaded with vehicles at a Mombasa shipping yard" loading="lazy" decoding="async">
+    <figcaption>Illustrative East African carrier operation · <a href="https://trakana.co.ke/project/car-carrier/" target="_blank" rel="noopener">image source</a></figcaption>
+  </figure>
+  <div class="carrier-story__copy">
+    <p class="eyebrow">Mombasa → Kampala</p>
+    <h2>Your car travels<br>as cargo—not mileage.</h2>
+    <p>After port release, we can coordinate a specialist multi-vehicle carrier through an approved logistics partner. Loading, route updates, border documentation and Kampala off-loading are confirmed for the individual order.</p>
+    <ul>
+      <li>Carrier loading coordinated after port release</li>
+      <li>Transit documentation and route updates</li>
+      <li>Reduced road mileage before handover</li>
+      <li>Final condition check in Kampala</li>
+    </ul>
+    <a class="btn btn-r" href="#order-form">Request carrier delivery</a>
   </div>
 </section>
 
@@ -239,6 +245,14 @@
               <label>Preferred Colour</label>
               <input name="colour" placeholder="e.g. Black, White, Grey, any">
             </div>
+            <div class="f-group" style="margin-bottom:14px">
+              <label>Transport from Mombasa</label>
+              <select name="transport">
+                <option>Specialist car carrier to Kampala</option>
+                <option>Discuss enclosed or single-car transport</option>
+                <option>I will arrange collection</option>
+              </select>
+            </div>
             <div class="f-group" style="margin-bottom:24px">
               <label>Additional Specifications / Notes</label>
               <textarea name="notes" placeholder="Trim level, interior, extras, any specific requirements..." style="min-height:100px"></textarea>
@@ -263,6 +277,6 @@
 </div>
 
 <script src="assets/js/firebase-config.js"></script>
-  <script src="assets/js/main.js?v=20260823-editorial"></script>
+  <script src="assets/js/main.js?v=20260823-adaptive-v2"></script>
 </body>
 </html>

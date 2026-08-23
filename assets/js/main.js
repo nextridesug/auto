@@ -713,6 +713,7 @@ if (orderForm) {
       `Year:   ${f.yr?.value}\n`+
       `Budget: ${f.budget?.value}\n`+
       `Colour: ${f.colour?.value || '—'}\n`+
+      `Mombasa transport: ${f.transport?.value || 'Discuss with me'}\n`+
       `Notes:  ${f.notes?.value || '—'}`
     );
     window.open(`https://wa.me/${wa_num()}?text=${msg}`, '_blank');
@@ -949,28 +950,46 @@ if (contactForm) {
 (function themeToggle() {
   var STORE = 'nr-theme';
   var html  = document.documentElement;
+  var systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
 
-  /* Apply saved theme immediately (before DOMContentLoaded) */
+  /* Respect an explicit preference; otherwise follow the device theme. */
   var saved = localStorage.getItem(STORE);
-  if (saved === 'dark') html.setAttribute('data-theme', 'dark');
+  if (saved === 'dark' || (!saved && systemTheme.matches)) html.setAttribute('data-theme', 'dark');
+  else html.removeAttribute('data-theme');
 
-  function setTheme(dark) {
+  function syncThemeButton() {
+    var btn = document.getElementById('theme-toggle');
+    var dark = html.getAttribute('data-theme') === 'dark';
+    var themeMeta = document.querySelector('meta[name="theme-color"]');
+    if (themeMeta) themeMeta.setAttribute('content', dark ? '#0c0d0f' : '#fbfaf7');
+    if (!btn) return;
+    btn.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+    btn.setAttribute('title', dark ? 'Switch to light theme' : 'Switch to dark theme');
+    btn.setAttribute('aria-pressed', String(dark));
+  }
+
+  function setTheme(dark, persist) {
     if (dark) {
       html.setAttribute('data-theme', 'dark');
-      localStorage.setItem(STORE, 'dark');
     } else {
       html.removeAttribute('data-theme');
-      localStorage.setItem(STORE, 'light');
     }
+    if (persist) localStorage.setItem(STORE, dark ? 'dark' : 'light');
+    syncThemeButton();
   }
+
+  systemTheme.addEventListener?.('change', function(event) {
+    if (!localStorage.getItem(STORE)) setTheme(event.matches, false);
+  });
 
   /* Wire button after DOM ready */
   document.addEventListener('DOMContentLoaded', function() {
     var btn = document.getElementById('theme-toggle');
     if (!btn) return;
+    syncThemeButton();
     btn.addEventListener('click', function() {
       var isDark = html.getAttribute('data-theme') === 'dark';
-      setTheme(!isDark);
+      setTheme(!isDark, true);
     });
   });
 })();

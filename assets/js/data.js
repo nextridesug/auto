@@ -53,6 +53,7 @@ const D = {
         'assets/img/gle63s (8).jpg',
         'assets/img/gle63s (9).jpg',
       ],
+      interiorStart:6,
       video: null,
     },
     {
@@ -320,6 +321,7 @@ const D = {
         'assets/img/coupe7.jpg',
         'assets/img/coupe8.jpg',
       ],
+      interiorStart:6,
       video: null,
     },
     {
@@ -342,6 +344,7 @@ const D = {
         'assets/img/get (9).jpeg',
         'assets/img/get (10).jpeg',
       ],
+      interiorStart:6,
       video: null,
     },
     {
@@ -375,6 +378,7 @@ const D = {
         'assets/img/landcruiser-6.jpg',
         'assets/img/landcruiser-7.jpg',
       ],
+      interiorStart:5,
       video: null,
     },
     {
@@ -396,6 +400,7 @@ const D = {
         'assets/img/maz7.jpg',
         'assets/img/maz8.jpg',
       ],
+      interiorStart:5,
       video: null,
     },
     {
@@ -416,6 +421,7 @@ const D = {
         'assets/img/range6.jpg',
         'assets/img/range7.jpg',
       ],
+      interiorStart:4,
       video: null,
     },
     {
@@ -439,7 +445,16 @@ const D = {
       ugxPrice:'550,000,000',
       desc:'2021 Mercedes-Benz G350d diesel with full G63 AMG kit. Blackboost engine dress-up, custom carbon hood with viewing panel, carbon rear wing, carbon interior trim. Top condition — mint throughout.',
        img:'https://img.youtube.com/vi/ajiA6nVCil0/maxresdefault.jpg',
-      images:['assets/img/benz.jpg'],
+      images:[
+        'assets/img/benz.jpg',
+        'assets/img/benz2.jpg',
+        'assets/img/benz3.jpg',
+        'assets/img/benz4.jpg',
+        'assets/img/benz5.jpg',
+        'assets/img/benz6.jpg',
+        'assets/img/benz7.jpg',
+      ],
+      interiorStart:5,
       video: 'assets/img/g63.mp4',
     },
     {
