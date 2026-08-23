@@ -216,18 +216,18 @@ function buildYtWall(container) {
     const cls = v.large ? 'vp-cell large' : 'vp-cell';
     const isLocal = v.src && (v.src.endsWith('.mp4') || v.src.startsWith('assets/'));
     if (isLocal) {
-      // Local mp4 — autoplay muted video tile
+      // Local MP4 — loaded on intersection, with native controls as a reliable fallback.
       return `
-    <div class="${cls} rv" style="position:relative;border-radius:14px;overflow:hidden;background:#000">
-      <video src="${v.src}" autoplay muted loop playsinline
-             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none"></video>
-      <div style="position:absolute;inset:0;background:rgba(0,0,0,.25)"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 18px;background:linear-gradient(transparent,rgba(0,0,0,.85));pointer-events:none">
+    <article class="${cls} video-showcase__card rv">
+      <video data-nr-video data-src="${v.src}" preload="none" controls muted loop playsinline
+             aria-label="${v.brand} ${v.title} video"></video>
+      <div class="video-showcase__shade"></div>
+      <div class="video-showcase__copy">
         <div style="font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:3px">${v.brand}</div>
         <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(.9rem,1.2vw,1.2rem);letter-spacing:.05em;color:#fff;line-height:1.1">${v.title}</div>
         <div style="font-size:.6rem;color:rgba(255,255,255,.45);margin-top:3px">${v.sub}</div>
       </div>
-    </div>`;
+    </article>`;
     }
     // YouTube fallback (legacy)
     return `

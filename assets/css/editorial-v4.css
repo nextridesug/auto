@@ -249,6 +249,19 @@ html.nr-v4 .latest-social-grid--home > *:nth-child(6) { grid-column:span 3; }
 html.nr-v4 .latest-social-grid--home > *:nth-child(1) .latest-social-media { aspect-ratio:16/10; }
 html.nr-v4 .latest-social-media { aspect-ratio:4/5; border-radius:0 !important; overflow:hidden; }
 
+/* Real, locally hosted video footage with native playback controls. */
+html.nr-v4 .video-showcase { padding:clamp(92px,11vw,170px) 0; overflow:hidden; background:#08090b; color:#fff; }
+html.nr-v4 .video-showcase__head { margin-bottom:clamp(42px,6vw,82px); }
+html.nr-v4 .video-showcase__head h2 { max-width:900px; color:#fff; }
+html.nr-v4 .video-showcase__head a { color:#fff; }
+html.nr-v4 .video-showcase__grid { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); grid-auto-rows:clamp(280px,32vw,470px); gap:10px; }
+html.nr-v4 .video-showcase__card { position:relative; grid-column:span 4; min-height:0; overflow:hidden; border:1px solid rgba(255,255,255,.12); background:#111; }
+html.nr-v4 .video-showcase__card.large { grid-column:span 8; grid-row:span 2; }
+html.nr-v4 .video-showcase__card video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; background:#050506; }
+html.nr-v4 .video-showcase__shade { position:absolute; inset:auto 0 0; height:42%; pointer-events:none; background:linear-gradient(transparent,rgba(0,0,0,.86)); }
+html.nr-v4 .video-showcase__copy { position:absolute; z-index:2; right:14px; bottom:52px; left:18px; pointer-events:none; }
+html.nr-v4 .video-showcase__card::after { content:'VIDEO'; position:absolute; z-index:2; top:14px; left:14px; padding:6px 8px; background:var(--v4-lime); color:#08090b; font-size:.56rem; font-weight:850; letter-spacing:.14em; }
+
 /* Service chapters are rows, not three matching cards. */
 html.nr-v4 .home-guide { padding:clamp(100px,12vw,190px) 0; background:var(--v4-bone); color:var(--v4-ink); }
 html.nr-v4 .home-guide__top { display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(50px,9vw,150px); align-items:end; margin-bottom:clamp(60px,8vw,110px); }
@@ -439,6 +452,7 @@ html.nr-motion.nr-v4 [data-nr-motion].is-visible { opacity:1; transform:none; }
   html.nr-v4 .rent-grid > .rent-card:nth-child(3) { grid-column:3/span 8; }
   html.nr-v4 .king-feature,html.nr-v4 .about-culture { grid-template-columns:1fr; }
   html.nr-v4 .latest-social-grid--home > *:nth-child(n) { grid-column:span 6; }
+  html.nr-v4 .video-showcase__card,html.nr-v4 .video-showcase__card.large { grid-column:span 6; grid-row:span 1; }
   html.nr-v4 .home-guide article { grid-template-columns:70px 1fr; }
   html.nr-v4 .home-guide article p,html.nr-v4 .home-guide article a { grid-column:2; }
   html.nr-v4 .showroom-visit__inner { grid-template-columns:1fr; }
@@ -485,6 +499,8 @@ html.nr-motion.nr-v4 [data-nr-motion].is-visible { opacity:1; transform:none; }
   html.nr-v4 body[data-page='rent'] .rent-carousel-controls > span { max-width:150px; }
   html.nr-v4 body[data-page='rent'] .rent-grid { grid-auto-columns:86vw; }
   html.nr-v4 .latest-social-grid--home > *:nth-child(n) { grid-column:1/-1; }
+  html.nr-v4 .video-showcase__grid { grid-template-columns:1fr; grid-auto-rows:520px; }
+  html.nr-v4 .video-showcase__card,html.nr-v4 .video-showcase__card.large { grid-column:auto; }
   html.nr-v4 .home-guide article { grid-template-columns:1fr; gap:14px; padding:28px 0; }
   html.nr-v4 .home-guide article p,html.nr-v4 .home-guide article a { grid-column:auto; }
   html.nr-v4 .pg-hero { min-height:700px; padding-bottom:72px !important; }

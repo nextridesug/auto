@@ -23,16 +23,24 @@
     updateProgress();
 
     const lazyVideos = document.querySelectorAll('video[data-nr-video]');
-    if (lazyVideos.length && !reduce) {
-      const videoObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+    const videoObserver = new IntersectionObserver(entries => entries.forEach(entry => {
         const video = entry.target;
         if (entry.isIntersecting) {
           if (!video.src && video.dataset.src) video.src = video.dataset.src;
-          video.play().catch(() => {});
+          if (!reduce) video.play().catch(() => {});
         } else if (!video.paused) video.pause();
       }), { rootMargin:'0px', threshold:.01 });
-      lazyVideos.forEach(video => videoObserver.observe(video));
-    }
+    const observeVideo = video => {
+      if (video.dataset.nrVideoObserved) return;
+      video.dataset.nrVideoObserved = 'true';
+      videoObserver.observe(video);
+    };
+    lazyVideos.forEach(observeVideo);
+    new MutationObserver(records => records.forEach(record => record.addedNodes.forEach(node => {
+      if (node.nodeType !== 1) return;
+      if (node.matches?.('video[data-nr-video]')) observeVideo(node);
+      node.querySelectorAll?.('video[data-nr-video]').forEach(observeVideo);
+    }))).observe(body,{ childList:true,subtree:true });
 
     if (!reduce) {
       root.classList.add('nr-motion');
