@@ -21,12 +21,12 @@
   if (!document.querySelector('link[href^="assets/css/editorial-v4.css"]')) {
     const editorial = document.createElement('link');
     editorial.rel = 'stylesheet';
-    editorial.href = 'assets/css/editorial-v4.css?v=20260823-logo-v4';
+    editorial.href = 'assets/css/editorial-v4.css?v=20260823-logo-blend-v5';
     document.head.appendChild(editorial);
   }
   if (!document.querySelector('script[src^="assets/js/motion.js"]')) {
     const motion = document.createElement('script');
-    motion.src = 'assets/js/motion.js?v=20260823-logo-v4';
+    motion.src = 'assets/js/motion.js?v=20260823-logo-blend-v5';
     motion.defer = true;
     document.head.appendChild(motion);
   }

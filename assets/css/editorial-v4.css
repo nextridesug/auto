@@ -57,9 +57,9 @@ html.nr-v4 .text-link { color:var(--v4-ink); font-size:.78rem; font-weight:800; 
 html.nr-v4 #nav { position:fixed; z-index:1000; top:0; left:0; right:0; width:100%; height:76px; padding:0; border:0 !important; border-bottom:1px solid transparent !important; border-radius:0 !important; background:transparent !important; box-shadow:none !important; backdrop-filter:none; transition:height .35s var(--v4-ease),background .35s ease,border-color .35s ease; }
 html.nr-v4 #nav::before { display:none !important; }
 html.nr-v4 #nav .ni { height:100%; max-width:none; padding-inline:clamp(20px,3.2vw,52px); }
-html.nr-v4 .nr-brand-logo { display:block; width:132px; height:48px; overflow:hidden; background:#fff; text-decoration:none; }
+html.nr-v4 .nr-brand-logo { display:block; width:124px; height:52px; overflow:hidden; background:transparent; text-decoration:none; }
 html.nr-v4 .nr-brand-logo__crop { position:relative; display:block; width:100%; height:100%; overflow:hidden; }
-html.nr-v4 #nav .nr-brand-logo .logo-img { position:absolute; top:50%; left:50%; width:148px !important; max-width:none; height:auto !important; filter:none !important; transform:translate(-50%,-50%); }
+html.nr-v4 #nav .nr-brand-logo .logo-img { position:absolute; top:50%; left:50%; width:148px !important; max-width:none; height:auto !important; filter:none; transform:translate(-50%,-50%); }
 html.nr-v4 .nav-links { gap:clamp(18px,2.2vw,38px); }
 html.nr-v4 .nav-a { padding:8px 0; border-radius:0; color:var(--v4-ink); font:600 .72rem/1 'Inter Tight',sans-serif; letter-spacing:.01em; text-transform:none; }
 html.nr-v4 .nav-a::after { bottom:0; height:2px; background:var(--v4-signal); }
@@ -72,14 +72,14 @@ html.nr-v4[data-theme='dark'] #theme-toggle .tt-sun { opacity:0; transform:rotat
 html.nr-v4[data-theme='dark'] #theme-toggle .tt-moon { opacity:1; transform:none; }
 html.nr-v4 #nav.sc { height:64px; background:rgba(251,250,247,.94) !important; border-bottom-color:var(--v4-line) !important; backdrop-filter:blur(20px) saturate(130%); }
 html.nr-v4[data-theme='dark'] #nav.sc { background:rgba(12,13,15,.94) !important; }
-html.nr-v4[data-theme='dark'] #nav.sc .logo-img { filter:brightness(0) invert(1); }
+html.nr-v4[data-theme='dark'] #nav.sc .nr-brand-logo .logo-img { filter:drop-shadow(0 0 1px rgba(255,255,255,.95)) drop-shadow(0 0 2px rgba(255,255,255,.55)) !important; }
 html.nr-v4 body.home-editorial #nav:not(.sc),
 html.nr-v4 body:has(.pg-hero) #nav:not(.sc) { color:#fff; }
 html.nr-v4 body:has(.pg-hero) #nav:not(.sc) { background:rgba(8,9,11,.52) !important; border-bottom-color:rgba(255,255,255,.13) !important; backdrop-filter:blur(18px) saturate(125%); }
 html.nr-v4 body.home-editorial #nav:not(.sc) .nav-a,
 html.nr-v4 body:has(.pg-hero) #nav:not(.sc) .nav-a { color:rgba(255,255,255,.82) !important; }
-html.nr-v4 body.home-editorial #nav:not(.sc) .logo-img,
-html.nr-v4 body:has(.pg-hero) #nav:not(.sc) .logo-img { filter:none !important; }
+html.nr-v4 body.home-editorial #nav:not(.sc) .nr-brand-logo .logo-img,
+html.nr-v4 body:has(.pg-hero) #nav:not(.sc) .nr-brand-logo .logo-img { filter:drop-shadow(0 0 1px rgba(255,255,255,.98)) drop-shadow(0 0 2px rgba(255,255,255,.62)) !important; }
 html.nr-v4 body.home-editorial #nav:not(.sc) #theme-toggle,
 html.nr-v4 body:has(.pg-hero) #nav:not(.sc) #theme-toggle { border-color:rgba(255,255,255,.34); color:#fff; }
 html.nr-v4 body.home-editorial #nav:not(.sc) #burg span,
