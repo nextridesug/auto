@@ -11,4 +11,4 @@ The following rental reference images are from Wikimedia Commons and are used un
 - `rental-sclass.jpg` — “Mercedes-Benz W222 FL S 350d 4MATIC AMG Line Diamond White Metallic (7)” by Damian B Oh, CC BY-SA 4.0.
 - `rental-rav4.jpg` — “Toyota RAV4 2018 (XA40) CUV Front” by MTSRider18, Wikimedia Commons licence as stated on the source page.
 
-The `social-*` images are preview frames from public posts owned and published by Next Rides Uganda on its Instagram account. They link back to the original posts.
+The `social-*` images are preview frames from public posts owned and published by Next Rides Uganda on its Instagram and TikTok accounts. They link back to the original posts.

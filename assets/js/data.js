@@ -687,6 +687,9 @@ const D = {
     { type:'Instagram Reel', date:'18 Aug 2026', title:'Range Rover Sport SVR Carbon', meta:'575 hp · 5.0L supercharged V8', img:'assets/img/social-range-rover-svr.jpg', url:'https://www.instagram.com/next_rides_ug/reel/DcMHL2TshdF/' },
     { type:'Instagram Reel', date:'14 Aug 2026', title:'2025 BMW M5 G90', meta:'717 hp · 1 of 1 in East Africa', img:'assets/img/social-bmw-m5-g90.jpg', url:'https://www.instagram.com/next_rides_ug/reel/DcCbAoJMKFS/' },
     { type:'Instagram Reel', date:'11 Aug 2026', title:'2019 Mercedes-AMG GLC 63 S', meta:'Performance SUV · price on request', img:'assets/img/social-glc63s.jpg', url:'https://www.instagram.com/next_rides_ug/reel/Db7PObyM7k6/' },
+    { type:'TikTok', date:'Latest', title:'Range Rover on Kampala roads', meta:'New driving video · 42.9K views when verified', img:'assets/img/social-tiktok-latest-1.jpg', url:'https://www.tiktok.com/@next_rides/video/7676776763157925141' },
+    { type:'TikTok', date:'Latest', title:'Porsche Cayenne arrival', meta:'Fresh walk-around from @next_rides', img:'assets/img/social-tiktok-latest-2.jpg', url:'https://www.tiktok.com/@next_rides/video/7674246314342845716' },
+    { type:'TikTok', date:'Latest', title:'Mercedes-AMG showroom feature', meta:'Real Next Rides showroom footage', img:'assets/img/social-tiktok-latest-3.jpg', url:'https://www.tiktok.com/@next_rides/video/7672984301536824597' },
   ],
 
   /* ── Brands ─────────────────────────────────────────── */
