@@ -31,15 +31,24 @@ for (const car of cars.filter(car => car.visible !== false)) {
   const images = (car.images?.length ? car.images : [car.img]).filter(Boolean).filter(img => !img.endsWith('.mp4'));
   const offer = car.price > 0 ? {
     '@type':'Offer', priceCurrency:'USD', price:String(car.price), availability:'https://schema.org/InStock', url:`https://www.nextridesug.com/cars/${carSlug}.html`
-  } : {
-    '@type':'Offer', priceCurrency:'UGX', availability:'https://schema.org/InStock', url:`https://www.nextridesug.com/cars/${carSlug}.html`, description:displayPrice(car)
-  };
+  } : null;
   const schema = {
-    '@context':'https://schema.org', '@type':'Vehicle', name:`${car.year} ${car.brand} ${car.model}`,
+    '@context':'https://schema.org', '@type':['Product','Vehicle'], name:`${car.year} ${car.brand} ${car.model}`,
+    '@id':`https://www.nextridesug.com/cars/${carSlug}.html#vehicle`,
     url:`https://www.nextridesug.com/cars/${carSlug}.html`, image:images.map(absolute), description:car.desc,
+    sku:car.id,
+    brand:{ '@type':'Brand', name:car.brand },
     vehicleModelDate:String(car.year), manufacturer:{ '@type':'Organization', name:car.brand }, model:car.model,
     fuelType:car.fuel, vehicleTransmission:car.trans, color:car.color,
-    itemCondition:String(car.condition).toLowerCase().includes('brand new') ? 'https://schema.org/NewCondition' : 'https://schema.org/UsedCondition', offers:offer
+    itemCondition:String(car.condition).toLowerCase().includes('brand new') ? 'https://schema.org/NewCondition' : 'https://schema.org/UsedCondition'
+  };
+  if (offer) schema.offers = offer;
+  const breadcrumbSchema = {
+    '@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[
+      { '@type':'ListItem',position:1,name:'Home',item:'https://www.nextridesug.com/' },
+      { '@type':'ListItem',position:2,name:'Cars for sale',item:'https://www.nextridesug.com/inventory.html' },
+      { '@type':'ListItem',position:3,name:`${car.year} ${car.brand} ${car.model}`,item:`https://www.nextridesug.com/cars/${carSlug}.html` }
+    ]
   };
   const numericMileage = Number(String(car.mileage || '').replace(/[^0-9.]/g, ''));
   if (numericMileage) schema.mileageFromOdometer = { '@type':'QuantitativeValue', value:numericMileage, unitCode:'KMT' };
@@ -53,23 +62,29 @@ for (const car of cars.filter(car => car.visible !== false)) {
   <base href="../">
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(description)}">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1">
   <link rel="canonical" href="https://www.nextridesug.com/cars/${carSlug}.html">
+  <link rel="alternate" hreflang="en-UG" href="https://www.nextridesug.com/cars/${carSlug}.html">
   <meta property="og:type" content="product">
   <meta property="og:title" content="${esc(title)}">
   <meta property="og:description" content="${esc(description)}">
   <meta property="og:image" content="${esc(absolute(images[0]))}">
+  <meta property="og:image:alt" content="${esc(car.year)} ${esc(car.brand)} ${esc(car.model)} for sale in Kampala">
   <meta property="og:url" content="https://www.nextridesug.com/cars/${carSlug}.html">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" as="image" href="${esc(images[0])}" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/showroom-v2.css">
   <link rel="icon" type="image/png" href="logo.png">
   <script type="application/ld+json">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script>
+  <script type="application/ld+json">${JSON.stringify(breadcrumbSchema).replace(/</g, '\\u003c')}</script>
 </head>
 <body>
   <script src="assets/js/data.js"></script>
   <script src="assets/js/components.js"></script>
   <main class="vehicle-page">
     <div class="w">
-      <nav class="vehicle-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>›</span><a href="inventory.html">Cars for sale</a><span>›</span><span>${esc(car.brand)} ${esc(car.model)}</span></nav>
+      <nav class="vehicle-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>›</span><a href="inventory.html">Cars for sale in Kampala</a><span>›</span><span>${esc(car.brand)} ${esc(car.model)}</span></nav>
       <section class="vehicle-layout">
         <div class="vehicle-gallery">${gallery}</div>
         <aside class="vehicle-summary">
@@ -107,6 +122,11 @@ const urls = [
   ...staticEntries.map(([url, changefreq, priority]) => ({ url, changefreq, priority })),
   ...cars.filter(car => car.visible !== false).map(car => ({ url:`cars/${slug(car)}.html`, changefreq:'daily', priority:'0.8' }))
 ];
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(item => `  <url>\n    <loc>https://www.nextridesug.com/${item.url}</loc>\n    <lastmod>2026-08-23</lastmod>\n    <changefreq>${item.changefreq}</changefreq>\n    <priority>${item.priority}</priority>\n  </url>`).join('\n')}\n</urlset>\n`;
+const today = new Date().toISOString().slice(0,10);
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${urls.map(item => {
+  const match = item.url.startsWith('cars/') ? cars.find(car => `cars/${slug(car)}.html` === item.url) : null;
+  const image = match ? absolute((match.images?.length ? match.images : [match.img]).find(value => value && !value.endsWith('.mp4'))) : null;
+  return `  <url>\n    <loc>https://www.nextridesug.com/${item.url}</loc>\n    <lastmod>${today}</lastmod>${image ? `\n    <image:image><image:loc>${image.replace(/&/g,'&amp;')}</image:loc><image:title>${esc(`${match.year} ${match.brand} ${match.model}`)}</image:title></image:image>` : ''}\n    <changefreq>${item.changefreq}</changefreq>\n    <priority>${item.priority}</priority>\n  </url>`;
+}).join('\n')}\n</urlset>\n`;
 fs.writeFileSync(path.join(root, 'sitemap.xml'), sitemap);
 console.log(`Generated ${cars.filter(car => car.visible !== false).length} vehicle pages and sitemap.xml`);

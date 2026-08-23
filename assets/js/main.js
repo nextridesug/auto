@@ -560,11 +560,11 @@ document.addEventListener('DOMContentLoaded', () => {
             : `<div class="bc-logo-svg">${b.logo}</div>`)
         : `<div class="bc-logo-init">${initials}</div>`;
       return `
-        <div class="brand-card rv" data-origin="${b.origin}">
+        <a class="brand-card rv" data-origin="${b.origin}" href="inventory.html?q=${encodeURIComponent(b.name)}" aria-label="Browse ${b.name} cars for sale in Uganda">
           <div class="bc-logo-wrap">${logoHtml}</div>
           <div class="bc-name">${b.name}</div>
           <div class="bc-tag">${b.tag}</div>
-        </div>`;
+        </a>`;
     }).join(''));
   }
 

@@ -13,6 +13,23 @@
   const page  = location.pathname.split('/').pop() || 'index.html';
   const root  = '';  // all pages are siblings — no relative-path traversal needed
 
+  /* Final visual system and motion are loaded after the legacy bundle so the
+     whole site shares one deterministic cascade without a risky rewrite. */
+  document.documentElement.classList.add('nr-v2');
+  document.body.dataset.page = page.replace('.html','') || 'home';
+  if (!document.querySelector('link[href="assets/css/showroom-v2.css"]')) {
+    const visual = document.createElement('link');
+    visual.rel = 'stylesheet';
+    visual.href = 'assets/css/showroom-v2.css';
+    document.head.appendChild(visual);
+  }
+  if (!document.querySelector('script[src="assets/js/motion.js"]')) {
+    const motion = document.createElement('script');
+    motion.src = 'assets/js/motion.js';
+    motion.defer = true;
+    document.head.appendChild(motion);
+  }
+
   const links = [
     { h: 'inventory.html', l: 'Cars for sale' },
     { h: 'rent.html',      l: 'Hire a car'    },
@@ -21,6 +38,81 @@
     { h: 'social.html',    l: 'Stories'       },
     { h: 'about.html',     l: 'Our showroom'  },
   ];
+
+  /* Search-readable business identity and page hierarchy. */
+  const pageLabels = Object.fromEntries(links.map(item => [item.h, item.l]));
+  pageLabels['contact.html'] = 'Contact';
+  pageLabels['news.html'] = 'News';
+  pageLabels['brands.html'] = 'Car brands';
+  pageLabels['privacy.html'] = 'Privacy policy';
+  pageLabels['terms.html'] = 'Terms of service';
+  const canonical = document.querySelector('link[rel="canonical"]')?.href || location.href.split('?')[0].split('#')[0];
+  const ensureMeta = (selector, attrs) => {
+    if (document.querySelector(selector)) return;
+    const node = document.createElement('meta');
+    Object.entries(attrs).forEach(([key,value]) => node.setAttribute(key,value));
+    document.head.appendChild(node);
+  };
+  ensureMeta('meta[name="robots"]',{ name:'robots', content:'index,follow,max-image-preview:large,max-video-preview:-1' });
+  ensureMeta('meta[property="og:type"]',{ property:'og:type', content:'website' });
+  ensureMeta('meta[property="og:locale"]',{ property:'og:locale', content:'en_UG' });
+  ensureMeta('meta[name="theme-color"]',{ name:'theme-color', content:'#0b0b0a' });
+  if (!document.querySelector('link[rel="alternate"][hreflang="en-UG"]')) {
+    const language = document.createElement('link');
+    language.rel = 'alternate'; language.hreflang = 'en-UG'; language.href = canonical;
+    document.head.appendChild(language);
+  }
+  const businessSchema = {
+    '@context':'https://schema.org',
+    '@type':['AutoDealer','LocalBusiness'],
+    '@id':'https://www.nextridesug.com/#business',
+    name:'Next Rides Uganda',
+    url:'https://www.nextridesug.com/',
+    logo:'https://www.nextridesug.com/assets/img/logo.png',
+    image:'https://www.nextridesug.com/assets/img/gle63s.jpg',
+    telephone:'+256771572016',
+    email:'info.nextridesug@gmail.com',
+    priceRange:'UGX',
+    currenciesAccepted:'UGX, USD',
+    hasMap:'https://maps.google.com/?q=Naguru+Road+Cadam+Enterprises+Kampala+Uganda',
+    address:{ '@type':'PostalAddress', streetAddress:'Naguru Road, Cadam Enterprises', addressLocality:'Kampala', addressCountry:'UG' },
+    areaServed:[{ '@type':'City', name:'Kampala' },{ '@type':'Country', name:'Uganda' }],
+    openingHoursSpecification:[
+      { '@type':'OpeningHoursSpecification',dayOfWeek:['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],opens:'08:00',closes:'18:00' },
+      { '@type':'OpeningHoursSpecification',dayOfWeek:'Sunday',opens:'10:00',closes:'16:00' }
+    ],
+    sameAs:['https://www.instagram.com/next_rides_ug','https://www.tiktok.com/@next_rides','https://www.youtube.com/@NEXTRIDES']
+  };
+  const schemas = [businessSchema];
+  if (page === 'index.html') {
+    schemas.push({ '@context':'https://schema.org','@type':'WebSite','@id':'https://www.nextridesug.com/#website',name:'Next Rides Uganda',url:'https://www.nextridesug.com/',publisher:{ '@id':'https://www.nextridesug.com/#business' },inLanguage:'en-UG' });
+  } else if (!location.pathname.includes('/cars/')) {
+    schemas.push({ '@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[
+      { '@type':'ListItem', position:1, name:'Home', item:'https://www.nextridesug.com/' },
+      { '@type':'ListItem', position:2, name:pageLabels[page] || document.title.split('|')[0].trim(), item:canonical }
+    ] });
+  }
+  const pageType = { 'about.html':'AboutPage','contact.html':'ContactPage','inventory.html':'CollectionPage','brands.html':'CollectionPage','news.html':'CollectionPage','social.html':'CollectionPage','rent.html':'CollectionPage','events.html':'CollectionPage' }[page];
+  if (pageType) {
+    const image = document.querySelector('meta[property="og:image"]')?.content;
+    const webPage = { '@context':'https://schema.org','@type':pageType,'@id':`${canonical}#webpage`,url:canonical,name:document.title,description:document.querySelector('meta[name="description"]')?.content,inLanguage:'en-UG',isPartOf:{ '@id':'https://www.nextridesug.com/#website' } };
+    if (image) webPage.primaryImageOfPage = { '@type':'ImageObject',url:image };
+    if (page === 'about.html' || page === 'contact.html') webPage.mainEntity = { '@id':'https://www.nextridesug.com/#business' };
+    schemas.push(webPage);
+  }
+  if (page === 'inventory.html' && window.NR?.cars) {
+    const slugify = value => String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+    schemas.push({ '@context':'https://schema.org','@type':'ItemList',name:'Cars for sale at Next Rides Uganda',numberOfItems:window.NR.cars.filter(car => car.visible !== false).length,itemListElement:window.NR.cars.filter(car => car.visible !== false).map((car,index) => ({ '@type':'ListItem',position:index+1,url:`https://www.nextridesug.com/cars/${slugify(`${car.year}-${car.brand}-${car.model}`)}.html`,name:`${car.year} ${car.brand} ${car.model}` })) });
+  }
+  if (page === 'order.html') {
+    schemas.push({ '@context':'https://schema.org','@type':'Service',name:'Custom vehicle sourcing and import to Uganda',serviceType:'Vehicle sourcing, inspection, shipping and import coordination',areaServed:{ '@type':'Country',name:'Uganda' },provider:{ '@id':'https://www.nextridesug.com/#business' },url:canonical });
+  }
+  schemas.forEach(data => {
+    const node = document.createElement('script');
+    node.type = 'application/ld+json';
+    node.textContent = JSON.stringify(data).replace(/</g,'\\u003c');
+    document.head.appendChild(node);
+  });
 
   /* ── SVG Icons ── */
   const SVG = {
