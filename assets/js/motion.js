@@ -30,7 +30,7 @@
           if (!video.src && video.dataset.src) video.src = video.dataset.src;
           video.play().catch(() => {});
         } else if (!video.paused) video.pause();
-      }), { rootMargin:'320px 0px', threshold:.01 });
+      }), { rootMargin:'0px', threshold:.01 });
       lazyVideos.forEach(video => videoObserver.observe(video));
     }
 

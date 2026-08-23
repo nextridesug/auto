@@ -179,6 +179,14 @@ function ccGoto(id, idx) {
   el.dataset.slide = idx;
   el.querySelector('.cc-slides').style.transform = `translateX(-${idx*100}%)`;
   el.querySelectorAll('.cc-dot').forEach((d,i) => d.classList.toggle('on', i===idx));
+  el.querySelectorAll('.cc-slide video').forEach((video,i) => {
+    const slide = video.closest('.cc-slide');
+    const selected = Array.from(el.querySelectorAll('.cc-slide')).indexOf(slide) === idx;
+    if (selected) {
+      if (!video.src && video.dataset.src) video.src = video.dataset.src;
+      video.play().catch(() => {});
+    } else if (!video.paused) video.pause();
+  });
 }
 function ccNext(id) {
   const el = document.getElementById(id);
@@ -277,7 +285,7 @@ function buildCarCard(c) {
   /* Video slide — always LAST after photos, clearly separate */
   const vidSlide = isLocalVid
     ? `<div class="cc-slide cc-slide-video" style="position:relative">
-        <video src="${c.video}" autoplay playsinline muted loop
+        <video data-src="${c.video}" preload="none" playsinline muted loop
                style="width:100%;height:100%;object-fit:cover"></video>
         <div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);
              background:rgba(0,0,0,.6);color:#fff;font-size:.55rem;font-weight:800;
