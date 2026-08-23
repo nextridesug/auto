@@ -359,4 +359,18 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://www.nextridesug.com/cars/2022-mercedes-benz-amg-gt-53-4-door-coupe-4matic.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <image:image><image:loc>https://www.nextridesug.com/assets/img/inventory/2022-mercedes-amg-gt53/01.jpg</image:loc><image:title>2022 Mercedes-Benz AMG GT 53 4-Door Coupé 4MATIC+</image:title></image:image>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.nextridesug.com/cars/2024-rolls-royce-phantom.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <image:image><image:loc>https://www.nextridesug.com/assets/img/inventory/2024-rolls-royce-phantom/01.jpg</image:loc><image:title>2024 Rolls-Royce Phantom</image:title></image:image>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

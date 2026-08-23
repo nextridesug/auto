@@ -312,7 +312,7 @@ const wa_num = () => window.NR?.biz?.wa || '256771572016';
 
 /* ── Car Card HTML ─────────────────────────────────────── */
 function buildCarCard(c) {
-  const waMsg = encodeURIComponent(`Hi Next Rides! 👋\nI'm interested in the ${c.year} ${c.brand} ${c.model}${c.price > 0 ? ' (' + fmtUSD(c.price) + ')' : ''}.\nCould you please share more details?`);
+  const waMsg = encodeURIComponent(`Hi Next Rides! 👋\nI'm interested in the ${c.year} ${c.brand} ${c.model}${c.ugxPrice && c.ugxPrice !== 'Price on Request' ? ' (UGX ' + c.ugxPrice + ')' : c.price > 0 ? ' (' + fmtUSD(c.price) + ')' : ''}.\nCould you please share more details?`);
   const wa    = `https://wa.me/${wa_num()}?text=${waMsg}`;
   const bc    = c.badge ? (BADGE[c.badge] || 'b-feat') : '';
   /* ── Separate photo images from video on cards ── */
@@ -422,9 +422,12 @@ function buildCarCard(c) {
       </div>
       <div class="cc-foot">
         <div>
-          ${c.price === 0
+          ${c.price === 0 && !(c.ugxPrice && c.ugxPrice !== 'Price on Request')
             ? `<div class="cc-price" style="font-size:.78em;letter-spacing:.03em">Price on Request</div>
                <div class="cc-ugx" style="color:var(--gold2);font-weight:600">${c.priceRange ? 'Est. ' + c.priceRange : 'Contact for details'}</div>`
+            : c.price === 0
+            ? `<div class="cc-price">UGX ${c.ugxPrice}</div>
+               <div class="cc-ugx">Official Instagram asking price</div>`
             : `<div class="cc-price" data-usd-price="${c.price}">${fmtUSD(c.price)}</div>
                <div class="cc-ugx" data-ugx-sub data-usd-price="${c.price}">${c.ugxPrice ? 'UGX ' + c.ugxPrice : '≈ ' + fmtUGX(c.price)}</div>`
           }
@@ -1335,9 +1338,12 @@ if (contactForm) {
                  line-height:1;color:var(--fg,#111)">${c.model} <span style="opacity:.5">${c.year}</span></h2>
           </div>
           <div style="text-align:right;min-width:140px">
-            ${c.price === 0
+            ${c.price === 0 && !(c.ugxPrice && c.ugxPrice !== 'Price on Request')
               ? `<div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:var(--fg,#111)">Price on Request</div>
                  <div style="font-size:.8rem;color:var(--red,#B81F0A);font-weight:600">${c.priceRange ? 'Est. ' + c.priceRange : 'Contact us'}</div>`
+              : c.price === 0
+              ? `<div style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:var(--red,#B81F0A)">UGX ${c.ugxPrice}</div>
+                 <div style="font-size:.78rem;color:var(--dim,#999)">Instagram asking price</div>`
               : `<div style="font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:var(--red,#B81F0A)">$${Number(c.price).toLocaleString()}</div>
                  <div style="font-size:.78rem;color:var(--dim,#999)">${c.ugxPrice ? 'UGX ' + c.ugxPrice : ''}</div>`}
           </div>

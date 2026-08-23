@@ -20,16 +20,19 @@ const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({
 const slugify = value => String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const slug = car => slugify(`${car.year}-${car.brand}-${car.model}`);
 const absolute = value => value?.startsWith('http') ? value : `https://www.nextridesug.com/${value}`;
-const displayPrice = car => car.price > 0
-  ? car.ugxPrice ? `UGX ${car.ugxPrice}` : `$${Number(car.price).toLocaleString('en-US')}`
-  : car.priceRange || 'Price on request';
+const displayPrice = car => car.ugxPrice && car.ugxPrice !== 'Price on Request'
+  ? `UGX ${car.ugxPrice}`
+  : car.price > 0 ? `$${Number(car.price).toLocaleString('en-US')}` : car.priceRange || 'Price on request';
 
 for (const car of cars.filter(car => car.visible !== false)) {
   const carSlug = slug(car);
   const title = `${car.year} ${car.brand} ${car.model} for Sale in Uganda | Next Rides`;
   const description = `${car.year} ${car.brand} ${car.model} in Kampala, Uganda. ${car.condition}. ${car.fuel}, ${car.trans}. ${displayPrice(car)}. View photos and enquire with Next Rides Uganda.`;
   const images = (car.images?.length ? car.images : [car.img]).filter(Boolean).filter(img => !img.endsWith('.mp4'));
-  const offer = car.price > 0 ? {
+  const numericUgxPrice = Number(String(car.ugxPrice || '').replace(/[^0-9]/g, ''));
+  const offer = numericUgxPrice ? {
+    '@type':'Offer', priceCurrency:'UGX', price:String(numericUgxPrice), availability:'https://schema.org/InStock', url:`https://www.nextridesug.com/cars/${carSlug}.html`
+  } : car.price > 0 ? {
     '@type':'Offer', priceCurrency:'USD', price:String(car.price), availability:'https://schema.org/InStock', url:`https://www.nextridesug.com/cars/${carSlug}.html`
   } : null;
   const schema = {
@@ -52,6 +55,13 @@ for (const car of cars.filter(car => car.visible !== false)) {
   };
   const numericMileage = Number(String(car.mileage || '').replace(/[^0-9.]/g, ''));
   if (numericMileage) schema.mileageFromOdometer = { '@type':'QuantitativeValue', value:numericMileage, unitCode:'KMT' };
+  if (car.engine) schema.vehicleEngine = { '@type':'EngineSpecification', name:car.engine };
+  if (car.sourceUrl) schema.sameAs = car.sourceUrl;
+  const extraSpecs = [
+    ['Engine', car.engine], ['Power', car.power], ['Torque', car.torque], ['Acceleration', car.acceleration]
+  ].filter(([, value]) => value);
+  const sourceMarkup = car.sourceUrl ? `\n          <a class="vehicle-source" href="${esc(car.sourceUrl)}" target="_blank" rel="noopener">${esc(car.sourceLabel || 'View original listing')} ↗</a>` : '';
+  const extraSpecsMarkup = extraSpecs.map(([label, value]) => `\n            <div><dt>${esc(label)}</dt><dd>${esc(value)}</dd></div>`).join('');
   const interiorStart = Number.isInteger(car.interiorStart) ? Math.min(car.interiorStart, images.length) : images.length;
   const exteriorImages = images.slice(0, interiorStart);
   const interiorImages = images.slice(interiorStart);
@@ -100,14 +110,14 @@ for (const car of cars.filter(car => car.visible !== false)) {
           <span class="vehicle-kicker">${esc(car.badge || car.tag || 'Available')}</span>
           <h1>${esc(car.year)} ${esc(car.brand)}<br>${esc(car.model)}</h1>
           <p class="vehicle-price">${esc(displayPrice(car))}</p>
-          <p class="vehicle-description">${esc(car.desc)}</p>
+          <p class="vehicle-description">${esc(car.desc)}</p>${sourceMarkup}
           <dl class="vehicle-specs">
             <div><dt>Year</dt><dd>${esc(car.year)}</dd></div>
             <div><dt>Mileage</dt><dd>${esc(car.mileage)}</dd></div>
             <div><dt>Fuel</dt><dd>${esc(car.fuel)}</dd></div>
             <div><dt>Transmission</dt><dd>${esc(car.trans)}</dd></div>
             <div><dt>Condition</dt><dd>${esc(car.condition)}</dd></div>
-            <div><dt>Colour</dt><dd>${esc(car.color || 'Ask showroom')}</dd></div>
+            <div><dt>Colour</dt><dd>${esc(car.color || 'Ask showroom')}</dd></div>${extraSpecsMarkup}
           </dl>
           <a class="btn btn-r btn-lg vehicle-enquire" href="${whatsapp}" target="_blank" rel="noopener">Check price &amp; availability</a>
           <p class="vehicle-note">Inventory changes quickly. Confirm the vehicle, inspection details and final price directly with the Naguru showroom.</p>

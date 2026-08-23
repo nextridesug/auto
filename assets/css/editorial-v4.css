@@ -537,3 +537,5 @@ html.nr-motion.nr-v4 [data-nr-motion].is-visible { opacity:1; transform:none; }
   html.nr-v4 *,html.nr-v4 *::before,html.nr-v4 *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
   html.nr-v4 [data-nr-motion] { opacity:1 !important; transform:none !important; }
 }
+.vehicle-source{display:inline-flex;align-items:center;gap:.4rem;margin:.1rem 0 1.4rem;color:var(--red,#ef4423);font-size:.82rem;font-weight:750;letter-spacing:.02em;text-decoration:none;border-bottom:1px solid currentColor}
+.vehicle-source:hover{opacity:.72}
