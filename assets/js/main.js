@@ -41,6 +41,9 @@ fetch('https://open.er-api.com/v6/latest/USD')
   .catch(() => {});
 const fmtUSD = n => '$' + Number(n).toLocaleString('en-US');
 const fmtUGX = n => 'UGX ' + Math.round(n * UGX_RATE).toLocaleString('en-UG');
+const fmtFixedUGX = n => 'UGX ' + Number(n).toLocaleString('en-UG');
+const slugify = value => String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const vehicleUrl = c => `cars/${slugify(`${c.year}-${c.brand}-${c.model}`)}.html`;
 
 function toggleUGX() {
   showUGX = !showUGX;
@@ -376,10 +379,10 @@ function buildCarCard(c) {
         <a href="${wa}" target="_blank" rel="noopener" class="btn btn-r btn-sm">Enquire</a>
       </div>
     </div>
-    <button class="cc-preview-btn" onclick="openCarModal('${c.id}')" aria-label="View details">
+    <a class="cc-preview-btn" href="${vehicleUrl(c)}" aria-label="View ${c.year} ${c.brand} ${c.model} details">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      View Details &amp; Reviews
-    </button>
+      Full vehicle details
+    </a>
   </div>`;
 }
 
@@ -399,15 +402,15 @@ function buildRentCard(r) {
       <div class="rc-brand">${r.brand}</div>
       <div class="rc-name">${r.model} <span style="font-size:1.1rem;color:var(--dim)">${r.year}</span></div>
       <div class="rc-feats">
+        ${(r.uses || []).map(u => `<span class="rc-use">${u}</span>`).join('')}
         ${r.features.map(f => `<span class="rc-feat">${f}</span>`).join('')}
-        <span class="rc-feat">${r.seats} Seats</span>
       </div>
       <div class="rc-foot">
         <div>
-          <div class="rc-price" data-usd-price="${r.priceDay}" data-ugx-mode="day">from ${fmtUSD(r.priceDay)}<span class="rc-per"> / day</span></div>
-          <div class="rc-sub" data-usd-price="${r.priceDay}" data-usd-week="${r.priceWeek}" data-ugx-mode="week">from ${fmtUSD(r.priceWeek)} / week</div>
+          <div class="rc-price">from ${fmtFixedUGX(r.priceDayUGX)}<span class="rc-per"> / day</span></div>
+          <div class="rc-sub">Indicative base rate · confirm route &amp; date</div>
         </div>
-        <a href="${wa}" target="_blank" rel="noopener" class="btn btn-g btn-sm">Book Now</a>
+        <a href="${wa}" target="_blank" rel="noopener" class="btn btn-r btn-sm">Check date</a>
       </div>
     </div>
   </div>`;
@@ -475,7 +478,8 @@ document.addEventListener('DOMContentLoaded', () => {
   /* Featured Cars (homepage) */
   const feat = document.getElementById('featured-cars');
   if (feat) {
-    const featuredCars = D.cars.filter(c => c.featured && c.visible !== false);
+    const homePriority = ['c37','c38','c40','c41','c01','c24'];
+    const featuredCars = homePriority.map(id => D.cars.find(c => c && c.id === id)).filter(Boolean);
     render('featured-cars', featuredCars.map(buildCarCard).join(''));
     /* Preload first 4 featured car images for instant display */
     featuredCars.slice(0,4).forEach(c => {
@@ -514,7 +518,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* Rentals */
   const rentEl = document.getElementById('rental-grid');
-  if (rentEl) render('rental-grid', D.rentals.filter(r => r.visible !== false).map(buildRentCard).join(''));
+  if (rentEl) {
+    const drawRentals = use => {
+      let pool = D.rentals.filter(r => r.visible !== false && (!use || (r.uses || []).includes(use)));
+      if (!document.querySelector('[data-rent-filter]')) pool = pool.slice(0, 3);
+      render('rental-grid', pool.map(buildRentCard).join(''));
+    };
+    drawRentals('');
+    document.querySelectorAll('[data-rent-filter]').forEach(btn => btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-rent-filter]').forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      drawRentals(btn.dataset.rentFilter);
+    }));
+  }
+
+  const latestSocial = document.getElementById('latest-social-grid');
+  if (latestSocial && D.latestSocial) {
+    render('latest-social-grid', D.latestSocial.map(p => `
+      <a class="latest-social-card rv" href="${p.url}" target="_blank" rel="noopener">
+        <div class="latest-social-media">
+          <img src="${p.img}" alt="${p.title} — Next Rides Uganda" loading="lazy" decoding="async">
+          <span class="latest-social-play" aria-hidden="true">▶</span>
+        </div>
+        <div class="latest-social-copy">
+          <span>${p.type} · ${p.date}</span>
+          <h3>${p.title}</h3>
+          <p>${p.meta}</p>
+        </div>
+      </a>`).join(''));
+  }
 
   /* Brands page */
   const brandsEl = document.getElementById('brands-grid');
