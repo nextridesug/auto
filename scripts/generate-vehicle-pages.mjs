@@ -75,6 +75,7 @@ for (const car of cars.filter(car => car.visible !== false)) {
   <link rel="preload" as="image" href="${esc(images[0])}" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/showroom-v2.css">
+  <link rel="stylesheet" href="assets/css/showroom-v3.css">
   <link rel="icon" type="image/png" href="logo.png">
   <script type="application/ld+json">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script>
   <script type="application/ld+json">${JSON.stringify(breadcrumbSchema).replace(/</g, '\\u003c')}</script>

@@ -15,13 +15,20 @@
 
   /* Final visual system and motion are loaded after the legacy bundle so the
      whole site shares one deterministic cascade without a risky rewrite. */
-  document.documentElement.classList.add('nr-v2');
+  document.documentElement.classList.add('nr-v2','nr-v3');
+  document.documentElement.removeAttribute('data-theme');
   document.body.dataset.page = page.replace('.html','') || 'home';
   if (!document.querySelector('link[href="assets/css/showroom-v2.css"]')) {
     const visual = document.createElement('link');
     visual.rel = 'stylesheet';
     visual.href = 'assets/css/showroom-v2.css';
     document.head.appendChild(visual);
+  }
+  if (!document.querySelector('link[href="assets/css/showroom-v3.css"]')) {
+    const studio = document.createElement('link');
+    studio.rel = 'stylesheet';
+    studio.href = 'assets/css/showroom-v3.css';
+    document.head.appendChild(studio);
   }
   if (!document.querySelector('script[src="assets/js/motion.js"]')) {
     const motion = document.createElement('script');
@@ -56,7 +63,7 @@
   ensureMeta('meta[name="robots"]',{ name:'robots', content:'index,follow,max-image-preview:large,max-video-preview:-1' });
   ensureMeta('meta[property="og:type"]',{ property:'og:type', content:'website' });
   ensureMeta('meta[property="og:locale"]',{ property:'og:locale', content:'en_UG' });
-  ensureMeta('meta[name="theme-color"]',{ name:'theme-color', content:'#0b0b0a' });
+  ensureMeta('meta[name="theme-color"]',{ name:'theme-color', content:'#315bea' });
   if (!document.querySelector('link[rel="alternate"][hreflang="en-UG"]')) {
     const language = document.createElement('link');
     language.rel = 'alternate'; language.hreflang = 'en-UG'; language.href = canonical;
