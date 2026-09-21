@@ -73,7 +73,7 @@
     logo:'https://www.nextridesug.com/assets/img/logo.png',
     image:'https://www.nextridesug.com/assets/img/gle63s.jpg',
     telephone:'+256771572016',
-    email:'info.nextridesug@gmail.com',
+    email:'admin@nextridesug.com',
     contactPoint:{ '@type':'ContactPoint',contactType:'customer support',email:'admin@nextridesug.com',telephone:'+256771572016',areaServed:'UG',availableLanguage:'English' },
     priceRange:'UGX',
     currenciesAccepted:'UGX, USD',
@@ -223,10 +223,7 @@
                   <a href="tel:+256753717412">+256 753 717 412</a><br>
                   <a href="tel:+256771572016">+256 771 572 016</a>
                 </div></div>
-                <div class="fct">${SVG.em}<div>
-                  <a href="mailto:${B.supportEmail||'admin@nextridesug.com'}">${B.supportEmail||'admin@nextridesug.com'}</a><br>
-                  <a href="mailto:${B.email||'info.nextridesug@gmail.com'}">${B.email||'info.nextridesug@gmail.com'}</a>
-                </div></div>
+                <div class="fct">${SVG.em}<a href="mailto:${B.email||'admin@nextridesug.com'}">${B.email||'admin@nextridesug.com'}</a></div>
                 <a href="https://maps.google.com/?q=Naguru+Road+Cadam+Enterprises+Kampala+Uganda"
                    target="_blank" class="btn btn-r btn-sm get-dir" style="margin-top:4px;width:100%;justify-content:center">
                   ${SVG.loc} Get Directions
@@ -237,7 +234,7 @@
           </div>
           <div class="footer-bottom">
             <p>&copy; 2026 Next Rides Uganda. All rights reserved.</p>
-            <p class="footer-credit" style="color:rgba(255,255,255,.7)!important">Developed by <a href="https://creedmotions.store" target="_blank" rel="noopener" style="color:#ff6847;font-weight:800;text-decoration:underline;text-underline-offset:4px">CreedStack Motions</a></p>
+            <p class="footer-credit" style="color:rgba(255,255,255,.82)!important;border:1px solid rgba(255,104,71,.45);border-radius:999px;padding:8px 14px">Developed by <a href="https://creedmotions.store" target="_blank" rel="noopener" style="color:#ff6847;font-weight:800;text-decoration:underline;text-underline-offset:4px">CreedStack Motions</a></p>
             <div class="footer-bl">
               <a href="terms.html">Terms</a>
               <a href="privacy.html">Privacy</a>
