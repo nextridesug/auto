@@ -234,7 +234,7 @@
           </div>
           <div class="footer-bottom">
             <p>&copy; 2026 Next Rides Uganda. All rights reserved.</p>
-            <p class="footer-credit" style="color:rgba(255,255,255,.82)!important;border:1px solid rgba(255,104,71,.45);border-radius:999px;padding:8px 14px">Developed by <a href="https://creedmotions.store" target="_blank" rel="noopener" style="color:#ff6847;font-weight:800;text-decoration:underline;text-underline-offset:4px">CreedStack Motions</a></p>
+            <p class="footer-credit" style="display:inline-flex;align-items:center;gap:5px;background:#171715!important;color:#fff!important;border:1px solid #ff6847;border-radius:999px;padding:9px 15px;box-shadow:0 6px 20px rgba(17,19,24,.12)">Developed by <a href="https://creedmotions.store" target="_blank" rel="noopener" style="color:#ff6847!important;font-weight:800;text-decoration:underline;text-underline-offset:4px">CreedStack Motions</a></p>
             <div class="footer-bl">
               <a href="terms.html">Terms</a>
               <a href="privacy.html">Privacy</a>

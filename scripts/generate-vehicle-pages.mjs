@@ -96,7 +96,7 @@ for (const car of cars.filter(car => car.visible !== false)) {
 </head>
 <body>
   <script src="assets/js/data.js?v=20260823-inline-video-v10"></script>
-  <script src="assets/js/components.js?v=20260921-contact-v14"></script>
+  <script src="assets/js/components.js?v=20260921-footer-v15"></script>
   <main class="vehicle-page">
     <div class="w">
       <nav class="vehicle-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>›</span><a href="inventory.html">Cars for sale in Kampala</a><span>›</span><span>${esc(car.brand)} ${esc(car.model)}</span></nav>
