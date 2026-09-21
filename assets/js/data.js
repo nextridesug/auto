@@ -9,9 +9,10 @@ const D = {
   biz: {
     name: 'Next Rides Uganda',
     wa:   '256771572016',
-    phone1: '+256 0753 717 412',
-    phone2: '+256 0771 572 016',
+    phone1: '+256 753 717 412',
+    phone2: '+256 771 572 016',
     email:  'info.nextridesug@gmail.com',
+    supportEmail: 'admin@nextridesug.com',
     address:'Naguru Road, Cadam Enterprises, Naguru, Kampala',
     ig:  'https://www.instagram.com/next_rides_ug',
     tt:  'https://www.tiktok.com/@next_rides',

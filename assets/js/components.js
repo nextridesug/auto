@@ -74,6 +74,7 @@
     image:'https://www.nextridesug.com/assets/img/gle63s.jpg',
     telephone:'+256771572016',
     email:'info.nextridesug@gmail.com',
+    contactPoint:{ '@type':'ContactPoint',contactType:'customer support',email:'admin@nextridesug.com',telephone:'+256771572016',areaServed:'UG',availableLanguage:'English' },
     priceRange:'UGX',
     currenciesAccepted:'UGX, USD',
     hasMap:'https://maps.google.com/?q=Naguru+Road+Cadam+Enterprises+Kampala+Uganda',
@@ -219,10 +220,13 @@
               <div class="fci">
                 <div class="fct">${SVG.loc}<span>${B.address||'Naguru Road, Cadam Enterprises, Kampala'}</span></div>
                 <div class="fct">${SVG.ph}<div>
-                  <a href="tel:+256753717412">+256 0753 717 412</a><br>
-                  <a href="tel:+256771572016">+256 0771 572 016</a>
+                  <a href="tel:+256753717412">+256 753 717 412</a><br>
+                  <a href="tel:+256771572016">+256 771 572 016</a>
                 </div></div>
-                <div class="fct">${SVG.em}<a href="mailto:info.nextridesug@gmail.com">info.nextridesug@gmail.com</a></div>
+                <div class="fct">${SVG.em}<div>
+                  <a href="mailto:${B.supportEmail||'admin@nextridesug.com'}">${B.supportEmail||'admin@nextridesug.com'}</a><br>
+                  <a href="mailto:${B.email||'info.nextridesug@gmail.com'}">${B.email||'info.nextridesug@gmail.com'}</a>
+                </div></div>
                 <a href="https://maps.google.com/?q=Naguru+Road+Cadam+Enterprises+Kampala+Uganda"
                    target="_blank" class="btn btn-r btn-sm get-dir" style="margin-top:4px;width:100%;justify-content:center">
                   ${SVG.loc} Get Directions
@@ -233,6 +237,7 @@
           </div>
           <div class="footer-bottom">
             <p>&copy; 2026 Next Rides Uganda. All rights reserved.</p>
+            <p class="footer-credit" style="color:rgba(255,255,255,.7)!important">Developed by <a href="https://creedmotions.store" target="_blank" rel="noopener" style="color:#ff6847;font-weight:800;text-decoration:underline;text-underline-offset:4px">CreedStack Motions</a></p>
             <div class="footer-bl">
               <a href="terms.html">Terms</a>
               <a href="privacy.html">Privacy</a>
