@@ -10,14 +10,14 @@
      Root is always the directory of the current page.
      Using empty string (not '../') so links stay within
      the same folder regardless of base path depth (GitHub Pages). */
-  const page  = location.pathname.split('/').pop() || 'index.html';
+  const page  = (location.pathname.split('/').pop() || 'index').replace(/\.html$/,'');
   const root  = '';  // all pages are siblings — no relative-path traversal needed
 
   /* The editorial system is the only active visual layer. It loads after the
      legacy base for shared utility compatibility, without the previous skins. */
   document.documentElement.classList.remove('nr-v2','nr-v3');
   document.documentElement.classList.add('nr-v4');
-  document.body.dataset.page = page.replace('.html','') || 'home';
+  document.body.dataset.page = page === 'index' ? 'home' : page;
   if (!document.querySelector('link[href^="assets/css/editorial-v4.css"]')) {
     const editorial = document.createElement('link');
     editorial.rel = 'stylesheet';
@@ -26,28 +26,28 @@
   }
   if (!document.querySelector('script[src^="assets/js/motion.js"]')) {
     const motion = document.createElement('script');
-    motion.src = 'assets/js/motion.js?v=20260823-inline-video-v10';
+    motion.src = 'assets/js/motion.js?v=20260921-clean-urls-v17';
     motion.defer = true;
     document.head.appendChild(motion);
   }
 
   const links = [
-    { h: 'index.html',     l: 'Home', home: true   },
-    { h: 'inventory.html', l: 'Cars for sale' },
-    { h: 'rent.html',      l: 'Hire a car'    },
-    { h: 'events.html',    l: 'Occasions'     },
-    { h: 'order.html',     l: 'Import a car'  },
-    { h: 'social.html',    l: 'Stories'       },
-    { h: 'about.html',     l: 'Our showroom'  },
+    { h: '/',              l: 'Home', home: true   },
+    { h: 'inventory', l: 'Cars for sale' },
+    { h: 'rent',      l: 'Hire a car'    },
+    { h: 'events',    l: 'Occasions'     },
+    { h: 'order',     l: 'Import a car'  },
+    { h: 'social',    l: 'Stories'       },
+    { h: 'about',     l: 'Our showroom'  },
   ];
 
   /* Search-readable business identity and page hierarchy. */
-  const pageLabels = Object.fromEntries(links.map(item => [item.h, item.l]));
-  pageLabels['contact.html'] = 'Contact';
-  pageLabels['news.html'] = 'News';
-  pageLabels['brands.html'] = 'Car brands';
-  pageLabels['privacy.html'] = 'Privacy policy';
-  pageLabels['terms.html'] = 'Terms of service';
+  const pageLabels = Object.fromEntries(links.map(item => [item.home ? 'index' : item.h, item.l]));
+  pageLabels['contact'] = 'Contact';
+  pageLabels['news'] = 'News';
+  pageLabels['brands'] = 'Car brands';
+  pageLabels['privacy'] = 'Privacy policy';
+  pageLabels['terms'] = 'Terms of service';
   const canonical = document.querySelector('link[rel="canonical"]')?.href || location.href.split('?')[0].split('#')[0];
   const ensureMeta = (selector, attrs) => {
     if (document.querySelector(selector)) return;
@@ -87,7 +87,7 @@
     sameAs:['https://www.instagram.com/next_rides_ug','https://www.tiktok.com/@next_rides','https://www.youtube.com/@NEXTRIDES']
   };
   const schemas = [businessSchema];
-  if (page === 'index.html') {
+  if (page === 'index') {
     schemas.push({ '@context':'https://schema.org','@type':'WebSite','@id':'https://www.nextridesug.com/#website',name:'Next Rides Uganda',url:'https://www.nextridesug.com/',publisher:{ '@id':'https://www.nextridesug.com/#business' },inLanguage:'en-UG' });
   } else if (!location.pathname.includes('/cars/')) {
     schemas.push({ '@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[
@@ -95,19 +95,19 @@
       { '@type':'ListItem', position:2, name:pageLabels[page] || document.title.split('|')[0].trim(), item:canonical }
     ] });
   }
-  const pageType = { 'about.html':'AboutPage','contact.html':'ContactPage','inventory.html':'CollectionPage','brands.html':'CollectionPage','news.html':'CollectionPage','social.html':'CollectionPage','rent.html':'CollectionPage','events.html':'CollectionPage' }[page];
+  const pageType = { 'about':'AboutPage','contact':'ContactPage','inventory':'CollectionPage','brands':'CollectionPage','news':'CollectionPage','social':'CollectionPage','rent':'CollectionPage','events':'CollectionPage' }[page];
   if (pageType) {
     const image = document.querySelector('meta[property="og:image"]')?.content;
     const webPage = { '@context':'https://schema.org','@type':pageType,'@id':`${canonical}#webpage`,url:canonical,name:document.title,description:document.querySelector('meta[name="description"]')?.content,inLanguage:'en-UG',isPartOf:{ '@id':'https://www.nextridesug.com/#website' } };
     if (image) webPage.primaryImageOfPage = { '@type':'ImageObject',url:image };
-    if (page === 'about.html' || page === 'contact.html') webPage.mainEntity = { '@id':'https://www.nextridesug.com/#business' };
+    if (page === 'about' || page === 'contact') webPage.mainEntity = { '@id':'https://www.nextridesug.com/#business' };
     schemas.push(webPage);
   }
-  if (page === 'inventory.html' && window.NR?.cars) {
+  if (page === 'inventory' && window.NR?.cars) {
     const slugify = value => String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-    schemas.push({ '@context':'https://schema.org','@type':'ItemList',name:'Cars for sale at Next Rides Uganda',numberOfItems:window.NR.cars.filter(car => car.visible !== false).length,itemListElement:window.NR.cars.filter(car => car.visible !== false).map((car,index) => ({ '@type':'ListItem',position:index+1,url:`https://www.nextridesug.com/cars/${slugify(`${car.year}-${car.brand}-${car.model}`)}.html`,name:`${car.year} ${car.brand} ${car.model}` })) });
+    schemas.push({ '@context':'https://schema.org','@type':'ItemList',name:'Cars for sale at Next Rides Uganda',numberOfItems:window.NR.cars.filter(car => car.visible !== false).length,itemListElement:window.NR.cars.filter(car => car.visible !== false).map((car,index) => ({ '@type':'ListItem',position:index+1,url:`https://www.nextridesug.com/cars/${slugify(`${car.year}-${car.brand}-${car.model}`)}`,name:`${car.year} ${car.brand} ${car.model}` })) });
   }
-  if (page === 'order.html') {
+  if (page === 'order') {
     schemas.push({ '@context':'https://schema.org','@type':'Service',name:'Custom vehicle sourcing and import to Uganda',serviceType:'Vehicle sourcing, inspection, shipping and import coordination',areaServed:{ '@type':'Country',name:'Uganda' },provider:{ '@id':'https://www.nextridesug.com/#business' },url:canonical });
   }
   schemas.forEach(data => {
@@ -132,7 +132,7 @@
 
   /* ── Logo builder ── */
   function logoFull() {
-    return `<a href="index.html" class="logo nr-brand-logo" aria-label="Next Rides Uganda — home">
+    return `<a href="/" class="logo nr-brand-logo" aria-label="Next Rides Uganda — home">
       <span class="nr-brand-logo__crop">
         <img src="assets/img/logo.png" alt="Next Rides Uganda" class="logo-img">
       </span>
@@ -150,7 +150,7 @@
         ${logoFull()}
         <div id="mob-nav">
           <div class="nav-links">
-            ${links.map(l => `<a href="${l.h}" class="nav-a${l.home ? ' nav-a--home' : ''}${page === l.h ? ' act' : ''}"${l.home ? ' aria-label="Home" title="Home"' : ''}>${l.home ? '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7"/><path d="M5 9v11h14V9"/><path d="M9 20v-6h6v6"/></svg><span>Home</span>' : l.l}</a>`).join('')}
+            ${links.map(l => `<a href="${l.h}" class="nav-a${l.home ? ' nav-a--home' : ''}${page === (l.home ? 'index' : l.h) ? ' act' : ''}"${l.home ? ' aria-label="Home" title="Home"' : ''}>${l.home ? '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7"/><path d="M5 9v11h14V9"/><path d="M9 20v-6h6v6"/></svg><span>Home</span>' : l.l}</a>`).join('')}
           </div>
           <div class="nav-acts">
             <button id="theme-toggle" aria-label="Toggle theme" title="Toggle dark / light mode">
@@ -158,7 +158,7 @@
               <svg class="tt-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
             </button>
             <button class="btn btn-gl btn-sm nav-currency" id="ugx-btn">UGX prices</button>
-            <a href="contact.html" class="btn btn-r btn-sm">Talk to us</a>
+            <a href="contact" class="btn btn-r btn-sm">Talk to us</a>
           </div>
         </div>
         <button id="burg" aria-label="Open menu">
@@ -196,22 +196,22 @@
             <div class="fc">
               <h4>Find a vehicle</h4>
               <nav>
-                <a href="inventory.html">Cars for Sale</a>
-                <a href="order.html">Custom Import</a>
-                <a href="rent.html">Wedding &amp; Event Hire</a>
-                <a href="rent.html#rental-fleet">Airport &amp; Convoy Hire</a>
+                <a href="inventory">Cars for Sale</a>
+                <a href="order">Custom Import</a>
+                <a href="rent">Wedding &amp; Event Hire</a>
+                <a href="rent#rental-fleet">Airport &amp; Convoy Hire</a>
               </nav>
             </div>
 
             <div class="fc">
               <h4>Next Rides</h4>
               <nav>
-                <a href="about.html">About Us</a>
-                <a href="events.html">Occasions &amp; Car Events</a>
-                <a href="social.html">Latest Stories</a>
-                <a href="contact.html">Contact</a>
-                <a href="terms.html">Terms</a>
-                <a href="privacy.html">Privacy</a>
+                <a href="about">About Us</a>
+                <a href="events">Occasions &amp; Car Events</a>
+                <a href="social">Latest Stories</a>
+                <a href="contact">Contact</a>
+                <a href="terms">Terms</a>
+                <a href="privacy">Privacy</a>
               </nav>
             </div>
 
@@ -236,9 +236,9 @@
             <p>&copy; 2026 Next Rides Uganda. All rights reserved.</p>
             <p class="footer-credit" style="display:inline-flex;align-items:center;gap:5px;background:#171715!important;color:#fff!important;border:1px solid #ff6847;border-radius:999px;padding:9px 15px;box-shadow:0 6px 20px rgba(17,19,24,.12)">Developed by <a href="https://creedmotions.store" target="_blank" rel="noopener" style="color:#ff6847!important;font-weight:800;text-decoration:underline;text-underline-offset:4px">CreedStack Motions</a></p>
             <div class="footer-bl">
-              <a href="terms.html">Terms</a>
-              <a href="privacy.html">Privacy</a>
-              <a href="contact.html">Contact</a>
+              <a href="terms">Terms</a>
+              <a href="privacy">Privacy</a>
+              <a href="contact">Contact</a>
             </div>
           </div>
         </div>

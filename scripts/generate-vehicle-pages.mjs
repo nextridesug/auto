@@ -31,14 +31,14 @@ for (const car of cars.filter(car => car.visible !== false)) {
   const images = (car.images?.length ? car.images : [car.img]).filter(Boolean).filter(img => !img.endsWith('.mp4'));
   const numericUgxPrice = Number(String(car.ugxPrice || '').replace(/[^0-9]/g, ''));
   const offer = numericUgxPrice ? {
-    '@type':'Offer', priceCurrency:'UGX', price:String(numericUgxPrice), availability:'https://schema.org/InStock', url:`https://www.nextridesug.com/cars/${carSlug}.html`
+    '@type':'Offer', priceCurrency:'UGX', price:String(numericUgxPrice), availability:'https://schema.org/InStock', url:`https://www.nextridesug.com/cars/${carSlug}`
   } : car.price > 0 ? {
-    '@type':'Offer', priceCurrency:'USD', price:String(car.price), availability:'https://schema.org/InStock', url:`https://www.nextridesug.com/cars/${carSlug}.html`
+    '@type':'Offer', priceCurrency:'USD', price:String(car.price), availability:'https://schema.org/InStock', url:`https://www.nextridesug.com/cars/${carSlug}`
   } : null;
   const schema = {
     '@context':'https://schema.org', '@type':['Product','Vehicle'], name:`${car.year} ${car.brand} ${car.model}`,
-    '@id':`https://www.nextridesug.com/cars/${carSlug}.html#vehicle`,
-    url:`https://www.nextridesug.com/cars/${carSlug}.html`, image:images.map(absolute), description:car.desc,
+    '@id':`https://www.nextridesug.com/cars/${carSlug}#vehicle`,
+    url:`https://www.nextridesug.com/cars/${carSlug}`, image:images.map(absolute), description:car.desc,
     sku:car.id,
     brand:{ '@type':'Brand', name:car.brand },
     vehicleModelDate:String(car.year), manufacturer:{ '@type':'Organization', name:car.brand }, model:car.model,
@@ -49,8 +49,8 @@ for (const car of cars.filter(car => car.visible !== false)) {
   const breadcrumbSchema = {
     '@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[
       { '@type':'ListItem',position:1,name:'Home',item:'https://www.nextridesug.com/' },
-      { '@type':'ListItem',position:2,name:'Cars for sale',item:'https://www.nextridesug.com/inventory.html' },
-      { '@type':'ListItem',position:3,name:`${car.year} ${car.brand} ${car.model}`,item:`https://www.nextridesug.com/cars/${carSlug}.html` }
+      { '@type':'ListItem',position:2,name:'Cars for sale',item:'https://www.nextridesug.com/inventory' },
+      { '@type':'ListItem',position:3,name:`${car.year} ${car.brand} ${car.model}`,item:`https://www.nextridesug.com/cars/${carSlug}` }
     ]
   };
   const numericMileage = Number(String(car.mileage || '').replace(/[^0-9.]/g, ''));
@@ -78,14 +78,14 @@ for (const car of cars.filter(car => car.visible !== false)) {
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(description)}">
   <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1">
-  <link rel="canonical" href="https://www.nextridesug.com/cars/${carSlug}.html">
-  <link rel="alternate" hreflang="en-UG" href="https://www.nextridesug.com/cars/${carSlug}.html">
+  <link rel="canonical" href="https://www.nextridesug.com/cars/${carSlug}">
+  <link rel="alternate" hreflang="en-UG" href="https://www.nextridesug.com/cars/${carSlug}">
   <meta property="og:type" content="product">
   <meta property="og:title" content="${esc(title)}">
   <meta property="og:description" content="${esc(description)}">
   <meta property="og:image" content="${esc(absolute(images[0]))}">
   <meta property="og:image:alt" content="${esc(car.year)} ${esc(car.brand)} ${esc(car.model)} for sale in Kampala">
-  <meta property="og:url" content="https://www.nextridesug.com/cars/${carSlug}.html">
+  <meta property="og:url" content="https://www.nextridesug.com/cars/${carSlug}">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" as="image" href="${esc(images[0])}" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/style.css?v=20260921-contrast-v16">
@@ -95,11 +95,11 @@ for (const car of cars.filter(car => car.visible !== false)) {
   <script type="application/ld+json">${JSON.stringify(breadcrumbSchema).replace(/</g, '\\u003c')}</script>
 </head>
 <body>
-  <script src="assets/js/data.js?v=20260823-inline-video-v10"></script>
-  <script src="assets/js/components.js?v=20260921-contrast-v16"></script>
+  <script src="assets/js/data.js?v=20260921-clean-urls-v17"></script>
+  <script src="assets/js/components.js?v=20260921-clean-urls-v17"></script>
   <main class="vehicle-page">
     <div class="w">
-      <nav class="vehicle-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>›</span><a href="inventory.html">Cars for sale in Kampala</a><span>›</span><span>${esc(car.brand)} ${esc(car.model)}</span></nav>
+      <nav class="vehicle-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="inventory">Cars for sale in Kampala</a><span>›</span><span>${esc(car.brand)} ${esc(car.model)}</span></nav>
       <section class="vehicle-layout">
         <div class="vehicle-visuals">
           <header class="vehicle-visuals__head"><span>01 / Exterior</span><h2>Body, stance<br>and condition.</h2></header>
@@ -125,25 +125,25 @@ for (const car of cars.filter(car => car.visible !== false)) {
       </section>
     </div>
   </main>
-  <script src="assets/js/main.js?v=20260823-inline-video-v10"></script>
+  <script src="assets/js/main.js?v=20260921-clean-urls-v17"></script>
 </body>
 </html>`;
   fs.writeFileSync(path.join(outDir, `${carSlug}.html`), html);
 }
 
 const staticEntries = [
-  ['', 'weekly', '1.0'], ['about.html','monthly','0.8'], ['brands.html','weekly','0.8'],
-  ['contact.html','monthly','0.8'], ['events.html','weekly','0.7'], ['inventory.html','daily','0.9'],
-  ['news.html','weekly','0.7'], ['order.html','monthly','0.7'], ['privacy.html','yearly','0.4'],
-  ['rent.html','daily','0.9'], ['social.html','daily','0.8'], ['terms.html','yearly','0.4']
+  ['', 'weekly', '1.0'], ['about','monthly','0.8'], ['brands','weekly','0.8'],
+  ['contact','monthly','0.8'], ['events','weekly','0.7'], ['inventory','daily','0.9'],
+  ['news','weekly','0.7'], ['order','monthly','0.7'], ['privacy','yearly','0.4'],
+  ['rent','daily','0.9'], ['social','daily','0.8'], ['terms','yearly','0.4']
 ];
 const urls = [
   ...staticEntries.map(([url, changefreq, priority]) => ({ url, changefreq, priority })),
-  ...cars.filter(car => car.visible !== false).map(car => ({ url:`cars/${slug(car)}.html`, changefreq:'daily', priority:'0.8' }))
+  ...cars.filter(car => car.visible !== false).map(car => ({ url:`cars/${slug(car)}`, changefreq:'daily', priority:'0.8' }))
 ];
 const today = new Date().toISOString().slice(0,10);
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${urls.map(item => {
-  const match = item.url.startsWith('cars/') ? cars.find(car => `cars/${slug(car)}.html` === item.url) : null;
+  const match = item.url.startsWith('cars/') ? cars.find(car => `cars/${slug(car)}` === item.url) : null;
   const image = match ? absolute((match.images?.length ? match.images : [match.img]).find(value => value && !value.endsWith('.mp4'))) : null;
   return `  <url>\n    <loc>https://www.nextridesug.com/${item.url}</loc>\n    <lastmod>${today}</lastmod>${image ? `\n    <image:image><image:loc>${image.replace(/&/g,'&amp;')}</image:loc><image:title>${esc(`${match.year} ${match.brand} ${match.model}`)}</image:title></image:image>` : ''}\n    <changefreq>${item.changefreq}</changefreq>\n    <priority>${item.priority}</priority>\n  </url>`;
 }).join('\n')}\n</urlset>\n`;

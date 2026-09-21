@@ -5,7 +5,7 @@
 
   function init() {
     const body = document.body;
-    const page = (location.pathname.split('/').pop() || 'index.html').replace('.html','') || 'home';
+    const page = (location.pathname.split('/').pop() || 'index').replace('.html','') || 'home';
     body.dataset.page = page === 'index' ? 'home' : page;
 
     const progress = document.createElement('div');

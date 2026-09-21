@@ -1052,7 +1052,7 @@ const D = {
       location:'IUEA Grounds, Kampala',
       desc:'A proposed 2026 edition of the IUEA supercar gathering. The public date and Next Rides participation have not yet been confirmed; join the alert list for a verified update.',
     img:'https://www.carevents.com/uk/wp-content/uploads/sites/3/2025/10/supercarfest-runway-25-09-1024x640.jpg',
-      link:'contact.html',
+      link:'contact',
     },
     {
       id:'e07', visible:true, status:'PAST',
