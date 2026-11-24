@@ -251,7 +251,7 @@
   /*    Static cards in the page flow: nothing floats, pops up or      */
   /*    autoplays. One sits above the footer on every page; pages with */
   /*    enough sections get a second one mid-content.                  */
-  const SPONSOR_URL = 'https://uplcm.com/4/12340332';
+  const SPONSOR_URL = 'https://uplcm.com/4/12340451';
   function sponsorCard(variant) {
     return `
       <aside class="nr-sponsor nr-sponsor--${variant}" aria-label="Sponsored">
