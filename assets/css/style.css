@@ -2868,30 +2868,13 @@ html:not([data-theme="dark"]) .pg-hero, html[data-theme="dark"] .pg-hero { backg
 body.home-v2 .t-r, body.home-v2 .t-g { color:inherit !important; }
 @media (max-width:700px) { .cc-img, .rc-img { height:auto !important; aspect-ratio:1/1; } }
 
-/* ── Sponsored cards (static, in page flow) ── */
-.nr-sponsor-wrap { max-width: 1180px; margin: 28px auto; padding: 0 20px; }
-.nr-sponsor {
-  display: flex; align-items: center; gap: 18px;
-  padding: 16px 20px; border-radius: 14px;
-  background: var(--card-bg, #fff); border: 1px solid var(--card-border, rgba(0,0,0,.07));
-  box-shadow: var(--card-shadow, 0 2px 16px rgba(0,0,0,.06));
-  color: var(--fg, #1C1D20);
+/* ── Advertising (static, in page flow) ── */
+.nr-ad-wrap { max-width: 1180px; margin: 28px auto; padding: 0 20px; }
+.nr-ad { position: relative; padding-top: 18px; }
+.nr-ad__label {
+  position: absolute; top: 0; left: 0;
+  font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--fg-muted, #6B7280);
 }
-.nr-sponsor__tag {
-  flex: none; font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
-  color: var(--fg-muted, #6B7280); border: 1px solid var(--card-border, rgba(0,0,0,.1));
-  border-radius: 999px; padding: 4px 10px;
-}
-.nr-sponsor__body { flex: 1; min-width: 0; }
-.nr-sponsor__body strong { display: block; font-size: 15px; }
-.nr-sponsor__body p { margin: 2px 0 0; font-size: 13px; color: var(--fg-muted, #6B7280); }
-.nr-sponsor__cta {
-  flex: none; padding: 10px 18px; border-radius: 999px;
-  background: var(--red, #B81F0A); color: #fff !important; font-weight: 700; font-size: 14px;
-  text-decoration: none;
-}
-.nr-sponsor__cta:hover { background: var(--red2, #D62B12); }
-@media (max-width: 640px) {
-  .nr-sponsor { flex-wrap: wrap; gap: 10px; }
-  .nr-sponsor__cta { width: 100%; text-align: center; }
-}
+.nr-ad__banner { display: flex; justify-content: center; }
+.nr-ad__frame { display: block; border: 0; max-width: 100%; }

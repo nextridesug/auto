@@ -88,7 +88,7 @@ for (const car of cars.filter(car => car.visible !== false)) {
   <meta property="og:url" content="https://www.nextridesug.com/cars/${carSlug}">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" as="image" href="${esc(images[0])}" fetchpriority="high">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261124-sponsor-v17">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261124-ads-v18">
   <link rel="stylesheet" href="assets/css/editorial-v4.css?v=20260921-contrast-v16">
   <link rel="icon" type="image/png" href="logo.png">
   <script type="application/ld+json">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script>
@@ -96,7 +96,7 @@ for (const car of cars.filter(car => car.visible !== false)) {
 </head>
 <body>
   <script src="assets/js/data.js?v=20260921-clean-urls-v17"></script>
-  <script src="assets/js/components.js?v=20261124-sponsor-v19"></script>
+  <script src="assets/js/components.js?v=20261124-ads-v20"></script>
   <main class="vehicle-page">
     <div class="w">
       <nav class="vehicle-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="inventory">Cars for sale in Kampala</a><span>›</span><span>${esc(car.brand)} ${esc(car.model)}</span></nav>

@@ -247,35 +247,61 @@
       <button id="btt" aria-label="Back to top">${SVG.up}</button>`);
   }
 
-  /* ── 4. Sponsored cards (Monetag Direct Link) ── */
-  /*    Static cards in the page flow: nothing floats, pops up or      */
-  /*    autoplays. One sits above the footer on every page; pages with */
-  /*    enough sections get a second one mid-content.                  */
-  const SPONSOR_URL = 'https://uplcm.com/4/12340451';
-  function sponsorCard(variant) {
-    return `
-      <aside class="nr-sponsor nr-sponsor--${variant}" aria-label="Sponsored">
-        <span class="nr-sponsor__tag">Sponsored</span>
-        <div class="nr-sponsor__body">
-          <strong>Partner offers for drivers</strong>
-          <p>Deals and offers from our advertising partners. Opens in a new tab.</p>
-        </div>
-        <a class="nr-sponsor__cta" href="${SPONSOR_URL}" target="_blank" rel="sponsored noopener">View offer</a>
-      </aside>`;
+  /* ── 4. Advertising (Adsterra in-page units) ── */
+  /*    Everything sits in the page flow: nothing floats, pops up or   */
+  /*    autoplays. A native block sits above the footer on every page; */
+  /*    pages with enough sections also get one banner mid-content.     */
+  const ADS = {
+    host: 'bauval.org',
+    native: 'c7d599d075596bc8953f11a216af4f23',
+    banners: [
+      [728, 90, '47d5cf9917233ea92b0f7379fb17795c'],
+      [468, 60, 'ba289a8850d3b2155eeee5fb668daa01'],
+      [300, 250, '5774c7f354208ba8451636bab573203c'],
+    ],
+  };
+  function adShell(inner) {
+    return `<div class="nr-ad"><span class="nr-ad__label">Advertisement</span>${inner}</div>`;
   }
-  function injectSponsors() {
+  function mountBanner(slot) {
+    const avail = slot.getBoundingClientRect().width;
+    const [w, h, key] = ADS.banners.find(([bw]) => bw <= avail) || ADS.banners[ADS.banners.length - 1];
+    const frame = document.createElement('iframe');
+    frame.width = w;
+    frame.height = h;
+    frame.title = 'Advertisement';
+    frame.setAttribute('scrolling', 'no');
+    frame.className = 'nr-ad__frame';
+    /* Each banner gets its own document: Adsterra's snippet reads a global `atOptions`. */
+    frame.srcdoc =
+      '<!doctype html><html><head><style>html,body{margin:0;overflow:hidden}</style></head><body>' +
+      '<script>atOptions={"key":"' + key + '","format":"iframe","height":' + h + ',"width":' + w + ',"params":{}};<\/script>' +
+      '<script data-cfasync="false" src="https://' + ADS.host + '/22/' + key + '"><\/script></body></html>';
+    slot.appendChild(frame);
+  }
+  function injectAds() {
     if (/^\/(admin|order)/.test(location.pathname)) return;
     const footer = document.querySelector('footer');
-    if (footer) footer.insertAdjacentHTML('beforebegin', `<div class="nr-sponsor-wrap">${sponsorCard('footer')}</div>`);
+    if (footer) {
+      footer.insertAdjacentHTML('beforebegin',
+        `<div class="nr-ad-wrap">${adShell(`<div id="container-${ADS.native}"></div>`)}</div>`);
+      const s = document.createElement('script');
+      s.async = true;
+      s.setAttribute('data-cfasync', 'false');
+      s.src = `https://${ADS.host}/21/${ADS.native}`;
+      document.body.appendChild(s);
+    }
     const sections = document.querySelectorAll('main > section, body > section');
-    if (sections.length >= 5) {
-      sections[Math.floor(sections.length / 2) - 1].insertAdjacentHTML('afterend', `<div class="nr-sponsor-wrap">${sponsorCard('inline')}</div>`);
+    if (sections.length >= 3) {
+      sections[Math.floor(sections.length / 2) - 1].insertAdjacentHTML('afterend',
+        `<div class="nr-ad-wrap">${adShell('<div class="nr-ad__banner"></div>')}</div>`);
+      mountBanner(document.querySelector('.nr-ad__banner'));
     }
   }
 
   function onReady() {
     injectFooter();
-    injectSponsors();
+    injectAds();
   }
 
   if (document.readyState === 'loading') {
