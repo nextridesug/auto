@@ -247,10 +247,41 @@
       <button id="btt" aria-label="Back to top">${SVG.up}</button>`);
   }
 
+  /* ── 4. Sponsored cards (Monetag Direct Link) ── */
+  /*    Static cards in the page flow: nothing floats, pops up or      */
+  /*    autoplays. One sits above the footer on every page; pages with */
+  /*    enough sections get a second one mid-content.                  */
+  const SPONSOR_URL = 'https://uplcm.com/4/12340332';
+  function sponsorCard(variant) {
+    return `
+      <aside class="nr-sponsor nr-sponsor--${variant}" aria-label="Sponsored">
+        <span class="nr-sponsor__tag">Sponsored</span>
+        <div class="nr-sponsor__body">
+          <strong>Partner offers for drivers</strong>
+          <p>Deals and offers from our advertising partners. Opens in a new tab.</p>
+        </div>
+        <a class="nr-sponsor__cta" href="${SPONSOR_URL}" target="_blank" rel="sponsored noopener">View offer</a>
+      </aside>`;
+  }
+  function injectSponsors() {
+    if (/^\/(admin|order)/.test(location.pathname)) return;
+    const footer = document.querySelector('footer');
+    if (footer) footer.insertAdjacentHTML('beforebegin', `<div class="nr-sponsor-wrap">${sponsorCard('footer')}</div>`);
+    const sections = document.querySelectorAll('main > section, body > section');
+    if (sections.length >= 5) {
+      sections[Math.floor(sections.length / 2) - 1].insertAdjacentHTML('afterend', `<div class="nr-sponsor-wrap">${sponsorCard('inline')}</div>`);
+    }
+  }
+
+  function onReady() {
+    injectFooter();
+    injectSponsors();
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', injectFooter);
+    document.addEventListener('DOMContentLoaded', onReady);
   } else {
-    injectFooter(); // already parsed
+    onReady(); // already parsed
   }
 
 })();
